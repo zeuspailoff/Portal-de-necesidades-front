@@ -1,0 +1,37 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    border: 1px solid whitesmoke;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.logo_container {
+    align-self: center;
+    justify-self: flex-start;
+
+    padding: 0 20px;
+
+    border-right: 1px solid whitesmoke;
+}
+
+.navbar_container {
+    align-self: center;
+    justify-self: center;
+
+    padding: 0 auto;
+    margin: auto;
+}
+
+.login_signup_container {
+    align-self: center;
+    justify-self: flex-end;
+
+    padding: 0 20px;
+    border-left: 1px solid whitesmoke;
+}
