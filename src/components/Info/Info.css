@@ -1,0 +1,10 @@
+aside {
+    width: 50%;
+    border: 1px solid white;
+    height: 50vh;
+    box-sizing: border-box;
+    float: left;
+}
+.asideUsers{
+    float: right;
+}
