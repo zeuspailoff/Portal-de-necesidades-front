@@ -3,9 +3,9 @@ const Info = () =>{
 
     return(
         <div>
-            <aside>Información y novedades de la plataforma</aside>
+            <aside>Platform information and updates</aside>
             <aside className='asideUsers'>
-                <p>Usuarios destacados de la semana:</p>
+                <p>Featured users of the week:</p>
                 <ul>
                     <li>User 1</li>
                     <li>User 2</li>

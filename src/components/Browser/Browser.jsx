@@ -16,7 +16,7 @@ const Browser = ({ onSearch }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Buscar..."
+        placeholder="Search..."
         value={browserBar}
         onChange={handleChange}
       />
