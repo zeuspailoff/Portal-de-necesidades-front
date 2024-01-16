@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar"; 
+import Footer from '../../components/Footer/Footer';
 
 const Demand = () => {
   const [categoriaFilter, setCategoriaFilter] = useState(''); 
@@ -34,11 +35,13 @@ const Demand = () => {
       </section>
       
       <section className='userData'> {/* Sustituir todo por datos del back */}
-        <img alt="Imagen de perfil del usuario"/>
+        {/*<img alt="Imagen de perfil del usuario"/>*/}
         <p>Username</p>
         <p>User demands</p>
         <p>Voted proposals</p>
       </section>
+      {/* AÑADIR UN ELEMENTO QUE PERMITA AÑADIR DEMANDAS */}
+      <Footer/>
     </div>
   );
 };

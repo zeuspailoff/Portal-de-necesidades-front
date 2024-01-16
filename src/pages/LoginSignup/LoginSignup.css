@@ -1,0 +1,18 @@
+.login{
+    float: left;
+    width: 50%;
+}
+.signup{
+    float: right;
+    width: 50%;
+}
+input{
+    display: flex;
+    margin-left: 40%;
+    margin-bottom: 3%;
+}
+
+button{
+    margin-left: 5%;
+    width: 25%;
+}

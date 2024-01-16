@@ -3,10 +3,10 @@ import Header from './components/Header/Header.jsx'
 //import Footer from './assets/global/Footer.jsx'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx'
-import Login from './pages/Login/Login.jsx'
+import LoginSignup from './pages/LoginSignup/LoginSignup.jsx'
 import Demands from './pages/Demands/Demands.jsx'
 import Demand from './pages/Demands/Demand.jsx'
-import SignUp from './pages/SignUp/SignUp.jsx'
+import FAQs from './pages/FAQs/FAQs.jsx'
 
 function App() {
   return (
@@ -14,10 +14,11 @@ function App() {
     {/*LO COMENTO PORQUE SE DUPLICA, MIRAR: <Header /> */}
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/login' element={<Login/>}/>
+      <Route path='/login' element={<LoginSignup/>}/>
+      <Route path='/signup' element={<LoginSignup/>}/>
       <Route path='/demands' element={<Demands/>}/>
       <Route path='/demand' element={<Demand/>}/>
-      <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/faqs' element={<FAQs/>}/>
     </Routes>
     
     </>
