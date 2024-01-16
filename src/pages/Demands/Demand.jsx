@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from "../../components/Header/Header";
-
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Demand = () => {
   const [categoriaFilter, setCategoriaFilter] = useState('');
@@ -39,6 +39,8 @@ const Demand = () => {
         <p>User demands</p>
         <p>Voted proposals</p>
       </section>
+      {/* AÑADIR UN ELEMENTO QUE PERMITA AÑADIR DEMANDAS */}
+      <Footer />
     </div>
   );
 };
