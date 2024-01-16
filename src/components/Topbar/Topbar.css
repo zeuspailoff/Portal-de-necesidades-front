@@ -1,0 +1,10 @@
+.topbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.topbar img {
+    width: auto;
+    height: 100px;
+}
