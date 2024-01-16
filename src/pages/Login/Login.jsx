@@ -1,4 +1,5 @@
 import Header from "../../components/Header/Header"
+import { Link } from 'react-router-dom'
 const Login = () => {
     const handleForm = (event) => {
       event.preventDefault()
@@ -20,6 +21,9 @@ const Login = () => {
                 type="password"
                 />
                 <button>Login</button>
+                <p>Don't have an account?
+                    <Link to="/signup">Register</Link>
+                </p>
             </form>
       </div>
     )

@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import Topbar from '../Topbar/Topbar'
 import './Header.css'
 
 const Header = () => {
   return (
     <header>
-      <img src="../logo.jpg"/>
+      <Topbar />
+      {/* <img src="../logo.jpg"/> */}
       <h1>Needs portal</h1>
       <nav>
         <Link to="/" className='links'>Home</Link>
@@ -12,6 +14,7 @@ const Header = () => {
         <Link to="/faqs" className='links'>FAQs</Link>
         <Link to="/login" className='links'>Login</Link>
         <Link to="/signup" className='links'>Sign up</Link>
+
       </nav>
     </header>
   )

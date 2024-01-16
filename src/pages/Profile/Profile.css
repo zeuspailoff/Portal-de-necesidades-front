@@ -1,0 +1,79 @@
+.profile_page {
+    border: 1px solid whitesmoke;
+    margin: 50px;
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.user_data_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.user_data {
+    display: flex;
+    border: 1px solid whitesmoke;
+    width: 400px;
+
+    margin: 10px;
+}
+
+.user_data ul {
+    align-self: center;
+    justify-self: center;
+}
+
+.user_description {
+    border: 1px solid whitesmoke;
+    width: 400px;
+
+    margin: 10px;
+    justify-self: center;
+    text-align: center;
+}
+
+.user_data_row img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.user_data_row ul {
+    list-style-type: none;
+}
+
+.proposals_demands_row {
+    border: 1px solid whitesmoke;
+    margin: 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.left_column {
+    border: 1px solid whitesmoke;
+    margin: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.proposal_container {
+    border: 1px solid whitesmoke;
+}
+
+.right_column {
+    border: 1px solid whitesmoke;
+    margin: 10px;
+    padding: 10px 30px;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
