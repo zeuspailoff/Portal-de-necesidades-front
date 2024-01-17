@@ -6,7 +6,6 @@ const Header = () => {
   return (
     <header>
       <Topbar />
-      {/* <img src="../logo.jpg"/> */}
       <h1>Needs portal</h1>
       <nav>
         <Link to="/" className='links'>Home</Link>
