@@ -1,14 +1,11 @@
-import Header from "../../components/Header/Header"
-import { Link } from 'react-router-dom'
 const Login = () => {
     const handleForm = (event) => {
       event.preventDefault()
     }
     return (
-        <div>
-          <Header/>
+        <div className="login">
             <h1>We're happy to see you again!</h1>
-            <h3>Login:</h3>
+            <h2>Login:</h2>
             <form onSubmit={handleForm}>
                 <input
                 name="username"
@@ -21,9 +18,6 @@ const Login = () => {
                 type="password"
                 />
                 <button>Login</button>
-                <p>Don't have an account?
-                    <Link to="/signup">Register</Link>
-                </p>
             </form>
       </div>
     )
