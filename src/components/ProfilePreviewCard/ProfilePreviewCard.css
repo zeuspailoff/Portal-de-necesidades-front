@@ -1,0 +1,24 @@
+.profile_preview_card {
+    border: 1px solid whitesmoke;
+    width: 250px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+}
+
+.profile_preview_card button, .profile_preview_card Link {
+    margin: 5px;
+    padding: 3px;
+
+    display: inline-block;
+}
+
+.round_picture_preview {
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin: 5px 10px;
+}

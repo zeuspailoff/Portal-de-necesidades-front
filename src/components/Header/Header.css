@@ -32,3 +32,9 @@ header{
     color: #F4903E;
   }
   
+    border: 1px solid white;
+    padding: 20px;
+}
+.links{
+    padding: 10px;
+}
