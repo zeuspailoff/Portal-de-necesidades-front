@@ -1,0 +1,17 @@
+-empezar a colocar los componentes como header donde van ocupando el espacio que deberian ocupar
+
+-hacer los fech
+
+- hacer la pagina de registro y login como en figma 
+
+-hacer el footer y que funcione
+
+-mostrar la data 
+
+-programar idiomas 
+
+---------------------------------------------------------- 2 etapa ---------------------
+
+- poner los colores y efectos 
+
+
