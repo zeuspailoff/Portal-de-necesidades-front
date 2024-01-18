@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Demand from "../Demands/Demand";
+import DemandList from "../../components/Demands/DemandList";
 const Demands = () => {
 
 
@@ -10,8 +9,8 @@ const Demands = () => {
             <Header />
             <SearchBar />
             <div>
-                <Link to="/demand">Demand</Link> {/* Habrá que ver otra forma de meter el link */}
-                <Demand />
+                <h2>Demands</h2>
+                <DemandList />
             </div>
         </div>
     )

@@ -1,24 +1,22 @@
-import { useState } from "react"
-import { useDemandsAlls } from '../../hooks/api';
+import { useParams } from "react-router-dom";
+import { useDemand } from "../../hooks/api";
 
 const Demand = () => {
-  const demandsList = useDemandsAlls()
-  const [demands, setDemands] = useState(demandsList)
-  console.log(setDemands);
 
+    const { id } = useParams();
+    const demand = useDemand(id);
+    console.log(demand);
 
-  return (
-    <div>
-      {demands.data.map(d =>
-        <div key={d.id}>
-          <h1 >{d.title}</h1>
-          <p>{d.description}</p>
-          <span>{d.is_closed === 1 ? '👌' : null}</span>
-          <span>{d.files}</span>
+    return (
+        <div>
+            <h2>{demand.data.username}</h2>
+            <h3>{demand.data.demandTitle}</h3>
+            <p>{demand.data.demandDescription}</p>
+            <span>{demand.data.demandCreatedAt}</span>
+
         </div>
-      )}
-    </div>
-  );
-};
+    )
 
+}
 export default Demand;
+
