@@ -1,6 +1,15 @@
-div.footer{
-    border: 1px solid white;
+.about{
+    float: left;
+    width: 50%;
 }
+.terms{
+    float: right;
+    width: 50%;
+}
+
+.copyright{
+    display: inline;
+ }
 
 li{
     list-style: none;

@@ -5,7 +5,8 @@ import Demand from "../Demands/Demand";
 import Footer from "../../components/Footer/Footer";
 const Demands = () => {
 
-    return(
+
+    return (
         <div>
             <Header/>
             <SearchBar/>

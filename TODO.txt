@@ -2,7 +2,7 @@
 
 -hacer los fech
 
-- hacer la pagina de registro y login como en figma 
+- hacer la pagina de registro y login como en figma -- hecho
 
 -hacer el footer y que funcione
 

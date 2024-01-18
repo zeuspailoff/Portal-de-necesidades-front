@@ -8,7 +8,7 @@ import Demands from './pages/Demands/Demands.jsx'
 import Demand from './pages/Demands/Demand.jsx'
 import FAQs from './pages/FAQs/FAQs.jsx'
 import Profile from './pages/Profile/Profile.jsx'
-
+import About from './pages/About/About.jsx'
 function App() {
   return (
     <>
@@ -21,6 +21,7 @@ function App() {
       <Route path='/demand' element={<Demand/>}/>
       <Route path='/faqs' element={<FAQs/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/about' element={<About/>}/>
     </Routes>
     
     </>

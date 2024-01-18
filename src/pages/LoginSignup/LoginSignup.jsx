@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
@@ -9,6 +10,7 @@ const LoginSignup = () =>{
             <Header/>
             <Login/>
             <SignUp/>
+            <Footer/>
         </div>
      )
 }
