@@ -1,4 +1,4 @@
-import { useFetch } from "./useFetch";
+import { useFetch, useFetchPost } from "./useFetch";
 
 const apiHost = 'http://localhost:8080/';
 
@@ -12,3 +12,6 @@ export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 
 
 //---------------------------------------------------user-------------------------------------
+export const useLogin = () => useFetchPost(apiHost + 'user/login')
+
+
