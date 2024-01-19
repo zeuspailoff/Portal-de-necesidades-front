@@ -14,5 +14,6 @@ export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 //---------------------------------------------------user-------------------------------------
 export const useLogin = () => useFetchPost(apiHost + 'user/login')
 export const useDataUser = (id) => useFetchPost(apiHost + `users/${id}`)
+export const UseRegister = () => useFetchPost(apiHost + 'users')
 
 

@@ -10,7 +10,7 @@ const Profile = () => {
     // const { id } = user.data.data.user.id;
     // const [dataUser, setDataUser] = useDataUser({ id });
     //console.log(setUser)
-    console.log(user)
+
 
 
     /* /////////////////////////////////////////////// */

@@ -1,37 +1,80 @@
 import Header from "../../components/Header/Header"
 import { Link } from 'react-router-dom'
+import { UseRegister } from "../../hooks/api"
+import { useState } from "react"
 const SignUp = () => {
-    const handleForm = (event) => {
-      event.preventDefault()
-    }
-    return (
-        <div>
-          <Header/>
-            <h1>Welcome to the family I need ⬆️</h1>
-            <h3>Register:</h3>
-            <form onSubmit={handleForm}>
-                <input
-                name="username"
-                placeholder="Username"
-                type="text"
-                />
-                <input
-                name="password"
-                placeholder="Password"
-                type="password"
-                />
-                <input
-                name="password"
-                placeholder="Repeat yor password"
-                type="password"
-                />
-                <button>Sign Up</button>
-                <p>Already have an account?
-                    <Link to="/login">Login</Link>
-                </p>
-            </form>
-      </div>
-    )
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [biography, setBiography] = useState('')
+  const [birthdate, setBirthdate] = useState('')
+  const [lastName, setLastName] = useState('')
+  const handleForm = async (event) => {
+    event.preventDefault()
+
+    const res = await UseRegister()
   }
-  
-  export default SignUp
+  return (
+    <div>
+      <Header />
+      <h1>Welcome to the family I need ⬆️</h1>
+      <h3>Register:</h3>
+      <form onSubmit={handleForm}>
+        <input
+          name="username"
+          placeholder="Username"
+          type="text"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
+        <input
+          name="email"
+          placeholder="email"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        /> <input
+          name="name"
+          placeholder="Name"
+          type="name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        /> <input
+          name="lastname"
+          placeholder="Lastname"
+          type="name"
+          value={lastName}
+          onChange={e => setLastName(e.target.value)}
+        />
+        <input
+          name="password"
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+        <input
+          name="birthdate"
+          placeholder="birthdate"
+          type="birthdate"
+          value={birthdate}
+          onChange={e => setBirthdate(e.target.value)}
+        />
+        <input
+          name="biography"
+          placeholder="biography"
+          type="text"
+          value={biography}
+          onChange={e => setBiography(e.target.value)}
+        />
+        <button>Sign Up</button>
+        <p>Already have an account?
+          <Link to="/login">Login</Link>
+        </p>
+      </form>
+    </div>
+  )
+}
+
+export default SignUp
