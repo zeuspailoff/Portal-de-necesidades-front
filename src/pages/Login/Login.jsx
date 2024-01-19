@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react"
 import Header from "../../components/Header/Header"
 import { useUser } from "../../UserContext"
@@ -28,7 +29,7 @@ const Login = () => {
     }
   }
 
-  if (user) return <Navigate to="/" />
+  //if (user) return <Navigate to="/" />
 
   return (
     <div>
