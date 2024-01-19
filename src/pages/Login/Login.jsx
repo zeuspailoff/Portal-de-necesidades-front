@@ -29,7 +29,7 @@ const Login = () => {
     }
   }
 
-  //if (user) return <Navigate to="/" />
+  if (user) return <Navigate to="/" />
 
   return (
     <div>
