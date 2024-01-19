@@ -2,13 +2,13 @@ import { useState } from "react"
 import { useDemandsAlls } from '../../hooks/api';
 import { Link } from "react-router-dom";
 
-const DemandList = ({ query }) => {
-  const demandsList = useDemandsAlls(query)
+const DemandList = () => {
+  const demandsList = useDemandsAlls()
   const [demands, setDemands] = useState(demandsList)
   console.log(setDemands);
 
   return (
-    <div>
+    <div className="">
       {demands.data.map(d =>
         <div key={d.id}>
           <Link to={`/demands/${d.id}`}>

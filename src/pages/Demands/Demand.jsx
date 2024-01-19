@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Header from "../../components/Header/Header";
+import Proposal from '../../components/Proposal/Proposal';
+import NewProposal from '../../components/Proposal/NewProposal';
 
 const Demand = (props) => {
 
@@ -16,39 +18,63 @@ const Demand = (props) => {
   };
 
   const getProposalsByDemandId = [ // Simulates fetch getProposalsByDemandId(props.demand_id)
-    {
-      title: 'Proposal 1 for demand 1',
-      description: 'This is the proposal #1',
-      files: {
-        file1: '/shrek_whet.JPG',
-        file2: '/shrek_whet.JPG',
-        file3: '/shrek_whet.JPG'
+  {
+    id: 1,
+    username: 'John Doe',
+    userAvatar: 'https://avatars.githubusercontent.com/u/123456',
+    votesAvg: 4,
+    voteCounts: 2,
+    description: 'Proposal Description',
+    is_correct: 0,
+    files : [
+      {
+        id: 1,
+        src: 'http://localhost:3000/files/file1.pdf'
       },
-      votes: '5',
-      avgVotes: '3'
-    },
-    {
-      title: 'Proposal 2 for demand 1',
-      description: 'This is the proposal #2',
-      files: {
-        file1: '/shrek_whet.JPG',
-        file2: '/shrek_whet.JPG',
-        file3: '/shrek_whet.JPG'
+      {
+        id: 2,
+        src: 'http://localhost:3000/files/file2.pdf'
+      }
+    ]
+  },
+  {
+    id: 2,
+    username: 'John Doe',
+    userAvatar: 'https://avatars.githubusercontent.com/u/123456',
+    votesAvg: 4,
+    voteCounts: 2,
+    description: 'Proposal Description',
+    is_correct: 0,
+    files : [
+      {
+        id: 1,
+        src: 'http://localhost:3000/files/file1.pdf'
       },
-      votes: '4',
-      avgVotes: '4'
-    },
-    {
-      title: 'Proposal 3 for demand 1',
-      description: 'This is the proposal #3',
-      files: {
-        file1: '/shrek_whet.JPG',
-        file2: '/shrek_whet.JPG',
-        file3: '/shrek_whet.JPG'
+      {
+        id: 2,
+        src: 'http://localhost:3000/files/file2.pdf'
+      }
+    ]
+  },
+  {
+    id: 3,
+    username: 'John Doe',
+    userAvatar: 'https://avatars.githubusercontent.com/u/123456',
+    votesAvg: 4,
+    voteCounts: 2,
+    description: 'Proposal Description',
+    is_correct: 0,
+    files : [
+      {
+        id: 1,
+        src: 'http://localhost:3000/files/file1.pdf'
       },
-      votes: '10',
-      avgVotes: '1'
-    }
+      {
+        id: 2,
+        src: 'http://localhost:3000/files/file2.pdf'
+      }
+    ]
+  }
   ];
   /* Test data, please make sure to delete after use */
 
@@ -57,7 +83,6 @@ const Demand = (props) => {
   return (
     <div>
       <Header />
-
       <div className='demand_container'>
         <h2>{getDemandById.demandTitle}</h2>
         <section className='description'>
@@ -74,34 +99,18 @@ const Demand = (props) => {
         </section>
       </div>
 
+      <NewProposal />
+
       <div>
         <section className='proposals'>
           <div>
             <h3>Proposals for this demand:</h3>
             {proposalsFetchedForThisDemand.map((proposal, key) => (
-              <div className='proposal_container' key={key}>
-                <h2>{proposal.title}</h2>
-                <h3>Description:</h3>
-                <p>{proposal.description}</p>
-                <div className='proposal_files'>
-                  {Object.values(proposal.files).map((file, fileKey) => (
-                    <img src={file} alt={'proposalFile_' + fileKey} key={fileKey} />
-                  ))}
-                </div>
-                <h4>Votes: {proposal.votes}, Avg votes: {proposal.avgVotes}</h4>
-              </div>
+              <Proposal key={key} proposal={proposal} />
             ))}
           </div>
         </section>
       </div>
-
-      <section className='userData'>
-        {/* Replace with actual user data from the backend */}
-        <img alt="Imagen de perfil del usuario" />
-        <p>Username</p>
-        <p>User demands</p>
-        <p>Voted proposals</p>
-      </section>
     </div>
   );
 };

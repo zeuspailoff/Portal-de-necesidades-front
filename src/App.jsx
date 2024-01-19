@@ -1,11 +1,11 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx'
-import FAQs from './pages/FAQs/FAQs.jsx'
-import Login from './pages/Login/Login.jsx'
+import Faqs from './pages/Faqs/Faqs.jsx'
+import LoginSignup from './pages/Login-Signup/LoginSignup.jsx'
 import Demands from './pages/Demands/Demands.jsx'
 import Demand from './pages/Demands/Demand.jsx'
-import SignUp from './pages/SignUp/SignUp.jsx'
+import NewDemand from './pages/Demands/NewDemand.jsx'
 import Profile from './pages/Profile/Profile.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import GenericError from './components/GenericError.jsx'
@@ -19,12 +19,11 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
+            <Route path='/login-signup' element={<LoginSignup />} />
+            <Route path='/demands/new' element={<NewDemand />} />
             <Route path='/demands' element={<Demands />} />
             <Route path='/demands/:id' element={<Demand />} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='/faqs' element={<FAQs />} />
-
+            <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
           </Routes>
         </Suspense>

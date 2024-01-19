@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "../../components/Header/Header.jsx"
-const FAQs = () => {
+const Faqs = () => {
 
     return (
         <div>
@@ -81,4 +81,4 @@ const FAQs = () => {
         </div>
     )
 }
-export default FAQs;
+export default Faqs;

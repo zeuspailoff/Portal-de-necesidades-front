@@ -3,6 +3,7 @@ import { useState } from "react"
 import Header from "../../components/Header/Header"
 import { useUser } from "../../UserContext"
 import { Link, Navigate } from "react-router-dom"
+import './Login.css'
 const Login = () => {
 
   const [email, setEmail] = useState('')
@@ -33,7 +34,6 @@ const Login = () => {
 
   return (
     <div>
-      <Header />
       <h1>We're happy to see you again!</h1>
       <h3>Login:</h3>
       <form onSubmit={handleForm}>
@@ -55,9 +55,6 @@ const Login = () => {
         {error?.error &&
           <p className="error">Se ha producido un error: {error.error}</p>
         }
-        <p>Don't have an account?
-          <Link to="/signup">Register</Link>
-        </p>
       </form>
     </div>
   )
