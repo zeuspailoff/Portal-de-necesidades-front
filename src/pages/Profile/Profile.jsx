@@ -1,11 +1,16 @@
 import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
+//import { useDataUser } from '../../hooks/api';
 import './Profile.css';
 
 const Profile = () => {
+
     const [user, setUser] = useUser();
+    // const { id } = user.data.data.user.id;
+    // const [dataUser, setDataUser] = useDataUser({ id });
     //console.log(setUser)
     console.log(user)
+
 
     /* /////////////////////////////////////////////// */
     /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
