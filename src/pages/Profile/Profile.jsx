@@ -1,9 +1,12 @@
+import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
 import './Profile.css';
 
 const Profile = () => {
-    /* const [userInfo] = fetch(); // Query to fetch USER INFO here */
-    
+    const [user, setUser] = useUser();
+    //console.log(setUser)
+    console.log(user)
+
     /* /////////////////////////////////////////////// */
     /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
     const userInfo = {
@@ -16,8 +19,8 @@ const Profile = () => {
     /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
     /* /////////////////////////////////////////////// */
 
-    
-    const { username, userBirthdate, userRegisteredAt, userProfileImg, userDescription } = userInfo;
+
+    const { username, userProfileImg } = userInfo;
 
     /* const [userDemands] = fetch(); // Query to fetch USER DEMANDS here */
     /* const [userProposals] = fetch(); // Query to fetch USER PROPOSALS here */
@@ -38,7 +41,7 @@ const Profile = () => {
             avgVotes: '7.66'
         }
     ];
-    
+
     const userDemands = [
         {
             id: 1,
@@ -65,17 +68,17 @@ const Profile = () => {
                     <div className='user_data'>
                         <img src={userProfileImg} alt={`User ${username} profile mosaic`} />
                         <ul>
-                            <li>{username}</li>
-                            <li>{userBirthdate}</li>
-                            <li>{userRegisteredAt}</li>
+                            <li>{user?.data.data.user.username}</li>
+                            <li>{user?.data.data.user.created_at}</li>
+
                         </ul>
                     </div>
 
                     <div className='user_description'>
-                        <p>{userDescription}</p>
+                        <p>{user?.data.data.user.biography}</p>
                     </div>
                 </div>
-                
+
                 <div className='proposals_demands_row'>
                     <div className='left_column'>
                         <div>
