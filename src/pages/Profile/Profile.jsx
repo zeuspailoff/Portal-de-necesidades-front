@@ -1,3 +1,4 @@
+import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
 //import { useDataUser } from '../../hooks/api';
@@ -74,7 +75,7 @@ const Profile = () => {
                         <img src={userProfileImg} alt={`User ${username} profile mosaic`} />
                         <ul>
                             <li>{user?.data.data.user.username}</li>
-                            <li>{user?.data.data.user.created_at}</li>
+                            <li><FormattedDate value={user?.data.data.user.created_at} day="2-digit" month="long" /></li>
 
                         </ul>
                     </div>

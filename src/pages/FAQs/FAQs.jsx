@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import Browser from "../../components/Browser/Browser"
-import Footer from "../../components/Footer/Footer"
-import Header from "../../components/Header/Header"
+import Header from "../../components/Header/Header.jsx"
 const FAQs = () => {
 
     return (
         <div>
             <Header />
             <h2>Needing some help?</h2>
-            <Browser />
+
             <div className="clients">
                 <h3>Clients FAQs</h3>
                 <details>
@@ -79,8 +77,8 @@ const FAQs = () => {
                     <p>Only your clients can leave reviews about your work.</p>
                 </details>
             </div>
-            <Footer />
+
         </div>
     )
 }
-export default FAQs
+export default FAQs;

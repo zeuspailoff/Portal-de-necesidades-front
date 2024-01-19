@@ -1,6 +1,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx'
+import FAQs from './pages/FAQs/FAQs.jsx'
 import Login from './pages/Login/Login.jsx'
 import Demands from './pages/Demands/Demands.jsx'
 import Demand from './pages/Demands/Demand.jsx'
@@ -22,6 +23,8 @@ function App() {
             <Route path='/demands' element={<Demands />} />
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/signup' element={<SignUp />} />
+            <Route path='/faqs' element={<FAQs />} />
+
             <Route path='/profile' element={<Profile />} />
           </Routes>
         </Suspense>
