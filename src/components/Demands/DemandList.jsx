@@ -7,7 +7,6 @@ const DemandList = ({ query }) => {
   const [demands, setDemands] = useState(demandsList)
   console.log(setDemands);
 
-
   return (
     <div>
       {demands.data.map(d =>

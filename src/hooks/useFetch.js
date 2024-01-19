@@ -1,10 +1,10 @@
 import useFetchSuspense from 'fetch-suspense'
 import { useUser } from "../UserContext"
 
-export const useFetch = (url) => {
+export const useFetch = (url) => { //localhost:8080/demands
     const [user] = useUser()
     const headers = {}
-    if (user?.token) headers.Authorization = user.token
+    if (user?.token) headers.auth_token = user.token
     return useFetchSuspense(url, { headers })
 }
 
