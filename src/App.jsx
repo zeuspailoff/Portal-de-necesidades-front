@@ -13,6 +13,7 @@ import { Suspense } from 'react'
 import Loading from './components/Loading/Loading.jsx'
 import FloatingButton from './components/FloatingButton/FloatingButton.jsx'
 import Contact from './pages/Contact/Contact.jsx'
+import About from './pages/About/About.jsx'
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/contact' element={<Contact />} />
+            <Route path='/about' element={<About />} />
           </Routes>
           <FloatingButton />
         </Suspense>
