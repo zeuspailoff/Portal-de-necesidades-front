@@ -7,17 +7,17 @@ const Header = () => {
   return (
     <div>
       <Topbar />
-        <header>
-          <h1>iNeed<span>Up</span></h1>
-          <h3>Needs and solutions connected</h3>
-          <ul className='links_container'>
-            <li><a href='/'>HOME</a></li>
-            <li><a href='/demands'>DEMANDS</a></li>
-            <li><a href='/faqs'>FAQS</a></li>
-            <li><a href='/login-signup'>LOGIN/SIGNUP</a></li>
-          </ul>
-        </header>
-      </div>
+      <header>
+        <h1>iNeed<span>Up</span></h1>
+        <h3>Needs and solutions connected</h3>
+        <ul className='links_container'>
+          <li><Link to='/'>HOME</Link></li>
+          <li><Link to='/demands'>DEMANDS</Link></li>
+          <li><Link to='/faqs'>FAQS</Link></li>
+          <li><Link to='/login-signup'>LOGIN/SIGNUP</Link></li>
+        </ul>
+      </header>
+    </div>
   )
 }
 
