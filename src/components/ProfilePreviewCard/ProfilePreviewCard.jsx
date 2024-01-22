@@ -14,7 +14,7 @@ const ProfilePreviewCard = () => {
                     <span onClick={() => setUser()}>📴</span>
                 </span>
             }
-            <div className='round_picture_preview' ></div>
+
         </div>
     );
 }

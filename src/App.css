@@ -20,7 +20,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, black, var(--color-dark_purple), var(--color-dark_blue), var(--color-dark_violet));
+  background: linear-gradient(135deg, rgb(15, 15, 15), var(--color-electric_violet), var(--color-electric_violet), var(--color-dark_violet));
 }
 
 .logo {
