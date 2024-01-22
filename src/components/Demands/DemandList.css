@@ -1,0 +1,41 @@
+:root {
+    --color-dark_purple: #0c0032;
+    --color-dark_blue: #190061;
+    --color-dark_violet: #240090;
+    --color-electric_violet: #3500d3;
+    --color-dark_grey: #282828;
+    --color-industrial_yellow: #ffd700;
+    --color-neon_fuchsia: #ff007f;
+    --color-neon_orange: #ff8c00;
+  
+    --color-register_orange: #ff652f;
+    --color-login_green: #14a76c;
+  }
+
+.demand{
+    padding: 10px;
+    margin: 20px;
+    height: 100px;
+    width: 50vw;
+    border-radius: 10px;
+    border: 1px solid ;
+    background-color: aliceblue;
+    color: black;
+    box-shadow: 10px 5px 5px black;
+}
+.demand a {
+    text-decoration: none;
+    border : 1px solid; 
+    color: blue;
+   
+}
+.demand p {
+    background-color: var(--color-dark_grey);
+    color: antiquewhite;
+    height: 50px;
+}
+.category{
+    
+    margin-right: auto;
+    font-size: 1.5rem;
+}

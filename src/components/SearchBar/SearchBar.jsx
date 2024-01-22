@@ -18,7 +18,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className='filter'>
       <h2>Filters</h2>
       <aside>
         <input

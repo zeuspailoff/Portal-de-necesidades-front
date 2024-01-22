@@ -11,7 +11,7 @@ const ProfilePreviewCard = () => {
             {user &&
                 <span>
                     {user ? <Link to='/profile'>{`Hi, ${user.data?.data?.user.username}`}</Link> : 'Login / Sign Up'}
-                    <span onClick={() => setUser()}>📴</span>
+                    <span onClick={() => setUser()}>🚫</span>
                 </span>
             }
 
