@@ -1,24 +1,31 @@
 .profile_page {
-    border: 1px solid whitesmoke;
-    margin: 50px;
-    padding: 50px;
+    color: black;
+    margin: 40px 0;
 
     display: flex;
     flex-direction: column;
 }
 
+.profile_title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: whitesmoke;
+}
+
 .user_data_row {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .user_data {
     display: flex;
-    border: 1px solid whitesmoke;
-    width: 400px;
+    background-color: grey;
+    color: black;
 
-    margin: 10px;
+    margin: 5px;
 }
 
 .user_data ul {
@@ -27,10 +34,12 @@
 }
 
 .user_description {
-    border: 1px solid whitesmoke;
+    background-color: grey;
+    color: black;
     width: 400px;
+    flex-grow: 2;
 
-    margin: 10px;
+    margin: 5px;
     justify-self: center;
     text-align: center;
 }
@@ -47,15 +56,18 @@
 }
 
 .proposals_demands_row {
-    border: 1px solid whitesmoke;
-    margin: 10px;
+    background-color: grey;
+    color: black;
+    margin: 5px;
 
     display: flex;
     justify-content: space-between;
+    height: fit-content;
 }
 
 .left_column {
-    border: 1px solid whitesmoke;
+    background-color: grey;
+    color: black;
     margin: 10px;
     padding: 10px;
 
@@ -65,13 +77,20 @@
 }
 
 .proposal_container {
-    border: 1px solid whitesmoke;
+    background-color: grey;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.demand_container {
+    margin: 10px;
+    padding: 10px;
 }
 
 .right_column {
-    border: 1px solid whitesmoke;
-    margin: 10px;
-    padding: 10px 30px;
+    background-color: grey;
+    color: black;
 
     display: flex;
     flex-direction: column;

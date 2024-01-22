@@ -69,7 +69,7 @@ const Profile = () => {
         <div>
             <Header />
             <div className='profile_page'>
-
+                <h2 className='profile_title'>User Profile:</h2>
                 <div className='user_data_row'>
                     <div className='user_data'>
                         <img src={userProfileImg} alt={`User ${username} profile mosaic`} />
@@ -104,7 +104,7 @@ const Profile = () => {
                                 <h3>{demand.title}</h3>
                                 <p>{demand.description}</p>
                                 <br />
-                                <p>{demand.is_active}</p>
+                                <p>Active: {demand.is_active}</p>
                             </div>
                         ))}
                     </div>
