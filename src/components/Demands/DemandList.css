@@ -1,30 +1,78 @@
 .fetched_demands_container {
-    flex-grow: 3;
+    border: 1px solid whitesmoke;
+    flex-grow: 1;
 }
 
-.demand{
+.demand {
     padding: 20px 5px;
-    margin: 20px;
-    height: 100px;
+    margin-bottom: 10px;
+    min-height: 100px;
+    height: auto;
     width: 100%;
     border-radius: 10px;
     border: 1px solid transparent;
-    background-color: whitesmoke;
+    background-color: black;
     color: black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.demand_upper_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .demand a {
     text-decoration: none;
-    border : 1px solid; 
-    color: blue;
-   
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin: 5px;
+    color: whitesmoke;
+    width: auto;
 }
+
 .demand p {
-    background-color: var(--color-dark_grey);
-    color: antiquewhite;
-    height: 50px;
+    background-color: whitesmoke;
+    color: black;
+    min-height: 50px;
+    height: fit-content;
+    text-align: left;
+    border-radius: 5px;
+
+    margin: 5px;
+    padding: 5px;
 }
 .category{
-    margin-right: auto;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    border: 1px solid whitesmoke;
+    border-radius: 50px;
+    background-color: whitesmoke;
+    width: 50px;
+    height: 50px;
+}
+
+.is_closed {
+    font-size: 1rem;
+    color: white;
+}
+
+.buttons_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: fit-content;
+    height: 50px;
+    background-color: var(--color-blue_button);
+    border-radius: 50px;
+    margin: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

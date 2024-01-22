@@ -1,3 +1,9 @@
+.card_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .topbar {
     display: flex;
     width: 100%;

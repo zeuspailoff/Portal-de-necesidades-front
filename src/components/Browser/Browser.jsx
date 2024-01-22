@@ -22,7 +22,7 @@ const Browser = ({ onSearch }) => {
         value={browserBar}
         onChange={handleChange}
       />
-      <button type="submit">Search</button>
+      <button className='button' type="submit">Search</button>
     </form>
   );
 };

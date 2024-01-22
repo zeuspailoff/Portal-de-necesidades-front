@@ -5,7 +5,7 @@ const Topbar = () => {
     const logoImgSrc = '../src/assets/images/app_logo.jpg';
 
     return (
-        <div >
+        <div className='card_container'>
             <ProfilePreviewCard />
         </div>
     );

@@ -23,7 +23,6 @@ const DemandList = () => {
   };
 
   const renderIcon = (category) => {
-
     return(
       category === 'Web Design' ? '🎨' :
       category === 'Translations' ? '🗨' :
@@ -35,30 +34,34 @@ const DemandList = () => {
 
 
   return (
-    <div >
+    <div className="fetched_demands_container">
       {demands.data.map(d =>
         <div key={d.id} className="demand">
+          <div className="demand_upper_row">
           <Link to={`/demands/${d.id}`}>
             {d.title}
           </Link>
           <span className="category">{renderIcon(d.category)}</span>
+          </div>
           <p>{d.description}</p>
-          <h3>{d.is_closed == 1 ? '👌' : null}</h3>
+          <h3 className="is_closed">{d.is_closed == 1 ? 'Marked as closed 👌' : null}</h3>
           <h3>{d.files}</h3>
         </div>
       )}
-      <div>
+      <div className="buttons_container">
         <button
+          className="button"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Anterior
+          Previous
         </button>
         <button
+          className="button"
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={indexOfLastDemand >= demands.data.length}
         >
-          Siguiente
+          Next
         </button>
       </div>
     </div>
