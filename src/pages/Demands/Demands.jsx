@@ -6,12 +6,9 @@ const Demands = () => {
     return (
         <>
             <Header />
-            <h2>Demands</h2>
             <div className="demands">
                 <SearchBar />
-                <div>
-                    <DemandList />
-                </div>
+                <DemandList />
             </div>
         </>
     )

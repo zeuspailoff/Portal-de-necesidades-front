@@ -25,20 +25,20 @@ const SearchBar = ({ onSearch }) => {
       <div>
         <div>
           <input
-            className='search_bar demands'
+            className='search_demands'
             type="text"
             placeholder="Search by title..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
+          <select className='states_filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
             <option value="">All states</option>
             <option value="activo">Active</option>
             <option value="no activo">Inactive</option>
           </select>
         </div>
 
-        <div>
+        <div className='range_container'>
           <label>Proposals range:</label>
           <input
             type="range"
@@ -51,8 +51,8 @@ const SearchBar = ({ onSearch }) => {
           <span>{proposalsRange.min}</span>
         </div>
 
-        <div>
-          <label>Score⭐</label>
+        <div className='score_container'>
+          <label>Score ⭐</label>
           <input
             type="number"
             min="1"
@@ -63,7 +63,7 @@ const SearchBar = ({ onSearch }) => {
           />
         </div>
 
-        <div>
+        <div className='by_category_container'>
           <label>Category</label> {/* Luego se cambiaría por un select cuando tengamos los datos del back */}
           <input
             type="text"

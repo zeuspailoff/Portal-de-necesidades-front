@@ -1,30 +1,3 @@
-:root {
-    --color-dark_purple: #0c0032;
-    --color-dark_blue: #190061;
-    --color-dark_violet: #240090;
-    --color-electric_violet: #3500d3;
-    --color-dark_grey: #282828;
-    --color-industrial_yellow: #ffd700;
-    --color-neon_fuchsia: #ff007f;
-    --color-neon_orange: #ff8c00;
-  
-    --color-register_orange: #ff652f;
-    --color-login_green: #14a76c;
-  }
-
-.filter{
-   margin-bottom: auto;
-   background-color:var(--color-electric_violet);
-   color: aliceblue;
-    width: 20vw;
-    height: 300px;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 10px 5px 5px black;
-}
-.demands{
+.demands {
     display: flex;
-    align-items:center;
-    justify-content: start;
-    width: 80vw;
 }

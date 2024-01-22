@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Topbar from '../Topbar/Topbar'
 import './Header.css'
 
 const Header = () => {
@@ -13,7 +12,6 @@ const Header = () => {
           <li><Link to='/'>HOME</Link></li>
           <li><Link to='/demands'>DEMANDS</Link></li>
           <li><Link to='/faqs'>FAQS</Link></li>
-          <li><Link to='/login-signup'><Topbar /></Link></li>
         </ul>
       </header>
     </div>
