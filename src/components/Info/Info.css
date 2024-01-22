@@ -18,21 +18,8 @@
     margin: 30px 5px;
 
     border: 1px solid transparent;
-    border-radius: 30px;
-    box-shadow: 5px 5px 5px black;
-    background-color: rgb(33, 31, 31);
+    background-color: black;
 }
-
-.flex_container_child:first-child {
-    border-image: linear-gradient(-135deg, var(--color-neon_fuchsia), var(--color-dark_blue), transparent, transparent, transparent, var(--color-neon_orange)) 1;
-   
-}
-
-.flex_container_child:last-child {
-    border-image: linear-gradient(-135deg, var(--color-neon_fuchsia), var(--color-dark_blue), transparent, transparent, transparent, var(--color-neon_orange)) 1;
-    border-radius: 30px; 
-}
-
 
 .asideUsers ul {
     list-style-type: none;

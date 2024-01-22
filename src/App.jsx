@@ -12,6 +12,7 @@ import GenericError from './components/GenericError.jsx'
 import { Suspense } from 'react'
 import Loading from './components/Loading/Loading.jsx'
 import FloatingButton from './components/FloatingButton/FloatingButton.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path='/profile' element={<Profile />} />
           </Routes>
           <FloatingButton />
+          <Footer />
         </Suspense>
       </ErrorBoundary>
     </>

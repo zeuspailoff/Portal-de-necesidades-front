@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Browser.css'
 
 const Browser = ({ onSearch }) => {
   const [browserBar, setbrowserBar] = useState('');
@@ -14,9 +15,10 @@ const Browser = ({ onSearch }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <input 
+        className='search_bar'
         type="text"
-        placeholder="Search..."
+        placeholder="Explore iNeedUp!"
         value={browserBar}
         onChange={handleChange}
       />

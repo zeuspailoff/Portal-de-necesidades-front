@@ -42,8 +42,8 @@ const DemandList = () => {
           </Link>
           <span className="category">{renderIcon(d.category)}</span>
           <p>{d.description}</p>
-          <span>{d.is_closed === 1 ? '👌' : null}</span>
-          <span>{d.files}</span>
+          <h3>{d.is_closed == 1 ? '👌' : null}</h3>
+          <h3>{d.files}</h3>
         </div>
       )}
       <div>

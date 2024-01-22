@@ -1,0 +1,32 @@
+form {
+    display: flex;
+    margin: 40px 30px 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search_bar {
+    padding: 20px;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    margin-right: 5px;
+    width: 500px;
+    height: 60px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--color-blue_button);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 60px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

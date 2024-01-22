@@ -14,7 +14,10 @@ header {
     justify-content: center;
     align-content: center;
     height: 340px;
-    background-image: url('/bckg1.jpeg');
+    background-image: url('../../assets/images/header_background_1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 header h1 {
