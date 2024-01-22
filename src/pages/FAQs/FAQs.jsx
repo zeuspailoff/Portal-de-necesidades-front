@@ -1,11 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
 import Header from "../../components/Header/Header.jsx"
+import './FAQS.css'
 const Faqs = () => {
 
     return (
         <div>
             <Header />
-            <h2>Needing some help?</h2>
+            <h2 className="help_please">Needing some help?</h2>
 
             <div className="faqs">
             <div className="clients">
