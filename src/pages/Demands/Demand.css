@@ -1,0 +1,20 @@
+.demand_container {
+    border: 1px solid whitesmoke;
+    padding: 30px;
+    margin: 40px 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    font-size: 1.2rem;
+    padding: 20px;
+    margin: 20px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.description h3 {
+    margin: 30px 0 10px;
+}

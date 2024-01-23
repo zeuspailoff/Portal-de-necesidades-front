@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from "../../components/Header/Header";
 import Proposal from '../../components/Proposal/Proposal';
 import NewProposal from '../../components/Proposal/NewProposal';
+import './Demand.css';
 
 const Demand = (props) => {
 
@@ -83,6 +84,7 @@ const Demand = (props) => {
   return (
     <div>
       <Header />
+
       <div className='demand_container'>
         <h2>{getDemandById.demandTitle}</h2>
         <section className='description'>
@@ -99,16 +101,18 @@ const Demand = (props) => {
         </section>
       </div>
 
-      <NewProposal />
+      <div className='new_proposal_container'>
+        <NewProposal />
+      </div>
 
       <div>
         <section className='proposals'>
-          <div>
             <h3>Proposals for this demand:</h3>
-            {proposalsFetchedForThisDemand.map((proposal, key) => (
-              <Proposal key={key} proposal={proposal} />
+            {proposalsFetchedForThisDemand.map((proposal) => (
+              <div className='proposal_container' key={proposal.id}>
+                <Proposal proposal={proposal} />
+              </div>
             ))}
-          </div>
         </section>
       </div>
     </div>

@@ -33,29 +33,35 @@ const [user] = useUser()
         <div>
         <Header />
         <div className='demand_container'>
-            <h3>Submit a new demand:</h3>
-            <form onSubmit={handleForm}>
+            <h3 className='submit_title'>Submit a new demand</h3>
+
+            <h2 className='label_title'>Title:</h2>
+            <form className='new_demand_form' onSubmit={handleForm}>
             <textarea
+                className='input_textarea new_demand_title'
                 name="title"
                 placeholder="Add a descriptive title for your demand"
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
             />
+
+            <h2 className='label_description'>Description:</h2>
             <textarea
+                className='input_textarea new_demand_description'
                 name="description"
                 placeholder="Let people know what they can help you with!"
                 type="text"
                 value={description}
                 onChange={e => setDescription(e.target.value)}
             />
-            <input type="file" name='files[]'/>
-            <input type="file" name='files[]'/>
-            <input type="file" name='files[]'/>
-            <input type="file" name='files[]'/>
-            <input type="file" name='files[]'/>
+            <input className='input_files' type="file" name='files[]'/>
+            <input className='input_files' type="file" name='files[]'/>
+            <input className='input_files' type="file" name='files[]'/>
+            <input className='input_files' type="file" name='files[]'/>
+            <input className='input_files' type="file" name='files[]'/>
 
-            <button>Send</button>
+            <button className='button'>Send</button>
             {error?.error &&
             <p className="error">Se ha producido un error: {error.error}</p>
             }
