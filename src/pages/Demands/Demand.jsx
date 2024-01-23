@@ -89,13 +89,17 @@ const Demand = (props) => {
         <h2>{getDemandById.demandTitle}</h2>
         <section className='description'>
           <div>
-            <h3>Description:</h3>
-            <p>{getDemandById.demandDescription}</p>
-            <h3>Files:</h3>
-            <div className='demand_files'>
-              {Object.values(getDemandById.demandFiles).map((file, key) => (
-                <img src={file} alt={'file_' + key} key={key} />
-              ))}
+            <div className='description_wrapper'>
+              <h3>Description:</h3>
+              <p>{getDemandById.demandDescription}</p>
+            </div>
+            <div className='description_wrapper'>
+              <h3>Files:</h3>
+              <div className='demand_files'>
+                {Object.values(getDemandById.demandFiles).map((file, key) => (
+                  <img src={file} alt={'file_' + key} key={key} />
+                ))}
+              </div>
             </div>
           </div>
         </section>

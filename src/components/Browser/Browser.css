@@ -6,6 +6,7 @@ form {
   }
   
   .search_bar {
+    background-color: var(--color-dirty_whitesmoke);
     padding: 20px;
     font-size: 1rem;
     border: 1px solid transparent;
@@ -18,8 +19,8 @@ form {
   button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: var(--color-blue_button);
-    color: #fff;
+    background-color: var(--color-dirty_whitesmoke);
+    color: var(--color-dark_grey);
     border: 1px solid transparent;
     border-radius: 50px;
     cursor: pointer;
@@ -27,6 +28,6 @@ form {
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-login_green);
   }
   

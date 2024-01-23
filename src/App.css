@@ -6,11 +6,15 @@
   --color-dark_blue: #190061;
   --color-dark_violet: #240090;
   --color-electric_violet: #3500d3;
-  --color-dark_grey: #282828;
-  --color-industrial_yellow: #ffd700;
+  --color-blue_button: #007bff;
   --color-neon_fuchsia: #ff007f;
   --color-neon_orange: #ff8c00;
-  --color-blue_button: #007bff;
+  --color-industrial_yellow: #ffd700;
+
+  --color-dark_grey: #282828;
+  --color-halfdark_grey: #424242;
+  --color-darker_dirty_whitesmoke: #cccccc;
+  --color-dirty_whitesmoke: #eaeaea;
 
   --color-register_orange: #ff652f;
   --color-login_green: #14a76c;
@@ -21,7 +25,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, rgb(15, 15, 15), var(--color-electric_violet), var(--color-electric_violet), var(--color-dark_violet));
+  background: linear-gradient(135deg, var(--color-halfdark_grey), var(--color-dark_grey));
 }
 
 .logo {

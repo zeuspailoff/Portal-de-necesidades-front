@@ -9,9 +9,7 @@
     height: auto;
     width: 100%;
     border-radius: 10px;
-    border: 1px solid transparent;
-    background-color: black;
-    color: black;
+    background-color: var(--color-darker_dirty_whitesmoke);
 
     display: flex;
     flex-direction: column;
@@ -29,13 +27,13 @@
     font-size: 1.5rem;
     padding: 5px;
     margin: 5px;
-    color: whitesmoke;
+    color: var(--color-dark_grey);
     width: auto;
 }
 
 .demand p {
-    background-color: whitesmoke;
-    color: black;
+    background-color: var(--color-dirty_whitesmoke);
+    color: var(--color-dark_grey);
     min-height: 50px;
     height: fit-content;
     text-align: left;

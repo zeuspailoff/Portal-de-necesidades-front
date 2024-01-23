@@ -4,8 +4,8 @@ import './Header.css'
 const Header = () => {
 
   return (
-    <div>
-      <header>
+    <div className='header_wrapper'>
+      <header className='header_container'>
         <h1>iNeed<span>Up</span></h1>
         <h3>Needs and solutions connected</h3>
         <ul className='links_container'>
