@@ -7,9 +7,9 @@ const Info = () =>{
                 <h3>Platform information and updates:</h3>
             </div>
             <div className='flex_container_child'>
-                <aside className='asideUsers'>
+                <aside className='aside_users'>
                     <h3>Featured users of the week:</h3>
-                    <ul>
+                    <ul className='featured_users_list'>
                         <li>User 1</li>
                         <li>User 2</li>
                         <li>User 3</li>

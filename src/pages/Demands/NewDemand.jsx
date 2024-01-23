@@ -38,7 +38,7 @@ const [user] = useUser()
             <h2 className='label_title'>Title:</h2>
             <form className='new_demand_form' onSubmit={handleForm}>
             <textarea
-                className='input_textarea new_demand_title'
+                className='new_demand_title'
                 name="title"
                 placeholder="Add a descriptive title for your demand"
                 type="text"
@@ -48,7 +48,7 @@ const [user] = useUser()
 
             <h2 className='label_description'>Description:</h2>
             <textarea
-                className='input_textarea new_demand_description'
+                className='new_demand_description'
                 name="description"
                 placeholder="Let people know what they can help you with!"
                 type="text"

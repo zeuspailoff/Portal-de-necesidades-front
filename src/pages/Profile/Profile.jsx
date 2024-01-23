@@ -76,11 +76,11 @@ const Profile = () => {
                         <ul>
                             <li>{user?.data.data.user.username}</li>
                             <li><FormattedDate value={user?.data.data.user.created_at} day="2-digit" month="long" /></li>
-
                         </ul>
                     </div>
 
                     <div className='user_description'>
+                        <h3>User bio:</h3>
                         <p>{user?.data.data.user.biography}</p>
                     </div>
                 </div>

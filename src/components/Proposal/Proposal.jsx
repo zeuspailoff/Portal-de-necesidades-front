@@ -15,7 +15,7 @@ const Proposal = ({proposal}) => {
                 <div className='proposal_card_files'>
                     {proposal?.files && proposal.files.map((file, key) => (
                     <a key={key} href={file} download>
-                        {`Download file #${key + 1} `};
+                        {`Download file #${key + 1} `}
                     </a>
             ))}
         </div>

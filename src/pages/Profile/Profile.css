@@ -21,8 +21,9 @@
 }
 
 .user_data {
+    border-radius: 5px;
     display: flex;
-    background-color: grey;
+    background-color: var(--color-dirty_whitesmoke);
     color: black;
 
     margin: 5px;
@@ -34,7 +35,8 @@
 }
 
 .user_description {
-    background-color: grey;
+    border-radius: 5px;
+    background-color: var(--color-dirty_whitesmoke);
     color: black;
     width: 400px;
     flex-grow: 2;
@@ -42,6 +44,10 @@
     margin: 5px;
     justify-self: center;
     text-align: center;
+}
+
+.user_description h3, .user_description p {
+    background-color: var(--color-darker_dirty_whitesmoke);
 }
 
 .user_data_row img {
@@ -56,7 +62,8 @@
 }
 
 .proposals_demands_row {
-    background-color: grey;
+    border-radius: 5px;
+    background-color: var(--color-dirty_whitesmoke);
     color: black;
     margin: 5px;
 
@@ -66,7 +73,8 @@
 }
 
 .left_column {
-    background-color: grey;
+    border-radius: 5px;
+    background-color: var(--color-dirty_whitesmoke);
     color: black;
     margin: 10px;
     padding: 10px;
@@ -77,19 +85,21 @@
 }
 
 .proposal_container {
-    background-color: grey;
+    background-color: var(--color-darker_dirty_whitesmoke);
     color: black;
     margin: 10px;
     padding: 10px;
 }
 
 .demand_container {
+    background-color: var(--color-darker_dirty_whitesmoke);
     margin: 10px;
     padding: 10px;
 }
 
 .right_column {
-    background-color: grey;
+    border-radius: 5px;
+    background-color: var(--color-dirty_whitesmoke);
     color: black;
 
     display: flex;

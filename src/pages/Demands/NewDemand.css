@@ -1,5 +1,6 @@
 .demand_container {
-    background-color: grey;
+    background-color: var(--color-darker_dirty_whitesmoke);
+    border: 2px solid var(--color-login_green);
     padding: 20px;
 
     display: flex;
@@ -7,9 +8,18 @@
 }
 
 .submit_title {
+    border-radius: 10px;
+    color: var(--color-dark_grey);
+    background-color: var(--color-dirty_whitesmoke);
+    height: 70px;
     margin-top: 20px;
+    margin-bottom: 30px;
     font-weight: 400;
     font-size: 1.7rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .label_title, .label_description {
@@ -26,7 +36,9 @@
     margin: 0;
 }
 
-.input_textarea {
+.new_demand_title, .new_demand_description {
+    color: var(--color-dark_grey);
+    background-color: var(--color-dirty_whitesmoke);
     border-radius: 5px;
     width: 70%;
     padding: 20px;

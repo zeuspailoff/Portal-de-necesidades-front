@@ -1,11 +1,17 @@
 .proposal_card {
+    border-radius: 5px;
     display: flex;
     height: fit-content;
     min-height: 120px;
+    align-items: center;
+    justify-content: center;
 }
 
 .proposal_card_user_info {
+    border-radius: 50px;
+    background-color: var(--color-dirty_whitesmoke);
     width: 200px;
+    height: fit-content;
     overflow: hidden;
 
     display: flex;
@@ -23,8 +29,11 @@
 }
 
 .proposal_card_proposal_info {
+    border-radius: 5px;
+    background-color: var(--color-dirty_whitesmoke);
     width: auto;
     flex-grow: 7;
+    margin: 0 10px;
 }
 
 .proposal_card_files {
