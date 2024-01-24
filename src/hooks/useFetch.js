@@ -22,7 +22,7 @@ export const useFetchPost = () => {
             body: body && (body instanceof FormData ? body : JSON.stringify(body))
         })
         if (res.ok) return await res.json()
-        throw new Error(res.status)
+        throw new Error(res.json())
     }
 }
 
