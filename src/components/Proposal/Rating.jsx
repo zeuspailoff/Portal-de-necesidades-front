@@ -6,7 +6,6 @@ const Rating = ({ id, value }) => {
   const userActions = useUserActions();
 
   const handleVote = (value) => () => {
-    console.log('Vote done, rated:' + value);
     userActions.vote(id, value)
       .then(res => {
         setNewValue(res.data.votesAvg);

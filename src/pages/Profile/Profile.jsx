@@ -9,7 +9,6 @@ const Profile = () => {
     const [user, setUser] = useUser();
     // const { id } = user.data.data.user.id;
     // const [dataUser, setDataUser] = useDataUser({ id });
-    //console.log(setUser)
 
 
 

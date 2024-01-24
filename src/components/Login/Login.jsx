@@ -56,6 +56,7 @@ const Login = () => {
           <p className="error">Se ha producido un error: {error.error}</p>
         }
       </form>
+      <h3>You don't have an account yet? <a href='/register'>Register now</a></h3>
       </div>
   )
 }

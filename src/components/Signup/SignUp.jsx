@@ -1,20 +1,36 @@
 import Header from "../../components/Header/Header"
-import { Link } from 'react-router-dom'
-import { UseRegister } from "../../hooks/api"
+import { Navigate } from 'react-router-dom'
+import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
 import './SignUp.css';
+
 const SignUp = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [biography, setBiography] = useState('')
-  const [birthdate, setBirthdate] = useState('')
-  const [lastName, setLastName] = useState('')
-  
-  const handleForm = async (event) => {
-    event.preventDefault()
-    const res = await UseRegister()
+  const [name, setName] = useState('kevin')
+  const [lastname, setLastName] = useState('ghio-traver')
+  const [username, setUsername] = useState('keviinmiichael')
+  const [email, setEmail] = useState('ghiokevin@gmail.com')
+  const [biography, setBiography] = useState('jdsajdasaj ajkls dajkds')
+  const [birthdate, setBirthdate] = useState('1993-01-01')
+  const [password, setPassword] = useState('Asd123,.')
+  const [phone, setPhone] = useState('654789123')
+  const {register} = useUserActions();
+  const [error, setError] = useState()
+
+  const handleForm = async (e) => {
+    e.preventDefault()
+    const body = {
+      username,
+      password,
+      email,
+      name,
+      biography,
+      phone,
+      birthdate,
+      lastname
+    }
+    const res = await register(body)
+    if (res.status === 200) return <Navigate to="/" />
+    // setError(res?.data?.statusText)
   }
 
   return (
@@ -40,22 +56,22 @@ const SignUp = () => {
           className="input_field"
           name="name"
           placeholder="Name"
-          type="name"
+          type="text"
           value={name}
           onChange={e => setName(e.target.value)}
         /> <input
           className="input_field"
           name="lastname"
           placeholder="Last name"
-          type="name"
-          value={lastName}
+          type="text"
+          value={lastname}
           onChange={e => setLastName(e.target.value)}
         />
         <input
           className="input_field"
           name="password"
           placeholder="Password"
-          type="password"
+          type="text"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
@@ -63,11 +79,11 @@ const SignUp = () => {
           className="input_field"
           name="birthdate"
           placeholder="Birthdate"
-          type="birthdate"
+          type="date"
           value={birthdate}
           onChange={e => setBirthdate(e.target.value)}
         />
-        <input
+        <textarea
           className="input_field"
           name="biography"
           placeholder="Biography"
@@ -77,6 +93,8 @@ const SignUp = () => {
         />
         <button className="login_register_button">Sign Up</button>
       </form>
+
+      <h4>Already have an account? <a href="/">Login</a></h4>
       </div>
   )
 }

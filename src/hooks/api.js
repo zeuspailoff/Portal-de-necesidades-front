@@ -16,15 +16,12 @@ export const useDeleteProposal = (id) => useFetchPost(apiHost + `/proposals/${id
 export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `/proposals/${id}` + '/updateStatus')
 
 //---------------------------------------------------user-------------------------------------
-export const useLogin = () => useFetchPost(apiHost + 'user/login')
-export const useDataUser = (id) => useFetchPost(apiHost + `users/${id}`)
-export const UseRegister = () => useFetchPost(apiHost + 'users')
-
-//---------------------------------------------------votes-------------------------------------
 
 export const useUserActions = () => {
   const fetchPost = useFetchPost()
   return {
+    dataUser: (id) => fetchPost(apiHost + `users/${id}`),
+    register: (body) => fetchPost(apiHost + 'users', body),
     login: (email, password) => fetchPost(apiHost + '/users/login', { email, password }),
     createEntry: (title, place, description) => fetchPost(apiHost + '/entries', { title, place, description }),
     removeEntry: (id) => fetchPost(apiHost + '/entries/' + id, null, 'DELETE'),
@@ -32,3 +29,7 @@ export const useUserActions = () => {
     vote: (id, value) => fetchPost(apiHost + '/proposals/' + id + '/votes', { value })
   }
 }
+//---------------------------------------------------votes-------------------------------------
+
+
+

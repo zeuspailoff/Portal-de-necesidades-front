@@ -10,19 +10,24 @@ export const useFetch = (url) => { //localhost:8080/demands
 
 export const useFetchPost = () => {
     const [user] = useUser()
-    return async (url, body, method) => {
+    return async (url, body, method = null) => {
         const headers = {}
-        if (body && !(body instanceof FormData)) {
-            headers['Content-Type'] = 'application/json'
-        }
-        if (user?.token) headers.Authorization = user.token
+
+        if (body && !(body instanceof FormData)) headers['Content-Type'] = 'application/json'
+
+        if (user?.token) headers.auth_token = user.token
+
         const res = await fetch(url, {
             method: method || 'POST',
             headers,
             body: body && (body instanceof FormData ? body : JSON.stringify(body))
         })
-        if (res.ok) return await res.json()
-        throw new Error(res.status)
+        console.log(res);
+        if (res.ok) 
+        {
+            return await res.json()
+        }
+        throw new Error(res.json())
     }
 }
 
