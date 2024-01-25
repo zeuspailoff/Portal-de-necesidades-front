@@ -1,0 +1,18 @@
+h1, p{
+    display: flex;
+    justify-content: center;
+    margin-left: 15%;
+}
+form {
+    display: grid;
+    
+    grid-template-rows: auto; /* Ajusta automáticamente la altura de las filas */
+    gap: 10px; /* Espacio entre las filas y columnas */
+}
+
+input, textarea, .contact-button {
+    margin: 10px; /* Añade margen a todos los elementos */
+    padding: 10px;
+    width:200%; /* Ajusta el ancho para tener en cuenta el margen */
+    text-align: center;
+}

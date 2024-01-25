@@ -1,0 +1,34 @@
+.contact-pic{
+    width: 50%;
+    margin-left: 10%;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: auto 1fr; /* La imagen ocupa una columna auto y el párrafo el resto del espacio */
+    grid-gap: 5px; /* Espacio entre la imagen y el párrafo */
+    align-items: center; /* Centra verticalmente los elementos */
+    border: 1px solid var(--color-darker_dirty_whitesmoke);
+}
+
+.contact-name {
+    grid-column: span 2; /* La etiqueta h3 ocupa dos columnas */
+    margin-left: 10%;
+    padding-top: 2%;
+}
+
+.contact-description {
+    margin-right: 25%;
+}
+
+.contact-link{
+    margin-right: 30%;
+    padding-top: 10px;
+}
+
+h1.contact-intro{
+    text-align: center;
+}
+.contact-intro{
+    margin-bottom: 10px;
+}
