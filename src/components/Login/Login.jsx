@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react"
-import Header from "../../components/Header/Header"
 import { useUser } from "../../UserContext"
 import { Link, Navigate } from "react-router-dom"
+import './Login.css'
 const Login = () => {
 
   const [email, setEmail] = useState('')
@@ -32,34 +32,32 @@ const Login = () => {
   if (user) return <Navigate to="/" />
 
   return (
-    <div>
-      <Header />
-      <h1>We're happy to see you again!</h1>
+    <div className="fields_container login_fields_container">
       <h3>Login:</h3>
       <form onSubmit={handleForm}>
         <input
+          className="input_field"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           type="text"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
         <input
+          className="input_field"
           name="password"
           placeholder="Password"
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <button>Login</button>
+        <button className="login_register_button">Login</button>
         {error?.error &&
           <p className="error">Se ha producido un error: {error.error}</p>
         }
-        <p>Don't have an account?
-          <Link to="/signup">Register</Link>
-        </p>
       </form>
-    </div>
+      <h3>You don't have an account yet? <a href='/register'>Register now</a></h3>
+      </div>
   )
 }
 

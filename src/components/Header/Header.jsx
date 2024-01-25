@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom'
-import Topbar from '../Topbar/Topbar'
 import './Header.css'
 
 const Header = () => {
-  return (
-    <header>
-      <Topbar />
-      <h1>Needs portal</h1>
-      <nav>
-        <Link to="/" className='links'>Home</Link>
-        <Link to="/demands" className='links'>Demands</Link>
-        <Link to="/faqs" className='links'>FAQs</Link>
-        <Link to="/login" className='links'>Login</Link>
-        <Link to="/signup" className='links'>Sign up</Link>
 
-      </nav>
-    </header>
+  return (
+    <div className='header_wrapper'>
+      <header className='header_container'>
+        <h1>iNeed<span>Up</span></h1>
+        <h3>Needs and solutions connected</h3>
+        <ul className='links_container'>
+          <li><Link to='/'>HOME</Link></li>
+          <li><Link to='/demands'>DEMANDS</Link></li>
+          <li><Link to='/faqs'>FAQS</Link></li>
+        </ul>
+      </header>
+    </div>
   )
 }
 

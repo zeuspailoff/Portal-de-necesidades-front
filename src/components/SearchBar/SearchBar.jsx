@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchBar.css';
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,21 +19,26 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <h2>Filters</h2>
-      <aside>
-        <input
-          type="text"
-          placeholder="Search by title..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <select value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
-          <option value="">All states</option>
-          <option value="activo">Active</option>
-          <option value="no activo">Inactive</option>
-        </select>
+    <div className='filters_container'>
+      <h2>Browse among demands posted in iNeedUp</h2>
+
+      <div>
         <div>
+          <input
+            className='search_demands'
+            type="text"
+            placeholder="Search by title..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <select className='states_filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
+            <option value="">All states</option>
+            <option value="activo">Active</option>
+            <option value="no activo">Inactive</option>
+          </select>
+        </div>
+
+        <div className='range_container'>
           <label>Proposals range:</label>
           <input
             type="range"
@@ -44,24 +50,30 @@ const SearchBar = ({ onSearch }) => {
           />
           <span>{proposalsRange.min}</span>
         </div>
-        <label>Score⭐</label>
-        <input
-          type="number"
-          min="1"
-          max="5"
-          placeholder="1-5"
-          value={puntuacionFilter}
-          onChange={(e) => setPuntuacionFilter(e.target.value)}
-        />
-        <label>Category</label> {/* Luego se cambiaría por un select cuando tengamos los datos del back */}
-        <input
-          type="text"
-          placeholder="Filter by category"
-          value={categoriaFilter}
-          onChange={(e) => setCategoriaFilter(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </aside>
+
+        <div className='score_container'>
+          <label>Score ⭐</label>
+          <input
+            type="number"
+            min="1"
+            max="5"
+            placeholder="1-5"
+            value={puntuacionFilter}
+            onChange={(e) => setPuntuacionFilter(e.target.value)}
+          />
+        </div>
+
+        <div className='by_category_container'>
+          <label>Category</label> {/* Luego se cambiaría por un select cuando tengamos los datos del back */}
+          <input
+            type="text"
+            placeholder="Filter by category"
+            value={categoriaFilter}
+            onChange={(e) => setCategoriaFilter(e.target.value)}
+          />
+          <button onClick={handleSearch}>Search</button>
+        </div>
+      </div>
     </div>
   );
 };

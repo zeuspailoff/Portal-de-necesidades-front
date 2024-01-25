@@ -1,16 +1,7 @@
-.about{
-    float: left;
-    width: 50%;
-}
-.terms{
-    float: right;
-    width: 50%;
-}
-
-.copyright{
-    display: inline;
- }
-
-li{
-    list-style: none;
+.footer_container {
+    background-color: var(--color-dark_grey);
+    color: var(--color-dirty_whitesmoke);
+    border: 1px solid var(--color-darker_dirty_whitesmoke);
+    padding: 20px;
+    margin: 30px 0 5px;
 }

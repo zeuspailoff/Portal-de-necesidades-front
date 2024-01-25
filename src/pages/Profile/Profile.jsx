@@ -1,10 +1,17 @@
-import Footer from '../../components/Footer/Footer';
+import { FormattedDate } from 'react-intl';
+import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
+//import { useDataUser } from '../../hooks/api';
 import './Profile.css';
 
 const Profile = () => {
-    /* const [userInfo] = fetch(); // Query to fetch USER INFO here */
-    
+
+    const [user, setUser] = useUser();
+    // const { id } = user.data.data.user.id;
+    // const [dataUser, setDataUser] = useDataUser({ id });
+
+
+
     /* /////////////////////////////////////////////// */
     /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
     const userInfo = {
@@ -17,8 +24,8 @@ const Profile = () => {
     /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
     /* /////////////////////////////////////////////// */
 
-    
-    const { username, userBirthdate, userRegisteredAt, userProfileImg, userDescription } = userInfo;
+
+    const { username, userProfileImg } = userInfo;
 
     /* const [userDemands] = fetch(); // Query to fetch USER DEMANDS here */
     /* const [userProposals] = fetch(); // Query to fetch USER PROPOSALS here */
@@ -39,7 +46,7 @@ const Profile = () => {
             avgVotes: '7.66'
         }
     ];
-    
+
     const userDemands = [
         {
             id: 1,
@@ -61,22 +68,22 @@ const Profile = () => {
         <div>
             <Header />
             <div className='profile_page'>
-
+                <h2 className='profile_title'>User Profile:</h2>
                 <div className='user_data_row'>
                     <div className='user_data'>
                         <img src={userProfileImg} alt={`User ${username} profile mosaic`} />
                         <ul>
-                            <li>{username}</li>
-                            <li>{userBirthdate}</li>
-                            <li>{userRegisteredAt}</li>
+                            <li>{user?.data.data.user.username}</li>
+                            <li><FormattedDate value={user?.data.data.user.created_at} day="2-digit" month="long" /></li>
                         </ul>
                     </div>
 
                     <div className='user_description'>
-                        <p>{userDescription}</p>
+                        <h3>User bio:</h3>
+                        <p>{user?.data.data.user.biography}</p>
                     </div>
                 </div>
-                
+
                 <div className='proposals_demands_row'>
                     <div className='left_column'>
                         <div>
@@ -96,7 +103,7 @@ const Profile = () => {
                                 <h3>{demand.title}</h3>
                                 <p>{demand.description}</p>
                                 <br />
-                                <p>{demand.is_active}</p>
+                                <p>Active: {demand.is_active}</p>
                             </div>
                         ))}
                     </div>

@@ -1,0 +1,44 @@
+.new_proposal_wrapper {
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px 0;
+    color: black;
+    background-color: grey;
+    border: 1px solid var(--color-login_green);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.new_proposal_wrapper h3 {
+    margin: 10px 0 10px;
+    font-weight: 300;
+}
+
+.submit_new_proposal_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.new_proposal_description {
+    background-color: var(--color-dirty_whitesmoke);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 0 20px;
+    width: 500px;
+    height: 250px;
+}
+
+.new_demand_description {
+    height: 250px;
+}
+
+.new_demand_input_files {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 0 5px;
+}

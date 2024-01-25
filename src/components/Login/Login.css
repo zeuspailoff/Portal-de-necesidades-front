@@ -1,0 +1,41 @@
+.fields_container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-height: 700px;
+    height: fit-content;
+    margin: 10px 0;
+}
+
+.login_fields_container {
+    background-color: var(--color-login_green);
+    color: black;
+}
+
+.fields_container h3 {
+    margin-top: 50px;
+}
+
+.fields_container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input_field {
+    padding: 20px;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    background-color: whitesmoke;
+    border-radius: 50px;
+    margin: 5px;
+    width: 300px;
+    height: 40px;
+}
+
+.login_register_button {
+    border: 1px solid whitesmoke;
+    background-color: transparent;
+    border-radius: 50px;
+    width: 100px;
+    margin-top: 20px;
+}

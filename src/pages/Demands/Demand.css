@@ -1,0 +1,54 @@
+.demand_container {
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.demand_container h2 {
+    margin-top: 20px;
+    color: var(--color-dark_grey);
+}
+
+.description_wrapper {
+    border-radius: 5px;
+    background-color: var(--color-darker_dirty_whitesmoke);
+    padding: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    font-size: 1.2rem;
+    padding: 20px;
+    margin: 20px 20px 30px 20px;
+    background-color: var(--color-dirty_whitesmoke);
+    color: var(--color-dark_grey);
+}
+
+.description h3, .files h3 {
+    margin: 10px 0 20px;
+    color: var(--color-dark_grey);
+}
+
+.proposals h3 {
+    height: 60px;
+    background-color: var(--color-dirty_whitesmoke);
+    color: var(--color-dark_grey);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px 10px 10px;
+}
+
+.proposal_container {
+    border-radius: 5px;
+}
