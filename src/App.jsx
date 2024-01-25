@@ -8,6 +8,7 @@ import Demands from './pages/Demands/Demands.jsx'
 import Demand from './pages/Demands/Demand.jsx'
 import NewDemand from './pages/Demands/NewDemand.jsx'
 import Profile from './pages/Profile/Profile.jsx'
+import UserValidate from './pages/UserValidate/UserValidate.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import GenericError from './components/GenericError.jsx'
 import { Suspense } from 'react'
@@ -31,6 +32,7 @@ function App() {
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/users/validate/:registrationcode' element={<UserValidate  />} />
           </Routes>
           <FloatingButton />
           <Footer />

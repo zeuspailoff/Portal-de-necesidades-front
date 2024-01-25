@@ -10,6 +10,8 @@
 
 -programar idiomas 
 
+- fixear navigate de login y register
+
 ---------------------------------------------------------- 2 etapa ---------------------
 
 
@@ -22,6 +24,10 @@
 - especificar error de usuario registrado username ya en uso 
 
 -cambiar el objeto que devuelve login para que no devuelva data dentro de data 
+
+- en la respuesta del login meter el token dentro del usuario
+
+- si el user esta activado develver error correspondiente en validate
 
 ----------------------------------------------------------------------------------------
 - poner los colores y efectos 

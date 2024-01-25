@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react"
 import { useUser } from "../../UserContext"
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useUserActions } from "../../hooks/api"
 import './Login.css'
 const Login = () => {
@@ -27,7 +27,8 @@ const Login = () => {
     }
   
 
-  if (user) { <Navigate to="/" />}
+  if (user) return <Navigate to="/" />
+  
 
   return (
     <div className="fields_container login_fields_container">
@@ -52,7 +53,7 @@ const Login = () => {
         <button className="login_register_button">Login</button>
         {error?.error ?  <p className="error">Se ha producido un error: {error.error.message}</p> : null}
       </form>
-      <h3>You don't have an account yet? <a href='/register'>Register now</a></h3>
+      <h3>You don't have an account yet? <Link to='/register'>Register now</Link></h3>
       </div>
   )
 }

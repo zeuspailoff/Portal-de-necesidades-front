@@ -12,7 +12,7 @@ const ProfilePreviewCard = () => {
                     { backgroundImage: user ? `url(${user.data?.data?.user.avatar})` : 'none', backgroundColor: user ? 'transparent' : 'grey' }
                 }>
                 </div>
-            {!user && <Link className='profile_link' to="/login-signup">Login/Signup</Link>}
+            {!user && <Link className='profile_link' to="/login">Login/Signup</Link>}
             {user && (
                 <span>
                     {user ? <Link className='profile_link' to='/profile'>{`Hi, ${user.data?.data?.user.username}`}</Link> : 'Login / Sign Up'}
