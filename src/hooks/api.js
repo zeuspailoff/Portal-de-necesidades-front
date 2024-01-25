@@ -22,7 +22,7 @@ export const useUserActions = () => {
   return {
     dataUser: (id) => fetchPost(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
-    login: (email, password) => fetchPost(apiHost + '/users/login', { email, password }),
+    login: (body) => fetchPost(apiHost + 'users/login',  body),
     createEntry: (title, place, description) => fetchPost(apiHost + '/entries', { title, place, description }),
     removeEntry: (id) => fetchPost(apiHost + '/entries/' + id, null, 'DELETE'),
     addPhoto: (id, fd) => fetchPost(apiHost + '/entries/' + id + '/photos', fd),

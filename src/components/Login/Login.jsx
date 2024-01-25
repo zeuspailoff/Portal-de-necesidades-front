@@ -1,35 +1,33 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react"
 import { useUser } from "../../UserContext"
-import { Link, Navigate } from "react-router-dom"
+import { Navigate } from 'react-router-dom'
+import { useUserActions } from "../../hooks/api"
 import './Login.css'
 const Login = () => {
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const {login} = useUserActions();
+  const [email, setEmail] = useState('ghiokevin@gmail.com')
+  const [password, setPassword] = useState('Asd123,.')
   const [user, setUser] = useUser()
   const [error, setError] = useState()
 
 
-  const handleForm = async (event) => {
-    event.preventDefault()
-    const res = await fetch('http://localhost:8080/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    })
-    const response = await res.json()
 
-    if (res.ok) {
-      setUser(response)
-    } else {
-      setError(response)
+  const handleForm = async (e) => {
+    e.preventDefault()
+    const body = { email, password }
+    const loggedUser = await login(body)
+    console.log(loggedUser);
+    if (loggedUser.status == "OK"){
+      setUser(loggedUser.data.data)
+      console.log(user);
+       return <Navigate to="/" />
     }
-  }
+      setError(loggedUser)
+    }
+  
 
-  if (user) return <Navigate to="/" />
+  if (user) { <Navigate to="/" />}
 
   return (
     <div className="fields_container login_fields_container">
@@ -52,13 +50,11 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}
         />
         <button className="login_register_button">Login</button>
-        {error?.error &&
-          <p className="error">Se ha producido un error: {error.error}</p>
-        }
+        {error?.error ?  <p className="error">Se ha producido un error: {error.error.message}</p> : null}
       </form>
       <h3>You don't have an account yet? <a href='/register'>Register now</a></h3>
       </div>
   )
 }
 
-export default Login
+export default Login;

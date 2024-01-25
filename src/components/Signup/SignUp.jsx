@@ -28,9 +28,10 @@ const SignUp = () => {
       birthdate,
       lastname
     }
-    const res = await register(body)
-    if (res.status === 200) return <Navigate to="/" />
-    // setError(res?.data?.statusText)
+    const newUser = await register(body)
+    console.log(newUser);
+    if (newUser.status === 200) return <Navigate to="/" />
+    setError(newUser)
   }
 
   return (
@@ -83,6 +84,14 @@ const SignUp = () => {
           value={birthdate}
           onChange={e => setBirthdate(e.target.value)}
         />
+         <input
+          className="input_field"
+          name="phone"
+          placeholder="phone"
+          type="number"
+          value={phone}
+          onChange={e => setPhone(e.target.value)}
+        />
         <textarea
           className="input_field"
           name="biography"
@@ -92,11 +101,12 @@ const SignUp = () => {
           onChange={e => setBiography(e.target.value)}
         />
         <button className="login_register_button">Sign Up</button>
+        {error ? <p>{error.error.message}</p> : null}
       </form>
 
       <h4>Already have an account? <a href="/">Login</a></h4>
       </div>
   )
-}
 
-export default SignUp
+  }
+export default SignUp;

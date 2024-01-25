@@ -12,7 +12,20 @@
 
 ---------------------------------------------------------- 2 etapa ---------------------
 
+
+---------------------------------------------------------------back----------------------
+
+-añadir al back error usuario ya existe en el registro
+
+-añadir solo envio del registration code al registrar back 
+
+- especificar error de usuario registrado username ya en uso 
+
+-cambiar el objeto que devuelve login para que no devuelva data dentro de data 
+
+----------------------------------------------------------------------------------------
 - poner los colores y efectos 
+
 
 
 MARTIN 19/1

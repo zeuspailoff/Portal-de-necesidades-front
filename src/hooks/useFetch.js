@@ -22,12 +22,10 @@ export const useFetchPost = () => {
             headers,
             body: body && (body instanceof FormData ? body : JSON.stringify(body))
         })
-        console.log(res);
-        if (res.ok) 
-        {
-            return await res.json()
-        }
-        throw new Error(res.json())
+    
+        return await res.json()
+
+        // throw new Error(await res.json())
     }
 }
 
