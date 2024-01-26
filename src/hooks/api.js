@@ -9,6 +9,7 @@ export const useDemands = (query) => useFetch('demands?' + new URLSearchParams(q
 export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 export const useProposalByDemands = (id) => useFetch(apiHost + `demands/${id}` + '/proposals')
 export const useDeleteDemands = (id) => useFetchPost(apiHost + `demands/${id}`)
+export const useNewDemands = (body, fd) => useFetchPost(apiHost + `demands`, body, fd)
 //----------------------------------------------------proposals-------------------------------
 export const useNewProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
 export const useEditProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
@@ -23,7 +24,7 @@ export const useUserActions = () => {
     validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
     dataUser: (id) => fetchPost(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
-    login: (body) => fetchPost(apiHost + 'users/login',  body),
+    login: (body) => fetchPost(apiHost + 'users/login', body),
     createEntry: (title, place, description) => fetchPost(apiHost + '/entries', { title, place, description }),
     removeEntry: (id) => fetchPost(apiHost + 'entries/' + id, null, 'DELETE'),
     addPhoto: (id, fd) => fetchPost(apiHost + 'entries/' + id + '/photos', fd),
