@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useUser } from "../../UserContext"
 import { Navigate } from "react-router-dom"
 import './NewProposal.css';
-// import { useUserActions } from "../../hooks/api"
+import { useUserActions } from "../../hooks/api"
 const NewProposal = () => {
 
   const [user] = useUser()
@@ -21,6 +21,7 @@ const NewProposal = () => {
 
   const handleForm = async (event) => {
     event.preventDefault()
+
     const res = await fetch('', {
       method: 'POST',
       headers: {
@@ -58,7 +59,7 @@ const NewProposal = () => {
 
         <button className="button">Send</button>
         {error?.error &&
-          <p className="error">Se ha producido un error: {error.error}</p>
+          <p className="error">An error has occurred: {error.error}</p>
         }
       </form>
     </div>
