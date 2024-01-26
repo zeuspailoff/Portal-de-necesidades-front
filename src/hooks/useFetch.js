@@ -14,7 +14,6 @@ export const useFetchPost = () => {
         const headers = {}
 
         if (body && !(body instanceof FormData)) headers['Content-Type'] = 'application/json'
-
         if (user?.token) headers.auth_token = user.token
 
         const res = await fetch(url, {
@@ -22,8 +21,12 @@ export const useFetchPost = () => {
             headers,
             body: body && (body instanceof FormData ? body : JSON.stringify(body))
         })
-    
-        return await res.json()
+        console.log(body);
+
+        return {
+            data: await res.json(),
+            error: res.ok ? null : 'Hubo un error en la solicitud.',
+        };
 
         // throw new Error(await res.json())
     }

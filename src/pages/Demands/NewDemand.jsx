@@ -2,34 +2,31 @@ import './NewDemand.css';
 import { useState } from 'react';
 import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
-import { useNewDemands } from '../../hooks/api';
+import { useUserActions } from '../../hooks/api';
 
 const NewDemand = () => {
   const [user] = useUser();
   const [description, setDescription] = useState('');
   const [title, setTitle] = useState('');
   const [files, setFiles] = useState([]);
-  const [category, setCategory] = useState('');
-  const newDemand = useNewDemands();
+  const [category, setCategory] = useState('1');
+  const { newDemand } = useUserActions();
   const [error, setError] = useState('');
 
   const handleForm = async (e) => {
     e.preventDefault();
 
-    const body = {
-      title,
-      description,
-      category
-    };
+    const fd = new FormData()
+    fd.append('title', title)
+    fd.append('description', description)
+    fd.append('category', category)
+    files.forEach(f => {
+      fd.append('files', f)
+    });
 
-    const fd = new FormData();
-
-    for (const file of files) {
-      fd.append('files[]', file);
-    }
-
+    const response = await newDemand(fd);
+    console.log(fd);
     try {
-      const response = await newDemand(body, fd);
 
       if (response.status === 200) {
         setDescription('');
@@ -82,8 +79,8 @@ const NewDemand = () => {
           <input
             className='input_files'
             type="file"
-            name='files[]'
-            onChange={(e) => setFiles(e.target.files)}
+            name='files'
+            onChange={(e) => setFiles(Array.from(e.target.files))}
             multiple={true}
           />
 

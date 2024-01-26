@@ -9,7 +9,7 @@ export const useDemands = (query) => useFetch('demands?' + new URLSearchParams(q
 export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 export const useProposalByDemands = (id) => useFetch(apiHost + `demands/${id}` + '/proposals')
 export const useDeleteDemands = (id) => useFetchPost(apiHost + `demands/${id}`)
-export const useNewDemands = (body, fd) => useFetchPost(apiHost + `demands`, body, fd)
+export const useNewDemands = (fd) => useFetchPost(apiHost + `demands`, fd)
 //----------------------------------------------------proposals-------------------------------
 export const useNewProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
 export const useEditProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
@@ -28,7 +28,8 @@ export const useUserActions = () => {
     createEntry: (title, place, description) => fetchPost(apiHost + '/entries', { title, place, description }),
     removeEntry: (id) => fetchPost(apiHost + 'entries/' + id, null, 'DELETE'),
     addPhoto: (id, fd) => fetchPost(apiHost + 'entries/' + id + '/photos', fd),
-    vote: (id, value) => fetchPost(apiHost + 'proposals/' + id + '/votes', { value })
+    vote: (id, value) => fetchPost(apiHost + 'proposals/' + id + '/votes', { value }),
+    newDemand: (fd) => fetchPost(apiHost + 'demands', { fd })
   }
 }
 //---------------------------------------------------votes-------------------------------------
