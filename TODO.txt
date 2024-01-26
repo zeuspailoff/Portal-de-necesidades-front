@@ -4,7 +4,7 @@
 
 - hacer la pagina de registro y login como en figma 
 
--hacer el footer y que funcione
+-hacer el footer y que funcione 
 
 -mostrar la data 
 
@@ -31,3 +31,9 @@
 MARTIN 19/1
 - Botón flotante (componente)
 
+ANDREA 25 y 26 enero
+- Footer con páginas correspondientes y css provisional
+- Página About
+- Página Contacto
+- Páginas legales
+- Retoque FAQs

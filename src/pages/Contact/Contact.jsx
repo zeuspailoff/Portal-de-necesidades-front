@@ -34,8 +34,8 @@ const Contact = () => {
   return (
     <div>
         <Header/>
-      <h1>Contact us</h1>
-      <p>We are here to help you with any doubts</p>
+      <h1 className='titleMovement'>Contact us</h1>
+      <p className='contact-description'>We are here to help you with any doubts</p>
       <form onSubmit={handleForm}>
         <input
           name="fullname"

@@ -5,7 +5,7 @@ const About = () =>{
      return(
         <div>
             <Header/>
-            <h1 className="contact-intro">About us</h1>
+            <h1 className="contact-intro titleMovement" >About us</h1>
             <p className="contact-intro">Do you want to meet the people behind this website? Now we our gonna introduce ourselves and tell you about us!</p>
             <div className="contact-container">
                 <h3 className="contact-name">Abraham</h3>
