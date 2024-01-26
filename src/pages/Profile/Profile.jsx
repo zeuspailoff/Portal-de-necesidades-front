@@ -41,7 +41,7 @@ const Profile = () => {
                                     <p>Overall score: {proposal.avgVotes}</p>
                                 </div>
                             ))}
-                            {!userData.userProposals && <p>No demands were posted yet!</p>}
+                            {!userData.userProposals && <p>No proposals were posted yet!</p>}
                         </div>
                     </div>
                     <div className='right_column'>
