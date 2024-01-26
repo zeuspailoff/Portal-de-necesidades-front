@@ -38,7 +38,6 @@ const NewProposal = () => {
     }
   }
 
-
   return (
     <div className="new_proposal_wrapper">
       <h3>Submit a new proposal:</h3>
