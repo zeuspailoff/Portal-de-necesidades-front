@@ -3,30 +3,22 @@ import { useDemand } from "../../hooks/api";
 import Header from "../../components/Header/Header";
 import NewProposal from "../../components/Proposal/NewProposal";
 import { FormattedDate } from "react-intl";
+import FilePreview from "../../components/FilePreview/FilePreview";
 
 const Demand = () => {
 
   const { id } = useParams();
   const demand = useDemand(id);
 
-  const fileType = (file) => {
+  const getFileExtension = (filename) => {
+    const parts = filename.split('.');
+    const type = parts[parts.length - 1];
+    console.log(type);
 
-    return (
-      console.log(file)
-    )
-
+    return type;
   }
 
   return (
-    /* 
-        <h2>{demand.data.username}</h2>
-        <h3>{demand.data.demandTitle}</h3>
-        <p>{demand.data.demandDescription}</p>
-        <span>{demand.data.demandCreatedAt}</span>
-        
-        file.type
-         */
-
     <div>
       <Header />
 
@@ -44,20 +36,9 @@ const Demand = () => {
               <div className='demand_files'>
                 {Object.values(demand.data.demandFiles).map((file, key) => (
                   <div key={key}>
-                    <img src={`http://localhost:8080/${file.fileSrc}`} alt={'file_' + key} key={key} />
-                    <button onClick={fileType(file)}>type</button>
+                    <FilePreview fileUrl={file.fileSrc} fileType={getFileExtension(file.fileSrc)} />
                   </div>
                 ))}
-                {/* 
-                  <iframe
-                    src="path/to/your/pdf-file.pdf"
-                    width="600"
-                    height="400"
-                    title="PDF Preview"
-                  ></iframe>
-
-                  */}
-
               </div>
             </div>
           </div>
