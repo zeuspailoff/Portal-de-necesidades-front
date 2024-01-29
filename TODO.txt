@@ -1,12 +1,32 @@
-
+--------------------------------------------------------opcionales---------------------------
 - hacer la pagina de registro y login como en figma 
 
 -programar idiomas 
 
 
----------------------------------------------------------- 2 etapa ---------------------
+---------------------------------------------------------- front ---------------------
 
 - poner el host en el .env para mostrar imagenes en las proposal y demandas 
+
+- terminar preview de pdf, img... etc en componente FilePreview de demandas 
+
+- terminar fech de newProposal en demand.jsx
+
+- terminar votos de las proposal 
+
+- hacer que el filtro funcione correctamente y ponerlo al principio de la pagina 
+
+- hacer la fech de user para mostrar toda la data en el profile
+
+- añadir todos los buttons de editar(demanda, proposal, profile)
+
+- añadir recuperar contraseña 
+
+- acabar css
+
+-terminar footer sin lorem ipsums y fotos de sreck 
+
+Andrea -> implementar sendMail para el contacto o cambiar el sistema y solo mostrar los correos de cada uno 
 ---------------------------------------------------------------back----------------------
 
 -añadir al back error usuario ya existe en el registro
