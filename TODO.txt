@@ -8,8 +8,6 @@
 
 - poner el host en el .env para mostrar imagenes en las proposal y demandas 
 
-- terminar preview de pdf, img... etc en componente FilePreview de demandas 
-
 - terminar fech de newProposal en demand.jsx
 
 - terminar votos de las proposal 
@@ -21,6 +19,8 @@
 - añadir todos los buttons de editar(demanda, proposal, profile)
 
 - añadir recuperar contraseña 
+
+- terminar preview de pdf, img... etc en componente FilePreview de demandas 
 
 - acabar css
 
