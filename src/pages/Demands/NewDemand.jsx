@@ -19,13 +19,12 @@ const NewDemand = () => {
     const fd = new FormData()
     fd.append('title', title)
     fd.append('description', description)
-    fd.append('category', category)
+    fd.append('category_id', category)
     files.forEach(f => {
       fd.append('files', f)
     });
 
     const response = await newDemand(fd);
-    console.log(fd);
     try {
 
       if (response.status === 200) {
@@ -79,8 +78,13 @@ const NewDemand = () => {
           <input
             className='input_files'
             type="file"
-            name='files'
-            onChange={(e) => setFiles(Array.from(e.target.files))}
+            name='files[]'
+            onChange={(e) => {
+              setFiles(Array.from(e.target.files))
+              console.log(Array.from(e.target.files))
+            }
+
+            }
             multiple={true}
           />
 

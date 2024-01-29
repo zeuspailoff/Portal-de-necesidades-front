@@ -9,15 +9,15 @@ const NewProposal = () => {
   const [description, setDescription] = useState('')
   const [error, setError] = useState('')
 
-/*   const handlePhoto = e => {
-    const photo = e.target.files[0]
-    const fd = new FormData()
-    fd.append('photo', photo)
-    useUserActions.addPhoto(entry.id, fd)
-      .then(res => {
-        setPhotos([...photos, res.data.photo])
-      })
-  } */
+  /*   const handlePhoto = e => {
+      const photo = e.target.files[0]
+      const fd = new FormData()
+      fd.append('photo', photo)
+      useUserActions.addPhoto(entry.id, fd)
+        .then(res => {
+          setPhotos([...photos, res.data.photo])
+        })
+    } */
 
   const handleForm = async (event) => {
     event.preventDefault()
@@ -50,11 +50,8 @@ const NewProposal = () => {
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
+        <input className="new_demand_input_files" type="file" name='files[]' />
+
 
         <button className="button">Send</button>
         {error?.error &&

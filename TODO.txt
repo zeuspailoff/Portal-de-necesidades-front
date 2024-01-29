@@ -1,20 +1,12 @@
--empezar a colocar los componentes como header donde van ocupando el espacio que deberian ocupar
-
--hacer los fech
 
 - hacer la pagina de registro y login como en figma 
 
--hacer el footer y que funcione
-
--mostrar la data 
-
 -programar idiomas 
 
-- fixear navigate de login y register
 
 ---------------------------------------------------------- 2 etapa ---------------------
 
-
+- poner el host en el .env para mostrar imagenes en las proposal y demandas 
 ---------------------------------------------------------------back----------------------
 
 -añadir al back error usuario ya existe en el registro
@@ -29,11 +21,8 @@
 
 - si el user esta activado develver error correspondiente en validate
 
+- sacar el type del archivo para las previw
 ----------------------------------------------------------------------------------------
 - poner los colores y efectos 
 
-
-
-MARTIN 19/1
-- Botón flotante (componente)
 

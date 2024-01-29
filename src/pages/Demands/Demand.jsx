@@ -8,7 +8,14 @@ const Demand = () => {
 
   const { id } = useParams();
   const demand = useDemand(id);
-  console.log(demand);
+
+  const fileType = (file) => {
+
+    return (
+      console.log(file)
+    )
+
+  }
 
   return (
     /* 
@@ -16,7 +23,10 @@ const Demand = () => {
         <h3>{demand.data.demandTitle}</h3>
         <p>{demand.data.demandDescription}</p>
         <span>{demand.data.demandCreatedAt}</span>
+        
+        file.type
          */
+
     <div>
       <Header />
 
@@ -33,8 +43,21 @@ const Demand = () => {
               <h3>Files:</h3>
               <div className='demand_files'>
                 {Object.values(demand.data.demandFiles).map((file, key) => (
-                  <img src={file} alt={'file_' + key} key={key} />
+                  <div key={key}>
+                    <img src={`http://localhost:8080/${file.fileSrc}`} alt={'file_' + key} key={key} />
+                    <button onClick={fileType(file)}>type</button>
+                  </div>
                 ))}
+                {/* 
+                  <iframe
+                    src="path/to/your/pdf-file.pdf"
+                    width="600"
+                    height="400"
+                    title="PDF Preview"
+                  ></iframe>
+
+                  */}
+
               </div>
             </div>
           </div>

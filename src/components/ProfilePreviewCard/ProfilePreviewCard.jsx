@@ -4,7 +4,7 @@ import { useUser } from '../../UserContext';
 
 const ProfilePreviewCard = () => {
   const [user, setUser] = useUser();
-  const userData = user?.user || {};
+  const userData = user?.data || {};
 
   return (
     <div className='profile_preview_card'>
@@ -18,7 +18,7 @@ const ProfilePreviewCard = () => {
       {!user && <Link className='profile_link' to="/login">Login/Signup</Link>}
       {user && (
         <span>
-          <Link className='profile_link' to='/profile'>{`Hi, ${userData.username || 'Guest'}`}</Link>
+          <Link className='profile_link' to='/profile'>{`Hi, ${userData.username}`}</Link>
           <span onClick={() => setUser()}>🚫</span>
         </span>
       )}

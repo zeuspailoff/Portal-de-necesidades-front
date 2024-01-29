@@ -29,7 +29,7 @@ export const useUserActions = () => {
     removeEntry: (id) => fetchPost(apiHost + 'entries/' + id, null, 'DELETE'),
     addPhoto: (id, fd) => fetchPost(apiHost + 'entries/' + id + '/photos', fd),
     vote: (id, value) => fetchPost(apiHost + 'proposals/' + id + '/votes', { value }),
-    newDemand: (fd) => fetchPost(apiHost + 'demands', { fd })
+    newDemand: (fd) => fetchPost(apiHost + 'demands', fd)
   }
 }
 //---------------------------------------------------votes-------------------------------------

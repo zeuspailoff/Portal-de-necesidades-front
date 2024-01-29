@@ -7,7 +7,7 @@ import './Profile.css';
 const Profile = () => {
 
     const [user, setUser] = useUser();
-    const userData = { ...user.user };
+    const userData = { ...user.data.data.user };
 
     return (
         <div>
@@ -16,7 +16,7 @@ const Profile = () => {
                 <h2 className='profile_title'>User Profile:</h2>
                 <div className='user_data_row'>
                     <div className='user_data'>
-                    <img src={userData.userProfileImg ?? null} alt={`User ${userData.username} profile mosaic`} />
+                        <img src={userData.userProfileImg ?? null} alt={`User ${userData.username} profile mosaic`} />
                         <ul>
                             <li>{userData.username}</li>
                             <li><FormattedDate value={userData.created_at} day="2-digit" month="long" /></li>
@@ -26,7 +26,6 @@ const Profile = () => {
                     <div className='user_description'>
                         <h3>User bio:</h3>
                         <p>{userData.biography}</p>
-                        <p>For testing purposes: {user.token}</p>
                     </div>
                 </div>
 
