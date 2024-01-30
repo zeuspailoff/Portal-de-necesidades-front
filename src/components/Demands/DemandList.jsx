@@ -11,7 +11,7 @@ const DemandList = () => {
   const indexOfLastDemand = currentPage * demandsPerPage;
   const indexOfFirstDemand = indexOfLastDemand - demandsPerPage;
   const currentsDemands = demandsList?.data?.slice(indexOfFirstDemand, indexOfLastDemand);
-  
+
   // Utilizar currentsDemands directamente como estado
   const [demands, setDemands] = useState(currentsDemands);
 
@@ -25,18 +25,18 @@ const DemandList = () => {
     const newIndexOfLastDemand = newPage * demandsPerPage;
     const newIndexOfFirstDemand = newIndexOfLastDemand - demandsPerPage;
     const newCurrentsDemands = demandsList.data ? demandsList.data.slice(newIndexOfFirstDemand, newIndexOfLastDemand) : [];
-    
+
     // Utilizar newCurrentsDemands como nuevo estado
     setDemands(newCurrentsDemands);
   };
 
   const renderIcon = (category) => {
-    return(
+    return (
       category === 'Web Design' ? '🎨' :
-      category === 'Translations' ? '🗨' :
-      category === 'MovieMakers' ? '🎥' :
-      category === 'Digital Marketing' ? '🌐' :
-      category === 'Developing' ? '💻' : '❓'
+        category === 'Translations' ? '🗨' :
+          category === 'MovieMakers' ? '🎥' :
+            category === 'Digital Marketing' ? '🌐' :
+              category === 'Developing' ? '💻' : '❓'
     );
   }
 
@@ -71,7 +71,7 @@ const DemandList = () => {
       </div>
     </div>
   );
-  
+
 };
 
 export default DemandList;

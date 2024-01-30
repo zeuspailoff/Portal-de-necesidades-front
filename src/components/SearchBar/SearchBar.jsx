@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './SearchBar.css';
 
 const SearchBar = ({ onSearch }) => {
@@ -6,7 +6,7 @@ const SearchBar = ({ onSearch }) => {
   const [estadoFilter, setEstadoFilter] = useState('');
   const [proposalsRange, setProposalsRange] = useState({ min: 0, max: 10 });
   const [puntuacionFilter, setPuntuacionFilter] = useState('');
-  const [categoriaFilter, setCategoriaFilter] = useState('');
+  const [categoriaFilter, setCategory] = useState('');
 
   const handleSearch = () => {
     onSearch({
@@ -64,13 +64,14 @@ const SearchBar = ({ onSearch }) => {
         </div>
 
         <div className='by_category_container'>
-          <label>Category</label> {/* Luego se cambiaría por un select cuando tengamos los datos del back */}
-          <input
-            type="text"
-            placeholder="Filter by category"
-            value={categoriaFilter}
-            onChange={(e) => setCategoriaFilter(e.target.value)}
-          />
+          <label>Category</label>
+          <select onChange={(e) => setCategory(e.target.value)}>
+            <option value="1">Web Design</option>
+            <option value="2">Translations</option>
+            <option value="3">Developing</option>
+            <option value="4">MovieMakers</option>
+            <option value="5">Digital Marketing</option>
+          </select>
           <button onClick={handleSearch}>Search</button>
         </div>
       </div>
@@ -79,4 +80,3 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
-// Más tarde hacer los cambios necesarios para que se ajuste al back
