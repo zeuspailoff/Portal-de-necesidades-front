@@ -1,0 +1,32 @@
+.demand_proposals_container {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px 0;
+    min-width: 400px;
+    width: 100%;
+    min-height: 200px;
+    height: fit-content;
+
+}
+
+.demand_proposals_id {
+    background-color: var(--color-darker_dirty_whitesmoke);
+    border-radius: 5px;
+    flex-grow: 1;
+    margin-bottom: 5px;
+    text-align: left;
+    padding: 20px 10px 5px 10px;
+}
+
+.demand_proposals_description {
+    background-color: var(--color-darker_dirty_whitesmoke);
+    border-radius: 5px;
+    flex-grow: 3;
+    text-align: left;
+    padding: 20px 10px 5px 10px;
+}
