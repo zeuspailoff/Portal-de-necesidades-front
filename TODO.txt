@@ -6,8 +6,6 @@
 
 ---------------------------------------------------------- front ---------------------
 
-- poner el host en el .env para mostrar imagenes en las proposal y demandas 
-
 - terminar fech de newProposal en demand.jsx
 
 - terminar votos de las proposal 

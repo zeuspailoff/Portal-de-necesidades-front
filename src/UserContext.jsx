@@ -6,7 +6,6 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('session')))
 
   const betterSetUser = (user) => {
-    console.log('estamos aki?');
     setUser(user)
     if (user) {
       localStorage.setItem('session', JSON.stringify(user))

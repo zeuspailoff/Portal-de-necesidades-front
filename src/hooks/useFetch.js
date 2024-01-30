@@ -11,7 +11,6 @@ export const useFetch = (url) => { //localhost:8080/demands
 export const useFetchPost = () => {
     const [user] = useUser()
 
-    console.log(">>>>>>>>", user.data.data.token)
     return async (url, body, method = null) => {
         const headers = {}
 
@@ -23,7 +22,6 @@ export const useFetchPost = () => {
             headers,
             body: body && (body instanceof FormData ? body : JSON.stringify(body))
         })
-        //console.log(body);
 
         return {
             data: await res.json(),
