@@ -12,8 +12,6 @@ const Login = () => {
   const [user, setUser] = useUser()
   const [error, setError] = useState()
 
-
-
   const handleForm = async (e) => {
     e.preventDefault();
     const body = { email, password };
@@ -22,7 +20,7 @@ const Login = () => {
       const loggedUser = await login(body);
 
       // console.log(loggedUser.data);
-      
+
       if (loggedUser.data.status === "OK") {
         setUser(loggedUser.data);
       } else {

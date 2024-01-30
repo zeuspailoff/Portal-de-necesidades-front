@@ -4,7 +4,7 @@ import Gallery from 'react-image-gallery';
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const FilePreview = ({ fileUrl, fileType }) => {
-    if (fileType === 'pdf') {
+    if (fileType == 'pdf') {
         return (
             <div>
                 <Document file={fileUrl} onLoadSuccess={({ numPages }) => console.log(numPages)}>
@@ -12,7 +12,7 @@ const FilePreview = ({ fileUrl, fileType }) => {
                 </Document>
             </div>
         );
-    } else if (fileType === 'doc' || fileType === 'docx') {
+    } else if (fileType == 'doc' || fileType === 'docx') {
         return (
             <div>
                 <p>❤️</p>

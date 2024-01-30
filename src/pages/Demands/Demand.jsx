@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useDemand } from "../../hooks/api";
 import Header from "../../components/Header/Header";
 import NewProposal from "../../components/Proposal/NewProposal";
+import Proposals from "../../components/Proposal/Proposals";
 import { FormattedDate } from "react-intl";
 import FilePreview from "../../components/FilePreview/FilePreview";
 
@@ -44,21 +45,17 @@ const Demand = () => {
           </div>
         </section>
       </div>
+      <div>
+        <section className='proposals'>
+          <h3>Proposals for this demand:</h3>
+          <Proposals />
+        </section>
+      </div>
 
       <div className='new_proposal_container'>
         <NewProposal />
       </div>
 
-      {/* <div>
-              <section className='proposals'>
-                  <h3>Proposals for this demand:</h3>
-                  {[PROPOSALS FOR THIS DEMAND].map((proposal) => (
-                    <div className='proposal_container' key={proposal.id}>
-                      <Proposal proposal={proposal} />
-                    </div>
-                  ))}
-              </section>
-            </div> */}
     </div>
   )
 

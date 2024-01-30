@@ -6,9 +6,9 @@
 
 ---------------------------------------------------------- front ---------------------
 
-- terminar fech de newProposal en demand.jsx
+- ------------------------------------------HECHO POR ABRAHAM Y MARTIN A FALTA DE CSS //terminar fech de newProposal en demand.jsx
 
-- terminar votos de las proposal 
+- terminar votos de las proposal (NECESITAMOS ARREGLAR EL BACK PRIMERO) 
 
 - hacer que el filtro funcione correctamente y ponerlo al principio de la pagina 
 
@@ -26,6 +26,9 @@
 
 Andrea -> implementar sendMail para el contacto o cambiar el sistema y solo mostrar los correos de cada uno 
 ---------------------------------------------------------------back----------------------
+- cuando haces una proposal no se guarda el id de la demanda arreglar
+
+- cuando pides las proposals por demand id devuelve la demanda arreglar 
 
 -añadir al back error usuario ya existe en el registro
 
