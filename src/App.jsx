@@ -15,7 +15,6 @@ import { Suspense } from 'react'
 import Loading from './components/Loading/Loading.jsx'
 import FloatingButton from './components/FloatingButton/FloatingButton.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import Topbar from './components/Topbar/Topbar.jsx'
 import Contact from './pages/Contact/Contact.jsx'
 import About from './pages/About/About.jsx'
 import Copyright from './pages/Copyright/Copyright.jsx'
@@ -37,12 +36,12 @@ function App() {
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/users/validate/:registrationcode' element={<UserValidate  />} />
-            <Route path='/contact' element={<Contact/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/copyright' element={<Copyright/>}/>
-            <Route path='/privacy' element={<Privacy/>}/>
-            <Route path='/terms' element={<Terms/>}/>
+            <Route path='/users/validate/:registrationcode' element={<UserValidate />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/copyright' element={<Copyright />} />
+            <Route path='/privacy' element={<Privacy />} />
+            <Route path='/terms' element={<Terms />} />
 
           </Routes>
           <FloatingButton />

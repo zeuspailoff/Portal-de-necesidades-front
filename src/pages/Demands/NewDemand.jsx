@@ -43,7 +43,7 @@ const NewDemand = () => {
   return (
     <div>
       <Header />
-        <h3 className='submit_title'>Submit a new demand</h3>
+      <h3 className='submit_title'>Submit a new demand</h3>
       <div className='submit_demand_container'>
 
         <h2 className='label_title'>Title:</h2>
@@ -82,7 +82,6 @@ const NewDemand = () => {
             name='files[]'
             onChange={(e) => {
               setFiles(Array.from(e.target.files))
-              console.log(Array.from(e.target.files))
             }
 
             }

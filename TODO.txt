@@ -3,11 +3,12 @@
 
 -programar idiomas 
 
+
+---------------------------------------------------------- front ---------------------
+
 - ------------------------------------------HECHO POR ABRAHAM Y MARTIN A FALTA DE CSS //terminar fech de newProposal en demand.jsx
 
 - terminar votos de las proposal (NECESITAMOS ARREGLAR EL BACK PRIMERO) 
-
-- hacer que el filtro funcione correctamente y ponerlo al principio de la pagina 
 
 - hacer la fech de user para mostrar toda la data en el profile
 
@@ -20,6 +21,7 @@
 - acabar css
 
 -terminar footer sin lorem ipsums y fotos de sreck 
+
 
 Andrea -> implementar sendMail para el contacto o cambiar el sistema y solo mostrar los correos de cada uno 
 ---------------------------------------------------------------back----------------------
@@ -44,9 +46,3 @@ Andrea -> implementar sendMail para el contacto o cambiar el sistema y solo most
 - poner los colores y efectos 
 
 
-ANDREA 25 y 26 enero
-- Footer con páginas correspondientes y css provisional
-- Página About
-- Página Contacto
-- Páginas legales
-- Retoque FAQs

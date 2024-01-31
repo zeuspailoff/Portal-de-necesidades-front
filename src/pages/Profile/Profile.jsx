@@ -7,7 +7,6 @@ const Profile = () => {
 
     const [user, setUser] = useUser();
     const userData = { ...user.data.data.user };
-    console.log(userData);
 
     return (
         <div>
@@ -46,7 +45,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='right_column'>
-                    <h3>Demands posted by user:</h3>
+                        <h3>Demands posted by user:</h3>
                         {userData.userDemands?.map(demand => (
                             <div className='demand_container' key={demand.id}>
                                 <h3>{demand.title}</h3>

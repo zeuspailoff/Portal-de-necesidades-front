@@ -6,9 +6,12 @@ import Proposals from "../../components/Proposal/Proposals";
 import { FormattedDate } from "react-intl";
 import FilePreview from "../../components/FilePreview/FilePreview";
 import './Demand.css';
+import { useUser } from "../../UserContext";
 
 const Demand = () => {
 
+  const [user] = useUser();
+  const userId = user.data.data.user.id;
   const { id } = useParams();
   const demand = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
@@ -19,20 +22,21 @@ const Demand = () => {
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
     const type = parts[parts.length - 1];
-    console.log(type);
+
 
     return type;
   }
-
-   //////// EDIT AND DELETE BUTTONS ////////
-   const testEditButton = () => {
+  //////// EDIT AND DELETE BUTTONS ////////
+  const testEditButton = () => {
     console.log('Edit demand');
-  }; 
-
+  };
   const deleteDemand = () => {
-    console.log('Delete demand', deleteDemandById());
-    navigate('/demands');
-    window.location.reload();
+
+    if (userId == demandData.userId) {
+      deleteDemandById(id);
+      navigate('/demands');
+      window.location.reload();
+    }
   };
   //////// EDIT AND DELETE BUTTONS ////////
 
@@ -61,10 +65,10 @@ const Demand = () => {
               </div>
             </div>
           </div>
-        <div className="edit_buttons_container">
-          <button className="edit_button button" onClick={testEditButton}>Edit demand</button>
-          <button className="delete_button button" onClick={deleteDemand}>Delete demand</button>
-        </div>
+          <div className="edit_buttons_container">
+            {userId == demandData.userId ? <button className="edit_button button" onClick={testEditButton}>Edit demand</button> : null}
+            {userId == demandData.userId ? <button className="delete_button button" onClick={deleteDemand}>Delete demand</button> : null}
+          </div>
         </section>
       </div>
       <div>
