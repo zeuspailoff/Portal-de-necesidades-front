@@ -1,0 +1,70 @@
+.contact-pic{
+    width: 55%;
+    margin-left: 10%;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    grid-gap: 5px; 
+    align-items: center; 
+    border: 1px solid var(--color-darker_dirty_whitesmoke);
+}
+
+.contact-name {
+    grid-column: span 2; 
+    margin-left: 10%;
+    padding-top: 2%;
+    text-decoration: 1px underline var(--color-darker_dirty_whitesmoke);
+    font-size: 2em;
+    
+}
+
+.contact-description {
+    margin-right: 25%;
+}
+
+.contact-link{
+    margin-right: 30%;
+    border: 1px solid var(--color-darker_dirty_whitesmoke);
+    background-color: var(--color-register_orange);
+    color: var(--color-darker_dirty_whitesmoke);
+    font-size: 18px;
+    padding: 2px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    border-radius: 10px;
+    width: 140px;
+    margin-top: 10px;
+}
+
+.contact-link:hover{
+    background-color: var(--color-darker_dirty_whitesmoke);
+    color: var(--color-register_orange);
+    border: 1px solid var(--color-register_orange);
+}
+
+h1.contact-intro{
+    margin-right: 10%;
+    text-shadow: 2px 2px 4px var(--color-register_orange);
+    font-style: italic;
+}
+.contact-intro{
+    margin-bottom: 10px;
+}
+
+@keyframes titleMovement {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .titleMovement {
+    animation: titleMovement 3s ease forwards;
+  }
+  
