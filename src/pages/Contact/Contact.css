@@ -1,0 +1,41 @@
+h1{
+    display: flex;
+    justify-content: center;
+    margin-left: 15%;
+    text-shadow: 2px 2px 4px var(--color-register_orange);
+    font-style: italic;
+}
+
+.contact-description{
+    letter-spacing: 5px;
+    margin-left: 40%;
+}
+form {
+    display: grid;
+    grid-template-rows: auto; 
+    gap: 10px; 
+}
+
+input, textarea, .contact-button {
+    margin: 10px;
+    padding: 10px;
+    width:200%; 
+    text-align: center;
+}
+
+
+@keyframes titleMovement {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .titleMovement {
+    animation: titleMovement 3s ease forwards;
+  }
+  

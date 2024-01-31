@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx'
-import Faqs from './pages/Faqs/Faqs.jsx'
+import Faqs from './pages/FAQs/FAQs.jsx'
 import LoginPage from './pages/LoginPage/LoginPage.jsx'
 import Register from './pages/Register/Register.jsx'
 import Demands from './pages/Demands/Demands.jsx'
@@ -15,6 +15,13 @@ import { Suspense } from 'react'
 import Loading from './components/Loading/Loading.jsx'
 import FloatingButton from './components/FloatingButton/FloatingButton.jsx'
 import Footer from './components/Footer/Footer.jsx'
+import Topbar from './components/Topbar/Topbar.jsx'
+import Contact from './pages/Contact/Contact.jsx'
+import About from './pages/About/About.jsx'
+import Copyright from './pages/Copyright/Copyright.jsx'
+import Privacy from './pages/Privacy/Privacy.jsx'
+import Terms from './pages/Terms/Terms.jsx'
+
 
 function App() {
   return (
@@ -31,6 +38,12 @@ function App() {
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/users/validate/:registrationcode' element={<UserValidate  />} />
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/copyright' element={<Copyright/>}/>
+            <Route path='/privacy' element={<Privacy/>}/>
+            <Route path='/terms' element={<Terms/>}/>
+
           </Routes>
           <FloatingButton />
           <Footer />
