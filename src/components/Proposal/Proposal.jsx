@@ -1,8 +1,6 @@
 import './Proposal.css';
 import Rating from './Rating';
 
-
-
 const Proposal = ({proposal}) => {
     return (
         <div className='proposal_card'>

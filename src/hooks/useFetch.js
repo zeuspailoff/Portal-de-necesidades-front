@@ -32,4 +32,23 @@ export const useFetchPost = () => {
     }
 }
 
+export const useFetchDelete = () => {
+    const [user] = useUser();
+
+    return async (url) => {
+        const headers = {};
+        if (user?.data?.data?.token) headers.auth_token = user.data.data.token;
+
+        const res = await fetch(url, {
+            method: 'DELETE',
+            headers,
+        });
+
+        return {
+            data: await res.json(),
+            error: res.ok ? null : 'Hubo un error en la solicitud de eliminación.',
+        };
+    };
+};
+
 export default useFetch

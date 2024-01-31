@@ -1,4 +1,4 @@
-import { useFetch, useFetchPost } from "./useFetch";
+import { useFetch, useFetchPost, useFetchDelete } from "./useFetch";
 
 const apiHost = 'http://localhost:8080/';
 
@@ -8,7 +8,13 @@ export const useDemandsAlls = () => useFetch(apiHost + 'demands')
 export const useDemands = (query) => useFetch('demands?' + new URLSearchParams(query).toString())
 export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 export const useProposalByDemands = (id) => useFetch(apiHost + `demands/${id}/proposals`)
-export const useDeleteDemands = (id) => useFetchPost(apiHost + `demands/${id}`)
+/* export const useDeleteDemands = (id) => useFetchPost(apiHost + `demands/${id}`) */
+/* export const useDeleteDemands = (id) => useFetchDelete(apiHost + `demands/${id}`) */
+export const useDeleteDemands = (id) => {
+  const deleteUrl = apiHost + `demands/${id}`;
+  const deleteDemand = useFetchDelete();
+  return () => deleteDemand(deleteUrl);
+};
 export const useNewDemands = (fd) => useFetchPost(apiHost + `demands`, fd)
 //----------------------------------------------------proposals-------------------------------
 export const useNewProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
