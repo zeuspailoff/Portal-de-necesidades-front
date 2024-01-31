@@ -9,7 +9,7 @@ form {
     background-color: var(--color-dirty_whitesmoke);
     padding: 20px;
     font-size: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid black;
     border-radius: 50px;
     margin-right: 5px;
     width: 500px;
@@ -19,15 +19,13 @@ form {
   button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: var(--color-dirty_whitesmoke);
     color: var(--color-dark_grey);
-    border: 1px solid transparent;
     border-radius: 50px;
-    cursor: pointer;
     height: 60px;
   }
   
   button:hover {
     background-color: var(--color-login_green);
+    color: var(--color-dark_grey);
   }
   

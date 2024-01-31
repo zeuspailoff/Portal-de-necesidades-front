@@ -1,0 +1,7 @@
+.floating-button {
+    background-color: var(--color-dirty_whitesmoke);
+    padding: 25px;
+    height: fit-content;
+    border: 3px solid var(--color-blue_button);
+    border-radius: 50px;
+}

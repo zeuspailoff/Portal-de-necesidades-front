@@ -1,10 +1,10 @@
 .new_proposal_wrapper {
     border-radius: 10px;
-    padding: 30px;
-    margin: 40px 0;
+    padding: 20px;
+    margin: 40px 20px;
     color: black;
-    background-color: grey;
-    border: 1px solid var(--color-login_green);
+    background-color: var(--color-dirty_whitesmoke);
+    border: 3px solid var(--color-login_green);
 
     display: flex;
     flex-direction: column;
@@ -24,6 +24,10 @@
     margin: 0;
 }
 
+.submit_new_proposal_form textarea {
+    background-color: whitesmoke;
+}
+
 .new_proposal_description {
     background-color: var(--color-dirty_whitesmoke);
     border-radius: 5px;
@@ -31,6 +35,7 @@
     margin: 0 0 20px;
     width: 500px;
     height: 250px;
+    color: black;
 }
 
 .new_demand_description {

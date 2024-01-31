@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './SearchBar.css';
 
 const SearchBar = ({ onSearch }) => {
@@ -6,7 +6,7 @@ const SearchBar = ({ onSearch }) => {
   const [estadoFilter, setEstadoFilter] = useState('');
   const [proposalsRange, setProposalsRange] = useState({ min: 0, max: 10 });
   const [puntuacionFilter, setPuntuacionFilter] = useState('');
-  const [categoriaFilter, setCategoriaFilter] = useState('');
+  const [categoriaFilter, setCategory] = useState('');
 
   const handleSearch = () => {
     onSearch({
@@ -25,20 +25,20 @@ const SearchBar = ({ onSearch }) => {
       <div>
         <div>
           <input
-            className='search_demands'
+            className='search_demands filter'
             type="text"
             placeholder="Search by title..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select className='states_filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
+          <select className='states_filter filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
             <option value="">All states</option>
             <option value="activo">Active</option>
             <option value="no activo">Inactive</option>
           </select>
         </div>
 
-        <div className='range_container'>
+        <div className='range_container filter'>
           <label>Proposals range:</label>
           <input
             type="range"
@@ -51,7 +51,7 @@ const SearchBar = ({ onSearch }) => {
           <span>{proposalsRange.min}</span>
         </div>
 
-        <div className='score_container'>
+        <div className='score_container filter'>
           <label>Score ⭐</label>
           <input
             type="number"
@@ -63,20 +63,20 @@ const SearchBar = ({ onSearch }) => {
           />
         </div>
 
-        <div className='by_category_container'>
-          <label>Category</label> {/* Luego se cambiaría por un select cuando tengamos los datos del back */}
-          <input
-            type="text"
-            placeholder="Filter by category"
-            value={categoriaFilter}
-            onChange={(e) => setCategoriaFilter(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
+        <div className='by_category_container filter'>
+          <label>Category</label>
+          <select onChange={(e) => setCategory(e.target.value)}>
+            <option value="1">Web Design</option>
+            <option value="2">Translations</option>
+            <option value="3">Developing</option>
+            <option value="4">MovieMakers</option>
+            <option value="5">Digital Marketing</option>
+          </select>
         </div>
       </div>
+          <button className='search_button' onClick={handleSearch}>Search</button>
     </div>
   );
 };
 
 export default SearchBar;
-// Más tarde hacer los cambios necesarios para que se ajuste al back

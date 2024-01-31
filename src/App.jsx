@@ -8,6 +8,7 @@ import Demands from './pages/Demands/Demands.jsx'
 import Demand from './pages/Demands/Demand.jsx'
 import NewDemand from './pages/Demands/NewDemand.jsx'
 import Profile from './pages/Profile/Profile.jsx'
+import UserValidate from './pages/UserValidate/UserValidate.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import GenericError from './components/GenericError.jsx'
 import { Suspense } from 'react'
@@ -21,12 +22,12 @@ import Copyright from './pages/Copyright/Copyright.jsx'
 import Privacy from './pages/Privacy/Privacy.jsx'
 import Terms from './pages/Terms/Terms.jsx'
 
+
 function App() {
   return (
     <>
       <ErrorBoundary key={location.key} fallback={<GenericError />}>
         <Suspense fallback={<Loading />}>
-          <Topbar />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<LoginPage />} />
@@ -36,11 +37,13 @@ function App() {
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/users/validate/:registrationcode' element={<UserValidate  />} />
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/copyright' element={<Copyright/>}/>
             <Route path='/privacy' element={<Privacy/>}/>
             <Route path='/terms' element={<Terms/>}/>
+
           </Routes>
           <FloatingButton />
           <Footer />

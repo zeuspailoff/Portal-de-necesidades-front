@@ -4,12 +4,9 @@
     height: 70px;
     background-color: var(--color-dirty_whitesmoke);
     color: grey;
-    margin-bottom: 20px;
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    align-self: flex-end;
 }
 
 .profile_link, .profile_link:hover{

@@ -1,10 +1,12 @@
 import Header from "../../components/Header/Header"
-import { Navigate } from 'react-router-dom'
+import {Link,  Navigate } from 'react-router-dom'
 import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
+import { useUser } from "../../UserContext"
 import './SignUp.css';
 
 const SignUp = () => {
+  const [url] = useState(window.location.origin)
   const [name, setName] = useState('kevin')
   const [lastname, setLastName] = useState('ghio-traver')
   const [username, setUsername] = useState('keviinmiichael')
@@ -14,8 +16,9 @@ const SignUp = () => {
   const [password, setPassword] = useState('Asd123,.')
   const [phone, setPhone] = useState('654789123')
   const {register} = useUserActions();
-  const [error, setError] = useState()
-
+  const [user] = useUser()
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState(false);
   const handleForm = async (e) => {
     e.preventDefault()
     const body = {
@@ -26,16 +29,32 @@ const SignUp = () => {
       biography,
       phone,
       birthdate,
-      lastname
+      lastname,
+      url
     }
     const newUser = await register(body)
     console.log(newUser);
-    if (newUser.status === 200) return <Navigate to="/" />
-    setError(newUser)
+    if (newUser.status === 200) {
+      setSuccess(true)
+      setName('')
+      setLastName('')
+      setUsername('')
+      setEmail('')
+      setBiography('')
+      setBirthdate('')
+      setPassword('')
+      setPhone('')
+    }else{
+      setSuccess(false)
+      setError(newUser)
+    }
   }
+
+  if (user) return <Navigate to="/" />
 
   return (
     <div className="fields_container signup_fields_container">
+    {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
       <h3>Register:</h3>
       <form onSubmit={handleForm}>
         <input
@@ -101,10 +120,10 @@ const SignUp = () => {
           onChange={e => setBiography(e.target.value)}
         />
         <button className="login_register_button">Sign Up</button>
-        {error ? <p>{error.error.message}</p> : null}
+        {error && <p>{error.error.message}</p>}
       </form>
 
-      <h4>Already have an account? <a href="/">Login</a></h4>
+      <h4>Already have an account? <Link to="/login">Login</Link></h4>
       </div>
   )
 

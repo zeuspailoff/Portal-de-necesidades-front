@@ -1,42 +1,40 @@
 import { useState } from "react"
 import { useUser } from "../../UserContext"
-import { Navigate } from "react-router-dom"
 import './NewProposal.css';
-// import { useUserActions } from "../../hooks/api"
+import { useUserActions } from "../../hooks/api"
+import { useParams } from "react-router";
 const NewProposal = () => {
 
   const [user] = useUser()
   const [description, setDescription] = useState('')
   const [error, setError] = useState('')
+  const { id } = useParams()
+  const [files, setFiles] = useState('')
+  const { newProposal } = useUserActions();
 
-/*   const handlePhoto = e => {
-    const photo = e.target.files[0]
+  const handleForm = async (e) => {
+    e.preventDefault();
     const fd = new FormData()
-    fd.append('photo', photo)
-    useUserActions.addPhoto(entry.id, fd)
-      .then(res => {
-        setPhotos([...photos, res.data.photo])
-      })
-  } */
-
-  const handleForm = async (event) => {
-    event.preventDefault()
-    const res = await fetch('', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ description })
-    })
-    const response = await res.json()
-
-    if (res.ok) {
-      setDescription(response)
-    } else {
-      setError(response)
+    fd.append('description', description)
+    if (files) {
+      files.forEach(f => {
+        fd.append('files', f)
+      });
     }
-  }
 
+    console.log(fd)
+    console.log(id)
+    const response = await newProposal(id, fd)
+
+    if (response.status == 200) {
+      setDescription('')
+      setFiles('')
+      window.location.reload();
+    } else {
+      setError(error)
+    }
+
+  }
 
   return (
     <div className="new_proposal_wrapper">
@@ -50,15 +48,21 @@ const NewProposal = () => {
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
-        <input className="new_demand_input_files" type="file" name='files[]'/>
+        <input
+          className='input_files'
+          type="file"
+          name='files[]'
+          onChange={(e) => {
+            setFiles(Array.from(e.target.files))
+            console.log(Array.from(e.target.files))
+          }
 
+          }
+          multiple={true}
+        />
         <button className="button">Send</button>
         {error?.error &&
-          <p className="error">Se ha producido un error: {error.error}</p>
+          <p className="error">An error has occurred: {error.error}</p>
         }
       </form>
     </div>

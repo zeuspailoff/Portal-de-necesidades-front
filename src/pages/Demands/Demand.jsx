@@ -1,107 +1,55 @@
-import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
+import { useDemand } from "../../hooks/api";
 import Header from "../../components/Header/Header";
-import Proposal from '../../components/Proposal/Proposal';
-import NewProposal from '../../components/Proposal/NewProposal';
+import NewProposal from "../../components/Proposal/NewProposal";
+import Proposals from "../../components/Proposal/Proposals";
+import { FormattedDate } from "react-intl";
+import FilePreview from "../../components/FilePreview/FilePreview";
 import './Demand.css';
 
-const Demand = (props) => {
+const Demand = () => {
 
-  /* Test data, please make sure to delete after use */
-  const getDemandById = { // Simulates fetch getDemandById(props.demand_id)
-    demandId: 1,
-    demandTitle: 'Test demand #1',
-    demandDescription: 'This is the #1 demand description, and it is very very good',
-    demandFiles: {
-      file1: '/shrek_whet.JPG',
-      file2: '/shrek_whet.JPG',
-      file3: '/shrek_whet.JPG'
-    }
-  };
+  const { id } = useParams();
+  const demand = useDemand(id);
 
-  const getProposalsByDemandId = [ // Simulates fetch getProposalsByDemandId(props.demand_id)
-  {
-    id: 1,
-    username: 'John Doe',
-    userAvatar: 'https://avatars.githubusercontent.com/u/123456',
-    votesAvg: 4,
-    voteCounts: 2,
-    description: 'Proposal Description',
-    is_correct: 0,
-    files : [
-      {
-        id: 1,
-        src: 'http://localhost:3000/files/file1.pdf'
-      },
-      {
-        id: 2,
-        src: 'http://localhost:3000/files/file2.pdf'
-      }
-    ]
-  },
-  {
-    id: 2,
-    username: 'John Doe',
-    userAvatar: 'https://avatars.githubusercontent.com/u/123456',
-    votesAvg: 4,
-    voteCounts: 2,
-    description: 'Proposal Description',
-    is_correct: 0,
-    files : [
-      {
-        id: 1,
-        src: 'http://localhost:3000/files/file1.pdf'
-      },
-      {
-        id: 2,
-        src: 'http://localhost:3000/files/file2.pdf'
-      }
-    ]
-  },
-  {
-    id: 3,
-    username: 'John Doe',
-    userAvatar: 'https://avatars.githubusercontent.com/u/123456',
-    votesAvg: 4,
-    voteCounts: 2,
-    description: 'Proposal Description',
-    is_correct: 0,
-    files : [
-      {
-        id: 1,
-        src: 'http://localhost:3000/files/file1.pdf'
-      },
-      {
-        id: 2,
-        src: 'http://localhost:3000/files/file2.pdf'
-      }
-    ]
+  const getFileExtension = (filename) => {
+    const parts = filename.split('.');
+    const type = parts[parts.length - 1];
+    console.log(type);
+
+    return type;
   }
-  ];
-  /* Test data, please make sure to delete after use */
-
-  const [proposalsFetchedForThisDemand] = useState(getProposalsByDemandId);
 
   return (
     <div>
       <Header />
 
       <div className='demand_container'>
-        <h2>{getDemandById.demandTitle}</h2>
+        <h2>#{id} {demand.data.demandTitle}</h2>
+        <h4>Created at: <FormattedDate value={demand.data.demandCreatedAt} day="2-digit" month="long" /></h4>
         <section className='description'>
           <div>
             <div className='description_wrapper'>
               <h3>Description:</h3>
-              <p>{getDemandById.demandDescription}</p>
+              <p>{demand.data.demandDescription}</p>
             </div>
-            <div className='description_wrapper'>
+            <div className='files_wrapper'>
               <h3>Files:</h3>
               <div className='demand_files'>
-                {Object.values(getDemandById.demandFiles).map((file, key) => (
-                  <img src={file} alt={'file_' + key} key={key} />
+                {Object.values(demand.data.demandFiles).map((file, key) => (
+                  <div key={key}>
+                    <FilePreview fileUrl={file.fileSrc} fileType={getFileExtension(file.fileSrc)} />
+                  </div>
                 ))}
               </div>
             </div>
           </div>
+        </section>
+      </div>
+      <div>
+        <section className='proposals_wrapper'>
+          <h2>Proposals for this demand:</h2>
+          <Proposals />
         </section>
       </div>
 
@@ -109,18 +57,8 @@ const Demand = (props) => {
         <NewProposal />
       </div>
 
-      <div>
-        <section className='proposals'>
-            <h3>Proposals for this demand:</h3>
-            {proposalsFetchedForThisDemand.map((proposal) => (
-              <div className='proposal_container' key={proposal.id}>
-                <Proposal proposal={proposal} />
-              </div>
-            ))}
-        </section>
-      </div>
     </div>
-  );
-};
+  )
 
+}
 export default Demand;

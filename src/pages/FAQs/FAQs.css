@@ -20,25 +20,37 @@
 }
 
 .clients, .freelancers {
+    color: black;
+    background-color: var(--color-dirty_whitesmoke);
+    border-radius: 20px;
     padding: 40px;
-    
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
+    margin: 20px 10px;
     height: 700px;
     max-height: 700px;
     overflow-y: scroll;
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+}
+
+.clients::-webkit-scrollbar, .freelancers::-webkit-scrollbar {
+    width: 12px;
+}
+  
+.clients::-webkit-scrollbar-thumb, .freelancers::-webkit-scrollbar-thumb {
+    background-color: transparent;
 }
 
 .clients {
-    background-color: var(--color-login_green);
+    border: 5px solid var(--color-login_green); 
 }
 
 .freelancers {
-    background-color: var(--color-register_orange);
+    border: 5px solid var(--color-register_orange); 
 }
 
 .clients h3, .freelancers h3 {
