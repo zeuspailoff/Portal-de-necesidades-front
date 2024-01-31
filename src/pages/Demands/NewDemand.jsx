@@ -43,8 +43,8 @@ const NewDemand = () => {
   return (
     <div>
       <Header />
-      <div className='demand_container'>
         <h3 className='submit_title'>Submit a new demand</h3>
+      <div className='submit_demand_container'>
 
         <h2 className='label_title'>Title:</h2>
         <form className='new_demand_form' onSubmit={handleForm}>
@@ -67,7 +67,8 @@ const NewDemand = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          <select onChange={(e) => setCategory(e.target.value)}>
+          <h2 className='label_select'>Category:</h2>
+          <select className='category_select' onChange={(e) => setCategory(e.target.value)}>
             <option value="1">Web Design</option>
             <option value="2">Translations</option>
             <option value="3">Developing</option>

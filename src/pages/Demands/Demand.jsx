@@ -5,6 +5,7 @@ import NewProposal from "../../components/Proposal/NewProposal";
 import Proposals from "../../components/Proposal/Proposals";
 import { FormattedDate } from "react-intl";
 import FilePreview from "../../components/FilePreview/FilePreview";
+import './Demand.css';
 
 const Demand = () => {
 
@@ -25,7 +26,7 @@ const Demand = () => {
 
       <div className='demand_container'>
         <h2>#{id} {demand.data.demandTitle}</h2>
-        <h3><FormattedDate value={demand.data.demandCreatedAt} day="2-digit" month="long" /></h3>
+        <h4>Created at: <FormattedDate value={demand.data.demandCreatedAt} day="2-digit" month="long" /></h4>
         <section className='description'>
           <div>
             <div className='description_wrapper'>
@@ -46,8 +47,8 @@ const Demand = () => {
         </section>
       </div>
       <div>
-        <section className='proposals'>
-          <h3>Proposals for this demand:</h3>
+        <section className='proposals_wrapper'>
+          <h2>Proposals for this demand:</h2>
           <Proposals />
         </section>
       </div>

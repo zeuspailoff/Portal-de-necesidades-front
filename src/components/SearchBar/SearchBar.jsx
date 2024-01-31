@@ -25,20 +25,20 @@ const SearchBar = ({ onSearch }) => {
       <div>
         <div>
           <input
-            className='search_demands'
+            className='search_demands filter'
             type="text"
             placeholder="Search by title..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select className='states_filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
+          <select className='states_filter filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
             <option value="">All states</option>
             <option value="activo">Active</option>
             <option value="no activo">Inactive</option>
           </select>
         </div>
 
-        <div className='range_container'>
+        <div className='range_container filter'>
           <label>Proposals range:</label>
           <input
             type="range"
@@ -51,7 +51,7 @@ const SearchBar = ({ onSearch }) => {
           <span>{proposalsRange.min}</span>
         </div>
 
-        <div className='score_container'>
+        <div className='score_container filter'>
           <label>Score ⭐</label>
           <input
             type="number"
@@ -63,7 +63,7 @@ const SearchBar = ({ onSearch }) => {
           />
         </div>
 
-        <div className='by_category_container'>
+        <div className='by_category_container filter'>
           <label>Category</label>
           <select onChange={(e) => setCategory(e.target.value)}>
             <option value="1">Web Design</option>
@@ -72,9 +72,9 @@ const SearchBar = ({ onSearch }) => {
             <option value="4">MovieMakers</option>
             <option value="5">Digital Marketing</option>
           </select>
-          <button onClick={handleSearch}>Search</button>
         </div>
       </div>
+          <button className='search_button' onClick={handleSearch}>Search</button>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
-//import { useDataUser } from '../../hooks/api';
 import './Profile.css';
 
 const Profile = () => {
 
     const [user, setUser] = useUser();
     const userData = { ...user.data.data.user };
+    console.log(userData);
 
     return (
         <div>
@@ -18,7 +18,9 @@ const Profile = () => {
                     <div className='user_data'>
                         <img src={userData.userProfileImg ?? null} alt={`User ${userData.username} profile mosaic`} />
                         <ul>
-                            <li>{userData.username}</li>
+                            <li className='bold'>Username:</li>
+                            <li className='separate'>{userData.username}</li>
+                            <li className='bold'>Created at:</li>
                             <li><FormattedDate value={userData.created_at} day="2-digit" month="long" /></li>
                         </ul>
                     </div>
@@ -44,6 +46,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='right_column'>
+                    <h3>Demands posted by user:</h3>
                         {userData.userDemands?.map(demand => (
                             <div className='demand_container' key={demand.id}>
                                 <h3>{demand.title}</h3>

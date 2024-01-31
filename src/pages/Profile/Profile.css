@@ -1,6 +1,7 @@
 .profile_page {
-    color: black;
-    margin: 40px 0;
+    color: var(--color-dark_grey);
+    margin: 30px 0;
+    min-height: 80vh;
 
     display: flex;
     flex-direction: column;
@@ -9,9 +10,15 @@
 .profile_title {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 20px;
-    color: whitesmoke;
+    height: 70px;
+    font-weight: 200;
+    margin-bottom: 30px;
+    color: var(--color-dark_grey);
+    background-color: var(--color-darker_dirty_whitesmoke);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .user_data_row {
@@ -21,40 +28,63 @@
 }
 
 .user_data {
+    border: 1px solid black;
     border-radius: 5px;
     display: flex;
     background-color: var(--color-dirty_whitesmoke);
     color: black;
+    margin: 10px;
+    height: fit-content;
+}
 
-    margin: 5px;
+.user_data img {
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+    background-color: var(--color-darker_dirty_whitesmoke);
 }
 
 .user_data ul {
     align-self: center;
     justify-self: center;
+    padding: 10px 20px 20px 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.separate  {
+    margin-bottom: 15px;
 }
 
 .user_description {
+    border: 1px solid black;
     border-radius: 5px;
     background-color: var(--color-dirty_whitesmoke);
     color: black;
     width: 400px;
+    height: fit-content;
     flex-grow: 2;
 
-    margin: 5px;
-    justify-self: center;
+    margin: 10px;
     text-align: center;
 }
 
-.user_description h3, .user_description p {
+.user_description h3 {
     background-color: var(--color-darker_dirty_whitesmoke);
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-.user_data_row img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    padding: 20px;
+.user_description p {
+    padding-bottom: 40px;
 }
 
 .user_data_row ul {
@@ -101,6 +131,8 @@
     border-radius: 5px;
     background-color: var(--color-dirty_whitesmoke);
     color: black;
+    margin: 10px;
+    padding: 10px;
 
     display: flex;
     flex-direction: column;

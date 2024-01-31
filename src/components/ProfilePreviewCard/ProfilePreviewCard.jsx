@@ -4,7 +4,8 @@ import { useUser } from '../../UserContext';
 
 const ProfilePreviewCard = () => {
   const [user, setUser] = useUser();
-  const userData = user?.data || {};
+  const userData = user?.data.data.user || {};
+  console.log(userData);
 
   return (
     <div className='profile_preview_card'>

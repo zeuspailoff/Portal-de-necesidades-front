@@ -22,7 +22,7 @@ function App() {
     <>
       <ErrorBoundary key={location.key} fallback={<GenericError />}>
         <Suspense fallback={<Loading />}>
-          <Topbar />
+          {/* <Topbar /> */}
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<LoginPage />} />

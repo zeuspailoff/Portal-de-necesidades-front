@@ -33,10 +33,10 @@ const DemandList = () => {
   const renderIcon = (category) => {
     return (
       category === 'Web Design' ? '🎨' :
-        category === 'Translations' ? '🗨' :
-          category === 'MovieMakers' ? '🎥' :
-            category === 'Digital Marketing' ? '🌐' :
-              category === 'Developing' ? '💻' : '❓'
+      category === 'Translations' ? '🗨' :
+      category === 'MovieMakers' ? '🎥' :
+      category === 'Digital Marketing' ? '🌐' :
+      category === 'Developing' ? '💻' : '❓'
     );
   }
 
