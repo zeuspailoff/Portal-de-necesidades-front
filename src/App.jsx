@@ -15,14 +15,12 @@ import { Suspense } from 'react'
 import Loading from './components/Loading/Loading.jsx'
 import FloatingButton from './components/FloatingButton/FloatingButton.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import Topbar from './components/Topbar/Topbar.jsx'
 
 function App() {
   return (
     <>
       <ErrorBoundary key={location.key} fallback={<GenericError />}>
         <Suspense fallback={<Loading />}>
-          {/* <Topbar /> */}
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<LoginPage />} />
