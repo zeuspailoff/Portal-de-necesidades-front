@@ -25,6 +25,8 @@ const Demand = () => {
 
     return type;
   }
+
+
   //////// EDIT AND DELETE BUTTONS ////////
   const testEditButton = () => {
     console.log('Edit demand');
@@ -38,7 +40,7 @@ const Demand = () => {
     }
   };
   //////// EDIT AND DELETE BUTTONS ////////
-
+  console.log(defaultStyles);
 
   return (
     <div>
@@ -57,8 +59,19 @@ const Demand = () => {
               <h3>Files:</h3>
               <div className='demand_files'>
                 {demandData.demandFiles ? Object.values(demandData.demandFiles).map((file, key) => (
-                  <div key={key} >
-                    <a href={"http://localhost:8080/" +file.fileSrc} download target="_blank"> <FileIcon extension={getFileExtension(file.fileSrc)}  type="image" /></a>
+                  <div key={key} className="fileIcon" >
+                    <a
+                      href={"http://localhost:8080/" + file.fileSrc}
+                      download
+                      target="_blank" rel="noreferrer"
+                    >
+                      <FileIcon
+                        extension={getFileExtension(file.fileSrc)}
+                        style={{ width: '100px', height: '100px' }}
+                        {...defaultStyles[getFileExtension(file.fileSrc)]}
+                      />
+                    </a>
+
                   </div>
                 )) : <p>We have no files to show you.</p>}
               </div>
