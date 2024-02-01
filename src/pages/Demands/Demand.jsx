@@ -57,11 +57,11 @@ const Demand = () => {
             <div className='files_wrapper'>
               <h3>Files:</h3>
               <div className='demand_files'>
-                {Object.values(demandData.demandFiles).map((file, key) => (
+                {demandData.demandFiles ? Object.values(demandData.demandFiles).map((file, key) => (
                   <div key={key}>
                     <FilePreview fileUrl={file.fileSrc} fileType={getFileExtension(file.fileSrc)} />
                   </div>
-                ))}
+                )) : <p>We have no files to show you.</p>}
               </div>
             </div>
           </div>

@@ -30,9 +30,8 @@ export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `proposals
 
 export const useUserActions = () => {
   const fetchPost = useFetchPost()
-  const fetch = useFetch()
   return {
-    validate: (registrationcode) => fetch(apiHost + `users/validate/${registrationcode}`),
+    validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
     dataUser: (id) => fetchPost(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
     login: (body) => fetchPost(apiHost + 'users/login', body),

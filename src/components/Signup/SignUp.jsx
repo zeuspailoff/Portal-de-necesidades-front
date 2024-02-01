@@ -1,5 +1,4 @@
-import Header from "../../components/Header/Header"
-import {Link,  Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
 import { useUser } from "../../UserContext"
@@ -15,7 +14,8 @@ const SignUp = () => {
   const [birthdate, setBirthdate] = useState('1993-01-01')
   const [password, setPassword] = useState('Asd123,.')
   const [phone, setPhone] = useState('654789123')
-  const {register} = useUserActions();
+  const { register } = useUserActions();
+  const navigate = useNavigate()
   const [user] = useUser()
   const [error, setError] = useState();
   const [success, setSuccess] = useState(false);
@@ -44,7 +44,8 @@ const SignUp = () => {
       setBirthdate('')
       setPassword('')
       setPhone('')
-    }else{
+      navigate('/')
+    } else {
       setSuccess(false)
       setError(newUser)
     }
@@ -54,7 +55,7 @@ const SignUp = () => {
 
   return (
     <div className="fields_container signup_fields_container">
-    {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
+      {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
       <h3>Register:</h3>
       <form onSubmit={handleForm}>
         <input
@@ -103,7 +104,7 @@ const SignUp = () => {
           value={birthdate}
           onChange={e => setBirthdate(e.target.value)}
         />
-         <input
+        <input
           className="input_field"
           name="phone"
           placeholder="phone"
@@ -124,8 +125,8 @@ const SignUp = () => {
       </form>
 
       <h4>Already have an account? <Link to="/login">Login</Link></h4>
-      </div>
+    </div>
   )
 
-  }
+}
 export default SignUp;
