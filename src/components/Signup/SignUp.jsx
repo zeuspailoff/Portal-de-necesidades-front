@@ -33,7 +33,6 @@ const SignUp = () => {
       url
     }
     const newUser = await register(body)
-    console.log(newUser);
     if (newUser.status === 200) {
       setSuccess(true)
       setName('')

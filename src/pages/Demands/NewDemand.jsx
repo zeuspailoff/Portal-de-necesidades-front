@@ -27,7 +27,6 @@ const NewDemand = () => {
     });
 
     const response = await newDemand(fd);
-    console.log(response);
     try {
 
       if (response.data.status === 200) {

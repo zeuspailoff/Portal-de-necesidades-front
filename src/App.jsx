@@ -42,7 +42,6 @@ function App() {
             <Route path='/copyright' element={<Copyright />} />
             <Route path='/privacy' element={<Privacy />} />
             <Route path='/terms' element={<Terms />} />
-
           </Routes>
           <FloatingButton />
           <Footer />

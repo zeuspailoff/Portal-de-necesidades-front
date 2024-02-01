@@ -5,7 +5,7 @@ import { FormattedDate } from "react-intl";
 import Header from "../../components/Header/Header";
 import NewProposal from "../../components/Proposal/NewProposal";
 import Proposals from "../../components/Proposal/Proposals";
-import FilePreview from "../../components/FilePreview/FilePreview";
+import { FileIcon, defaultStyles } from 'react-file-icon';
 import './Demand.css';
 
 const Demand = () => {
@@ -16,13 +16,12 @@ const Demand = () => {
   const demand = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
-
+  console.log(demand.data.demandFiles[0].fileSrc);
   const demandData = demand.data;
 
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
     const type = parts[parts.length - 1];
-
 
     return type;
   }
@@ -58,8 +57,8 @@ const Demand = () => {
               <h3>Files:</h3>
               <div className='demand_files'>
                 {demandData.demandFiles ? Object.values(demandData.demandFiles).map((file, key) => (
-                  <div key={key}>
-                    <FilePreview fileUrl={file.fileSrc} fileType={getFileExtension(file.fileSrc)} />
+                  <div key={key} >
+                    <a href={"http://localhost:8080/" +file.fileSrc} download target="_blank"> <FileIcon extension={getFileExtension(file.fileSrc)}  type="image" /></a>
                   </div>
                 )) : <p>We have no files to show you.</p>}
               </div>
