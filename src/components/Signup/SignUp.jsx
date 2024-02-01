@@ -17,7 +17,7 @@ const SignUp = () => {
   const { register } = useUserActions();
   const navigate = useNavigate()
   const [user] = useUser()
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const handleForm = async (e) => {
     e.preventDefault()
@@ -32,8 +32,9 @@ const SignUp = () => {
       lastname,
       url
     }
-    const newUser = await register(body)
-    if (newUser.status === 200) {
+    const { data } = await register(body)
+    if (data.status === 200) {
+      console.log("asdasd");
       setSuccess(true)
       setName('')
       setLastName('')
@@ -46,7 +47,7 @@ const SignUp = () => {
       navigate('/')
     } else {
       setSuccess(false)
-      setError(newUser)
+      setError(data.error.message)
     }
   }
 
@@ -120,7 +121,7 @@ const SignUp = () => {
           onChange={e => setBiography(e.target.value)}
         />
         <button className="login_register_button">Sign Up</button>
-        {error && <p>{error.error.message}</p>}
+        {error ? <p>{error}</p> : null}
       </form>
 
       <h4>Already have an account? <Link to="/login">Login</Link></h4>

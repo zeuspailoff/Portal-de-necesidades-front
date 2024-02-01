@@ -11,12 +11,11 @@ import './Demand.css';
 const Demand = () => {
 
   const [user] = useUser();
-  const userId = user.data.data.user.id;
+  const userId = user?.data.data.user.id;
   const { id } = useParams();
   const demand = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
-  console.log(demand.data.demandFiles[0].fileSrc);
   const demandData = demand.data;
 
   const getFileExtension = (filename) => {
@@ -40,7 +39,6 @@ const Demand = () => {
     }
   };
   //////// EDIT AND DELETE BUTTONS ////////
-  console.log(defaultStyles);
 
   return (
     <div>
@@ -83,16 +81,21 @@ const Demand = () => {
           </div>
         </section>
       </div>
-      <div>
-        <section className='proposals_wrapper'>
-          <h2>Proposals for this demand:</h2>
-          <Proposals />
-        </section>
-      </div>
+      {user &&
+        <div>
+          <div>
+            <section className='proposals_wrapper'>
+              <h2>Proposals for this demand:</h2>
+              <Proposals />
+            </section>
+          </div>
 
-      <div className='new_proposal_container'>
-        <NewProposal />
-      </div>
+          <div className='new_proposal_container'>
+            <NewProposal />
+          </div>
+        </div>
+
+      }
 
     </div>
   )
