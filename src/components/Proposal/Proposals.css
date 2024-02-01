@@ -1,3 +1,13 @@
+.proposal_card {
+    border: 1px solid black;
+    padding: 40px 20px;
+    margin: 20px;
+}
+
+.proposal_card ul {
+    list-style-type: none;
+}
+
 .demand_proposals_container {
     background-color: whitesmoke;
     border-radius: 10px;

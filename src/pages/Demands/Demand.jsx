@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useDemand, useDeleteDemands } from "../../hooks/api";
+import { useUser } from "../../UserContext";
+import { FormattedDate } from "react-intl";
 import Header from "../../components/Header/Header";
 import NewProposal from "../../components/Proposal/NewProposal";
 import Proposals from "../../components/Proposal/Proposals";
-import { FormattedDate } from "react-intl";
 import FilePreview from "../../components/FilePreview/FilePreview";
 import './Demand.css';
-import { useUser } from "../../UserContext";
 
 const Demand = () => {
 
@@ -33,7 +33,7 @@ const Demand = () => {
   const deleteDemand = () => {
 
     if (userId == demandData.userId) {
-      deleteDemandById(id);
+      deleteDemandById();
       navigate('/demands');
       window.location.reload();
     }

@@ -1,5 +1,5 @@
-import './Proposal.css';
 import Rating from './Rating';
+import './Proposal.css';
 
 const Proposal = ({proposal}) => {
     return (

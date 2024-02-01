@@ -18,7 +18,12 @@ export const useNewDemands = (fd) => useFetchPost(apiHost + `demands`, fd)
 //----------------------------------------------------proposals-------------------------------
 export const useNewProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
 export const useEditProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
-export const useDeleteProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
+/* export const useDeleteProposal = (id) => useFetchDelete(apiHost + `proposals/${id}`) */
+export const useDeleteProposals = (id) => {
+  const deleteUrl = apiHost + `proposals/${id}`;
+  const deleteProposal = useFetchDelete();
+  return () => deleteProposal(deleteUrl);
+};
 export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `proposals/${id}` + '/updateStatus')
 
 //---------------------------------------------------user-------------------------------------
