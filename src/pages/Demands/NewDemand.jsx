@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
 import { useUserActions } from '../../hooks/api';
+import { Navigate } from 'react-router-dom';
 
 const NewDemand = () => {
   const [user] = useUser();
@@ -25,12 +26,18 @@ const NewDemand = () => {
     });
 
     const response = await newDemand(fd);
+    console.log(response);
     try {
-
-      if (response.status === 200) {
+      if (response.data.status === 200) {
+        return (
+          <Navigate to={'/demands' />}
+        )
+      }
+      if (response.data.status === 200) {
         setDescription('');
         setTitle('');
         setFiles([]);
+        window.location.reload();
       } else {
         setError(response.error || 'Hubo un error en la solicitud.');
       }
@@ -43,6 +50,7 @@ const NewDemand = () => {
   return (
     <div>
       <Header />
+
       <h3 className='submit_title'>Submit a new demand</h3>
       <div className='submit_demand_container'>
 
@@ -91,6 +99,7 @@ const NewDemand = () => {
           <button className='button'>Send</button>
           {error?.error && (
             <p className="error">Se ha producido un error: {error.error}</p>
+
           )}
         </form>
       </div>
