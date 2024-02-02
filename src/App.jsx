@@ -20,6 +20,7 @@ import About from './pages/About/About.jsx'
 import Copyright from './pages/Copyright/Copyright.jsx'
 import Privacy from './pages/Privacy/Privacy.jsx'
 import Terms from './pages/Terms/Terms.jsx'
+import Categories from './pages/Categories/Categories.jsx'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path='/copyright' element={<Copyright />} />
             <Route path='/privacy' element={<Privacy />} />
             <Route path='/terms' element={<Terms />} />
+            <Route path='/categories' element={<Categories/>}/>
 
           </Routes>
           <FloatingButton />

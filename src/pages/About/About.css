@@ -55,11 +55,15 @@ h1.contact-intro{
     font-style: italic;
 }
 p.contact-intro{
-    margin-bottom: 10px;
-    color: var(--color-dark_grey);
-    font-size: 1.2em;
-    width: 50%;
-    margin-left: 25%;
+  background-color: var(--color-darker_dirty_whitesmoke);
+  height: 80px;
+  margin: 30px 0 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes titleMovement {
