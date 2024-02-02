@@ -8,6 +8,7 @@ export const useDemandsAlls = () => useFetch(apiHost + 'demands')
 export const useDemands = (query) => useFetch('demands?' + new URLSearchParams(query).toString())
 export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 export const useProposalByDemands = (id) => useFetch(apiHost + `demands/${id}/proposals`)
+export const useDemandsByUserId = (id) => useFetch(apiHost + `users/${id}/demands`)
 
 export const useDeleteDemands = (id) => {
   const deleteUrl = apiHost + `demands/${id}`;

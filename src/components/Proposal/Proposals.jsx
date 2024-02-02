@@ -32,10 +32,27 @@ const Proposals = () => {
         ? proposalsData.data.proposals.map((p) => (
             <div className='proposal_card' key={p.id}>
               <div className='proposal_card_user_info'>
+                <div className="img_h4_container">
                 <img className='proposal_user_avatar' src={p.userAvatar} alt={p.username + '_avatar'} />
                 <h4>{p.username}</h4>
+                <div className="edit_buttons_container_proposal">
+                  {userId == p.user_id ? (
+                    <button className="edit_button edit_delete_btn" onClick={testEditButton}>
+                      ✏️
+                    </button>
+                  ) : null}
+                  {userId == p.user_id ? (
+                    <button className="delete_button edit_delete_btn" onClick={() => deleteProposal(p.id)}>
+                      🗑️
+                    </button>
+                  ) : null}
+                </div>
+                </div>
+                
               </div>
+
               <div className='proposal_card_proposal_info'>
+                <h4>Proposal #{p.id}</h4>
                 <p>{p.description}</p>
                 <div className='proposal_card_files'>
                   {p?.files &&
@@ -52,19 +69,6 @@ const Proposals = () => {
                   <li>Average score: {p.votesAvg}</li>
                 </ul>
                 <Rating />
-                <h2>{p.id}</h2>
-                <div className="edit_buttons_container">
-                  {userId == p.user_id ? (
-                    <button className="edit_button button" onClick={testEditButton}>
-                      Edit proposal
-                    </button>
-                  ) : null}
-                  {userId == p.user_id ? (
-                    <button className="delete_button button" onClick={() => deleteProposal(p.id)}>
-                      Delete proposal
-                    </button>
-                  ) : null}
-                </div>
               </div>
             </div>
           ))

@@ -54,6 +54,7 @@ const SignUp = () => {
   if (user) return <Navigate to="/" />
 
   return (
+    <div className='wrapper_transparent'>
     <div className="fields_container signup_fields_container">
       {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
       <h3>Register:</h3>
@@ -120,11 +121,12 @@ const SignUp = () => {
           value={biography}
           onChange={e => setBiography(e.target.value)}
         />
-        <button className="login_register_button">Sign Up</button>
+        <button className="login_register_button button">Sign Up</button>
         {error ? <p>{error}</p> : null}
       </form>
 
       <h4>Already have an account? <Link to="/login">Login</Link></h4>
+    </div>
     </div>
   )
 

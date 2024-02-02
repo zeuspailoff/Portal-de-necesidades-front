@@ -45,8 +45,17 @@ const Demand = () => {
       <Header />
 
       <div className='demand_container'>
+
+        <div className="upper_container">
+          <div className="h2_h4_container">
         <h2>#{id} {demandData.demandTitle}</h2>
         <h4>Created at: <FormattedDate value={demandData.demandCreatedAt} day="2-digit" month="long" /></h4>
+        <div className="edit_buttons_container_demand">
+            {userId == demandData.userId ? <button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> : null}
+            {userId == demandData.userId ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
+          </div>
+          </div>
+          </div>
         <section className='description'>
           <div>
             <div className='description_wrapper'>
@@ -75,10 +84,7 @@ const Demand = () => {
               </div>
             </div>
           </div>
-          <div className="edit_buttons_container">
-            {userId == demandData.userId ? <button className="edit_button button" onClick={testEditButton}>Edit demand</button> : null}
-            {userId == demandData.userId ? <button className="delete_button button" onClick={deleteDemand}>Delete demand</button> : null}
-          </div>
+          
         </section>
       </div>
       {user &&
