@@ -33,7 +33,7 @@ const Demand = () => {
   const deleteDemand = () => {
 
     if (userId == demandData.userId) {
-      deleteDemandById();
+      deleteDemandById(id);
       navigate('/demands');
       window.location.reload();
     }

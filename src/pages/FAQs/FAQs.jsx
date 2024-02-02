@@ -5,13 +5,13 @@ const Faqs = () => {
     return (
         <div>
             <Header />
-            <h2 className="help_please">Needing some help?</h2>
+            <h2 className="help_please">Need some help?</h2>
 
             <div className="faqs">
             <div className="clients">
                 <h3>Clients FAQs</h3>
                 <details className="faq_details">
-                    <summary className="faq_question">What is I need up for?</summary>
+                    <summary className="faq_question">What is iNeedUp for?</summary>
                     <p className="faq_answer">It is a platform for freelancers to offer their services in several fields.</p>
                 </details>
                 <details className="faq_details">
