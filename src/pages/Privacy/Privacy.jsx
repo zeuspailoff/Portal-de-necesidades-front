@@ -1,8 +1,10 @@
 import './Privacy.css'
-import Header from '../../components/Header/Header'
+import Header from "../../components/Header/Header.jsx"
+
 const Privacy = () => { 
     return(
         <div className="privacy">
+            <Header />
             <h1 className="privacy-title">Privacy Policy of "I Need Up"</h1>
             <h3>Last updated: January 2024</h3>
             <p>

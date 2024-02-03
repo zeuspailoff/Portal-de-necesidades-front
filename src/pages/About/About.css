@@ -1,56 +1,69 @@
 .contact-pic{
-    width: 55%;
+    width: 45%;
     margin-left: 10%;
 }
 
 .contact-container {
-    display: grid;
-    grid-template-columns: auto 1fr; 
-    grid-gap: 5px; 
+    display: grid;   
     align-items: center; 
-    border: 1px solid var(--color-darker_dirty_whitesmoke);
+    border: 1px solid black;
+    background-color: var(--color-dirty_whitesmoke);
+    border-radius: 50px;
+    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .contact-name {
     grid-column: span 2; 
-    margin-left: 10%;
+    margin-left: 5%;
     padding-top: 2%;
     text-decoration: 1px underline var(--color-darker_dirty_whitesmoke);
     font-size: 2em;
-    
+    margin-bottom: -40px;
+    color: var(--color-dark_grey);
 }
 
 .contact-description {
     margin-right: 25%;
+    color: black;
+    margin-top: 5%;
 }
 
 .contact-link{
-    margin-right: 30%;
     border: 1px solid var(--color-darker_dirty_whitesmoke);
-    background-color: var(--color-register_orange);
-    color: var(--color-darker_dirty_whitesmoke);
+    background-color: #646cff;
+    color: var(--color-dark_grey);
     font-size: 18px;
     padding: 2px;
     margin-bottom: 10px;
     margin-left: 10%;
     border-radius: 10px;
-    width: 140px;
-    margin-top: 10px;
+    width: 45%;
+    margin-top: -35px;
 }
 
 .contact-link:hover{
-    background-color: var(--color-darker_dirty_whitesmoke);
-    color: var(--color-register_orange);
-    border: 1px solid var(--color-register_orange);
+    background-color: var(--color-login_green);
+    color: var(--color-dark_grey);
+    border: 1px solid #646cff;
 }
 
 h1.contact-intro{
-    margin-right: 10%;
+    
     text-shadow: 2px 2px 4px var(--color-register_orange);
     font-style: italic;
 }
-.contact-intro{
-    margin-bottom: 10px;
+p.contact-intro{
+  background-color: var(--color-darker_dirty_whitesmoke);
+  height: 80px;
+  margin: 30px 0 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes titleMovement {
