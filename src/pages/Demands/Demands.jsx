@@ -8,7 +8,6 @@ const Demands = () => {
         <>
             <Header />
             <div className="demands">
-                <SearchBar />
                 <DemandList />
             </div>
         </>
