@@ -1,6 +1,12 @@
+.form_wrapper {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 form {
     display: flex;
-    margin: 40px 30px 20px;
     justify-content: center;
     align-items: center;
   }
@@ -13,7 +19,7 @@ form {
     border-radius: 50px;
     margin-right: 5px;
     width: 500px;
-    height: 60px;
+    height: 50px;
   }
   
   button {

@@ -1,5 +1,4 @@
-import Header from "../../components/Header/Header"
-import {Link,  Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
 import { useUser } from "../../UserContext"
@@ -15,9 +14,10 @@ const SignUp = () => {
   const [birthdate, setBirthdate] = useState('1993-01-01')
   const [password, setPassword] = useState('Asd123,.')
   const [phone, setPhone] = useState('654789123')
-  const {register} = useUserActions();
+  const { register } = useUserActions();
+  const navigate = useNavigate()
   const [user] = useUser()
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const handleForm = async (e) => {
     e.preventDefault()
@@ -32,9 +32,9 @@ const SignUp = () => {
       lastname,
       url
     }
-    const newUser = await register(body)
-    console.log(newUser);
-    if (newUser.status === 200) {
+    const { data } = await register(body)
+    if (data.status === 200) {
+      console.log("asdasd");
       setSuccess(true)
       setName('')
       setLastName('')
@@ -44,17 +44,19 @@ const SignUp = () => {
       setBirthdate('')
       setPassword('')
       setPhone('')
-    }else{
+      navigate('/')
+    } else {
       setSuccess(false)
-      setError(newUser)
+      setError(data.error.message)
     }
   }
 
   if (user) return <Navigate to="/" />
 
   return (
+    <div className='wrapper_transparent'>
     <div className="fields_container signup_fields_container">
-    {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
+      {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
       <h3>Register:</h3>
       <form onSubmit={handleForm}>
         <input
@@ -103,7 +105,7 @@ const SignUp = () => {
           value={birthdate}
           onChange={e => setBirthdate(e.target.value)}
         />
-         <input
+        <input
           className="input_field"
           name="phone"
           placeholder="phone"
@@ -119,13 +121,14 @@ const SignUp = () => {
           value={biography}
           onChange={e => setBiography(e.target.value)}
         />
-        <button className="login_register_button">Sign Up</button>
-        {error && <p>{error.error.message}</p>}
+        <button className="login_register_button button">Sign Up</button>
+        {error ? <p>{error}</p> : null}
       </form>
 
       <h4>Already have an account? <Link to="/login">Login</Link></h4>
-      </div>
+    </div>
+    </div>
   )
 
-  }
+}
 export default SignUp;

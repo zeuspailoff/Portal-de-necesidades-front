@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useUser } from '../../UserContext';
 import Header from '../../components/Header/Header';
 import { useUserActions } from '../../hooks/api';
+import { useNavigate } from 'react-router-dom';
 
 const NewDemand = () => {
   const [user] = useUser();
@@ -12,6 +13,7 @@ const NewDemand = () => {
   const [category, setCategory] = useState('1');
   const { newDemand } = useUserActions();
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -27,10 +29,12 @@ const NewDemand = () => {
     const response = await newDemand(fd);
     try {
 
-      if (response.status === 200) {
+      if (response.data.status === 200) {
         setDescription('');
         setTitle('');
         setFiles([]);
+        navigate('/demands')
+        window.location.reload();
       } else {
         setError(response.error || 'Hubo un error en la solicitud.');
       }
@@ -43,7 +47,8 @@ const NewDemand = () => {
   return (
     <div>
       <Header />
-        <h3 className='submit_title'>Submit a new demand</h3>
+
+      <h3 className='submit_title'>Submit a new demand</h3>
       <div className='submit_demand_container'>
 
         <h2 className='label_title'>Title:</h2>
@@ -82,7 +87,6 @@ const NewDemand = () => {
             name='files[]'
             onChange={(e) => {
               setFiles(Array.from(e.target.files))
-              console.log(Array.from(e.target.files))
             }
 
             }
@@ -92,6 +96,7 @@ const NewDemand = () => {
           <button className='button'>Send</button>
           {error?.error && (
             <p className="error">Se ha producido un error: {error.error}</p>
+
           )}
         </form>
       </div>

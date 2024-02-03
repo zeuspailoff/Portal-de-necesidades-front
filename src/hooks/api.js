@@ -1,4 +1,4 @@
-import { useFetch, useFetchPost } from "./useFetch";
+import { useFetch, useFetchPost, useFetchDelete } from "./useFetch";
 
 const apiHost = 'http://localhost:8080/';
 
@@ -8,21 +8,31 @@ export const useDemandsAlls = () => useFetch(apiHost + 'demands')
 export const useDemands = (query) => useFetch('demands?' + new URLSearchParams(query).toString())
 export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 export const useProposalByDemands = (id) => useFetch(apiHost + `demands/${id}/proposals`)
-export const useDeleteDemands = (id) => useFetchPost(apiHost + `demands/${id}`)
+export const useDemandsByUserId = (id) => useFetch(apiHost + `users/${id}/demands`)
+
+export const useDeleteDemands = (id) => {
+  const deleteUrl = apiHost + `demands/${id}`;
+  const deleteDemand = useFetchDelete();
+  return () => deleteDemand(deleteUrl);
+};
 export const useNewDemands = (fd) => useFetchPost(apiHost + `demands`, fd)
 //----------------------------------------------------proposals-------------------------------
 export const useNewProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
 export const useEditProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
-export const useDeleteProposal = (id) => useFetchPost(apiHost + `proposals/${id}`)
+
+export const useDeleteProposals = (id) => {
+  const deleteUrl = apiHost + `proposals/${id}`;
+  const deleteProposal = useFetchDelete();
+  return () => deleteProposal(deleteUrl);
+};
 export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `proposals/${id}` + '/updateStatus')
 
 //---------------------------------------------------user-------------------------------------
 
 export const useUserActions = () => {
   const fetchPost = useFetchPost()
-  const fetch = useFetch()
   return {
-    validate: (registrationcode) => fetch(apiHost + `users/validate/${registrationcode}`),
+    validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
     dataUser: (id) => fetchPost(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
     login: (body) => fetchPost(apiHost + 'users/login', body),

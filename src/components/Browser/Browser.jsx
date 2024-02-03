@@ -14,6 +14,7 @@ const Browser = ({ onSearch }) => {
   };
 
   return (
+    <div className='form_wrapper'>
     <form onSubmit={handleSubmit}>
       <input 
         className='search_bar'
@@ -22,8 +23,9 @@ const Browser = ({ onSearch }) => {
         value={browserBar}
         onChange={handleChange}
       />
-      <button className='button' type="submit">Search</button>
     </form>
+      <button className='button' type="submit">Search</button>
+    </div>
   );
 };
 

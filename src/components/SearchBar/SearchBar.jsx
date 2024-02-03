@@ -1,25 +1,8 @@
-import { useState } from 'react';
 import './SearchBar.css';
-
-const SearchBar = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [estadoFilter, setEstadoFilter] = useState('');
-  const [proposalsRange, setProposalsRange] = useState({ min: 0, max: 10 });
-  const [puntuacionFilter, setPuntuacionFilter] = useState('');
-  const [categoriaFilter, setCategory] = useState('');
-
-  const handleSearch = () => {
-    onSearch({
-      searchTerm,
-      estadoFilter,
-      proposalsRange,
-      puntuacionFilter,
-      categoriaFilter,
-    });
-  };
-
+ 
+const SearchBar = ({handleSearch, handleCategory, handleState }) => {
   return (
-    <div className='filters_container'>
+    <form className='filters_container'>
       <h2>Browse among demands posted in iNeedUp</h2>
 
       <div>
@@ -28,54 +11,28 @@ const SearchBar = ({ onSearch }) => {
             className='search_demands filter'
             type="text"
             placeholder="Search by title..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleSearch}
           />
-          <select className='states_filter filter' value={estadoFilter} onChange={(e) => setEstadoFilter(e.target.value)}>
+          <select className='states_filter filter' onChange={handleState}>
             <option value="">All states</option>
-            <option value="activo">Active</option>
-            <option value="no activo">Inactive</option>
+            <option value="1">Closed</option>
+            <option value="0">Open</option>
           </select>
-        </div>
-
-        <div className='range_container filter'>
-          <label>Proposals range:</label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-            value={proposalsRange.min}
-            onChange={(e) => setProposalsRange({ ...proposalsRange, min: parseInt(e.target.value, 10) })}
-          />
-          <span>{proposalsRange.min}</span>
-        </div>
-
-        <div className='score_container filter'>
-          <label>Score ⭐</label>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            placeholder="1-5"
-            value={puntuacionFilter}
-            onChange={(e) => setPuntuacionFilter(e.target.value)}
-          />
         </div>
 
         <div className='by_category_container filter'>
           <label>Category</label>
-          <select onChange={(e) => setCategory(e.target.value)}>
-            <option value="1">Web Design</option>
-            <option value="2">Translations</option>
-            <option value="3">Developing</option>
-            <option value="4">MovieMakers</option>
-            <option value="5">Digital Marketing</option>
+          <select onChange={handleCategory}>
+            <option value="">All categories</option>
+            <option value="Web Design">Web Design</option>
+            <option value="Translations">Translations</option>
+            <option value="Developing">Developing</option>
+            <option value="MovieMakers">MovieMakers</option>
+            <option value="Digital Marketing">Digital Marketing</option>
           </select>
         </div>
       </div>
-          <button className='search_button' onClick={handleSearch}>Search</button>
-    </div>
+    </form>
   );
 };
 

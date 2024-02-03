@@ -1,15 +1,26 @@
-.fields_container {
+.wrapper_transparent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup_fields_container {
     display: flex;
     flex-direction: column;
     width: 50%;
     min-height: 700px;
     height: fit-content;
     margin: 10px 0;
+
+    align-self: center;
+    justify-content: center;
 }
 
 .signup_fields_container {
-    background-color: var(--color-register_orange);
     color: black;
+    background-color: var(--color-dirty_whitesmoke);
+    border: 3px solid var(--color-register_orange);
+    border-radius: 15px;
 }
 
 .fields_container h3 {
@@ -24,7 +35,7 @@
 .input_field {
     padding: 20px;
     font-size: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid black;
     color: black;
     border-radius: 50px;
     margin: 5px;

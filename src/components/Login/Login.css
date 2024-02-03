@@ -8,12 +8,15 @@
 }
 
 .login_fields_container {
-    background-color: var(--color-login_green);
+    background-color: var(--color-dirty_whitesmoke);
+    border: 3px solid var(--color-login_green);
+    border-radius: 15px;
     color: black;
 }
 
 .fields_container h3 {
-    margin-top: 50px;
+    margin: 50px 0 20px;
+    font-weight: 300;
 }
 
 .fields_container form {

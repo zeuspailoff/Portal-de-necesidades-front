@@ -45,6 +45,7 @@ function App() {
             <Route path='/terms' element={<Terms />} />
             <Route path='/categories' element={<Categories/>}/>
 
+
           </Routes>
           <FloatingButton />
           <Footer />

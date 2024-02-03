@@ -55,7 +55,7 @@ const Login = () => {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <button className="login_register_button">Login</button>
+        <button className="login_register_button button">Login</button>
         {error?.error ? <p className="error">Se ha producido un error: {error.error.message}</p> : null}
       </form>
       <h3>You don't have an account yet? <Link to='/register'>Register now</Link></h3>

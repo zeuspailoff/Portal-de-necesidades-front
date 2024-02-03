@@ -1,4 +1,5 @@
 .proposal_card {
+    border: 1px solid black;
     border-radius: 5px;
     display: flex;
     height: fit-content;
@@ -9,7 +10,7 @@
 
 .proposal_card_user_info {
     border-radius: 50px;
-    background-color: var(--color-dirty_whitesmoke);
+    background-color: red;
     width: 200px;
     height: fit-content;
     overflow: hidden;

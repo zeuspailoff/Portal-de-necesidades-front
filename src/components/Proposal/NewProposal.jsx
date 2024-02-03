@@ -1,14 +1,15 @@
 import { useState } from "react"
-import { useUser } from "../../UserContext"
 import './NewProposal.css';
 import { useUserActions } from "../../hooks/api"
 import { useParams } from "react-router";
+
 const NewProposal = () => {
 
-  const [user] = useUser()
   const [description, setDescription] = useState('')
   const [error, setError] = useState('')
   const { id } = useParams()
+  //const idnt = parseInt(id, 10)
+
   const [files, setFiles] = useState('')
   const { newProposal } = useUserActions();
 
@@ -21,9 +22,6 @@ const NewProposal = () => {
         fd.append('files', f)
       });
     }
-
-    console.log(fd)
-    console.log(id)
     const response = await newProposal(id, fd)
 
     if (response.status == 200) {
@@ -54,7 +52,6 @@ const NewProposal = () => {
           name='files[]'
           onChange={(e) => {
             setFiles(Array.from(e.target.files))
-            console.log(Array.from(e.target.files))
           }
 
           }

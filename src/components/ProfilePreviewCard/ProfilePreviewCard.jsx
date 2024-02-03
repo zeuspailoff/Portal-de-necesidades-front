@@ -1,11 +1,17 @@
 import './ProfilePreviewCard.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../../UserContext';
 
 const ProfilePreviewCard = () => {
   const [user, setUser] = useUser();
   const userData = user?.data.data.user || {};
-  console.log(userData);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setUser();
+    navigate('/');
+    window.location.reload();
+  }
 
   return (
     <div className='profile_preview_card'>
@@ -20,7 +26,7 @@ const ProfilePreviewCard = () => {
       {user && (
         <span>
           <Link className='profile_link' to='/profile'>{`Hi, ${userData.username}`}</Link>
-          <span onClick={() => setUser()}>🚫</span>
+          <span onClick={logout}>🚫</span>
         </span>
       )}
     </div>

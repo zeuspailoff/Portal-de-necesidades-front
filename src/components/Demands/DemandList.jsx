@@ -2,22 +2,47 @@ import { useEffect, useState } from "react";
 import { useDemandsAlls } from '../../hooks/api';
 import { Link } from "react-router-dom";
 import './DemandList.css';
+import SearchBar from "../SearchBar/SearchBar";
 
 const DemandList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [demandsPerPage] = useState(6);
   const demandsList = useDemandsAlls();
+  const [filter, setFilter] = useState('');
+  const [state, setState] = useState('');
+  const [category, setCategory] = useState('');
 
   const indexOfLastDemand = currentPage * demandsPerPage;
   const indexOfFirstDemand = indexOfLastDemand - demandsPerPage;
   const currentsDemands = demandsList?.data?.slice(indexOfFirstDemand, indexOfLastDemand);
 
   // Utilizar currentsDemands directamente como estado
-  const [demands, setDemands] = useState(currentsDemands);
+  const filteredDemands = () => {
+    
+    let result = currentsDemands;
+    
+    if(filter){
+      result = result.filter((demand) => demand.title.toLowerCase().includes(filter.toLowerCase()) || demand.description.toLowerCase().includes(filter.toLowerCase()) || demand.id == filter)
+    }
+
+    if(state){
+      result = result.filter((demand) =>demand.is_closed == state)
+      console.log("stateeee",result, state);
+    }
+    if(category){
+      result = result.filter((demand) =>demand.category == category)
+      console.log("category",result, category);
+    }
+
+  if (result.length == 0){ return null }
+
+  return result;
+}
+  const [demands, setDemands] = useState(filteredDemands());
 
   useEffect(() => {
-    setDemands(currentsDemands);
-  }, [currentPage, demandsPerPage, demandsList.data]);
+    setDemands(filteredDemands());
+  }, [currentPage, demandsPerPage, demandsList.data, filter, state, category]);
 
   const handlePageChange = (pageChange) => {
     const newPage = currentPage + pageChange;
@@ -30,6 +55,22 @@ const DemandList = () => {
     setDemands(newCurrentsDemands);
   };
 
+ 
+
+  const handleSearch = (e) => {
+   setFilter(e.target.value);
+  };
+
+  const handleState = (e) => {
+    setState(e.target.value);
+  };
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+  };
+  
+
+
+
   const renderIcon = (category) => {
     return (
       category === 'Web Design' ? '🎨' :
@@ -41,6 +82,8 @@ const DemandList = () => {
   }
 
   return (
+      <>
+    <SearchBar handleState={handleState} handleSearch={handleSearch} handleCategory={handleCategory}/>
     <div className="fetched_demands_container">
       {demands && demands.map((d) => (
         <div key={d.id} className="demand">
@@ -70,8 +113,8 @@ const DemandList = () => {
         </button>
       </div>
     </div>
+      </>
   );
-
 };
 
 export default DemandList;
