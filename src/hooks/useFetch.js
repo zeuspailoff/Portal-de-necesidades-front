@@ -16,7 +16,6 @@ export const useFetchPost = () => {
 
         if (body && !(body instanceof FormData)) headers['Content-Type'] = 'application/json'
         if (user?.data?.data?.token) headers.auth_token = user.data.data.token
-
         const res = await fetch(url, {
             method: method || 'POST',
             headers,

@@ -42,6 +42,8 @@ export const useUserActions = () => {
     vote: (id, value) => fetchPost(apiHost + 'proposals/' + id + '/votes', { value }),
     newDemand: (fd) => fetchPost(apiHost + 'demands', fd),
     newProposal: (id, fd) => fetchPost(apiHost + `proposals/${id}`, fd),
+    resetPassword: (email) => fetchPost(apiHost + `users/recover`, email),
+    newPassword: (body, recoveryCode)=> fetchPost(apiHost + `users/SetPassByrecover/${recoveryCode}`, body, "PUT")
   }
 }
 //---------------------------------------------------votes-------------------------------------
