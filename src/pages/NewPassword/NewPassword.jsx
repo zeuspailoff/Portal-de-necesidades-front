@@ -1,14 +1,13 @@
 import { useState } from "react"
-import { useNavigate,useParams } from 'react-router-dom'
-import {useUserActions} from "../../hooks/api"
-import Header from '../../components/Header/Header'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useUserActions } from "../../hooks/api"
 
 
 
 const NewPassword = () => {
     const [password, setPassword] = useState()
     const [password_repeat, setPasswordRepeat] = useState()
-    const {newPassword} = useUserActions()
+    const { newPassword } = useUserActions()
     const { recoveryCode } = useParams()
 
     const [error, setError] = useState(false);
@@ -21,7 +20,7 @@ const NewPassword = () => {
             password: password,
         }
         const response = await newPassword(body, recoveryCode)
-        if( password != password_repeat){
+        if (password != password_repeat) {
             setError(true);
         }
 
@@ -33,14 +32,13 @@ const NewPassword = () => {
 
     return (
         <>
-        <Header />
             <div>
-            {error && <p>Your passwords doesn't match</p>}
+                {error && <p>Your passwords doesn't match</p>}
                 <form onSubmit={handlePassword}>
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
                     <label htmlFor="password_repeat">Repeat Password</label>
-                    <input type="password" name="password_repeat" onChange={(e) => setPasswordRepeat(e.target.value)}/>
+                    <input type="password" name="password_repeat" onChange={(e) => setPasswordRepeat(e.target.value)} />
                     <button type="submit">Update Password</button>
                 </form>
             </div>

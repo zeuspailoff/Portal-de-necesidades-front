@@ -1,10 +1,9 @@
-import Header from "../../components/Header/Header";
 import './Categories.css'
 const Categories = () => {
 
-    return(
+    return (
         <div>
-            <Header />
+
             <div className="categories-container">
                 <h1 className="categories-title titleMovement">Categories</h1>
                 <p className="categories-intro">Explore our categories and find what you're looking for.</p>

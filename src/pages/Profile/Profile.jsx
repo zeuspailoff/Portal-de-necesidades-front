@@ -1,8 +1,8 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
 import { useDemandsByUserId } from '../../hooks/api';
-import Header from '../../components/Header/Header';
 import './Profile.css';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -13,13 +13,12 @@ const Profile = () => {
 
     return (
         <div>
-            console.log(user)
-            <Header />
+
             <div className='profile_page'>
                 <h2 className='profile_title'>User Profile:</h2>
                 <div className="edit_buttons_container_profile">
                     <button className="edit_button edit_delete_btn edit_button_profile" /* onClick={testEditButton} */>
-                      ✏️ Edit profile
+                        <Link to={"/users/edit/profile"}> ✏️ Edit profile</Link>
                     </button>
                 </div>
                 <div className='user_data_row'>

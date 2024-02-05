@@ -1,6 +1,5 @@
-import Header from '../../components/Header/Header';
 import './Contact.css'
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Contact = () => {
 
@@ -33,7 +32,6 @@ const Contact = () => {
 
   return (
     <div>
-        <Header/>
       <h1 className='titleMovement'>Contact us</h1>
       <p className='contact-help'>We are here to help you with any doubts</p>
       <form onSubmit={handleForm}>

@@ -1,14 +1,12 @@
 import Browser from "../../components/Browser/Browser";
-import Header from "../../components/Header/Header";
 import Info from "../../components/Info/info";
 
-const Home = () =>{
+const Home = () => {
 
-    return(
+    return (
         <div>
-            <Header/>
-            <Browser/>
-            <Info/>
+            <Browser />
+            <Info />
         </div>
     )
 }

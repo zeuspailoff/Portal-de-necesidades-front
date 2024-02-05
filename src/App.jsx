@@ -23,6 +23,8 @@ import Terms from './pages/Terms/Terms.jsx'
 import Categories from './pages/Categories/Categories.jsx'
 import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
 import NewPassword from './pages/NewPassword/NewPassword.jsx'
+import EditUser from './pages/EditUser/EditUser.jsx'
+import Header from './components/Header/Header.jsx'
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
     <>
       <ErrorBoundary key={location.key} fallback={<GenericError />}>
         <Suspense fallback={<Loading />}>
+          <Header />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<LoginPage />} />
@@ -41,13 +44,14 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path='/users/validate/:registrationcode' element={<UserValidate />} />
             <Route path='/users/newPassword/:recoveryCode' element={<NewPassword />} />
+            <Route path='/users/edit/profile' element={<EditUser />} />
             <Route path='/reset-password' element={<ResetPassword />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/about' element={<About />} />
             <Route path='/copyright' element={<Copyright />} />
             <Route path='/privacy' element={<Privacy />} />
             <Route path='/terms' element={<Terms />} />
-            <Route path='/categories' element={<Categories/>}/>
+            <Route path='/categories' element={<Categories />} />
 
 
           </Routes>
