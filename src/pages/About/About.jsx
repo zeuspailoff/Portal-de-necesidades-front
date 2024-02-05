@@ -27,7 +27,7 @@ const About = () =>{
             </div>
             <div  className="contact-container">
                 <h3 className="contact-name">Kevin</h3>
-                <img src="src\assets\images\shrek_whet.JPG" className="contact-pic"/>
+                <img src="src\assets\images\kevin.jpg" className="contact-pic"/>
                 <p className="contact-description">I have a 5-year track record as a Product/Project Manager, where I have worked with various teams in different areas such as backend, frontend, and user experience (UX/UI) to ensure customer satisfaction. My responsibilities included conducting manual tests inter-stages, planning iterations between sprints, managing communication with clients, understanding project requirements and priorities, gathering a work team, advising clients in decision-making and planning tasks with roadmaps to meet short and long-term goals. I have expertise in Agile/Scrum methodologies and I have used tools like Trello, Monday, and Asana for project planning and task monitoring. Additionally, I have experience in UX tasks such as research, questionnaires, interviews, empathy maps, and low wireframes. I have worked as a Developer for 3 years, using technologies like Laravel (PHP), OOP, HTML5, CSS, Blade Motor Template, MySQL, and JavaScript.</p>
                <a href="https://www.linkedin.com/in/kevinghio/" target="blank" className="contact-link">Checkout my LinkedIn</a>
             </div>
