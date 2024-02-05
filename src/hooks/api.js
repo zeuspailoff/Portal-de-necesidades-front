@@ -33,7 +33,7 @@ export const useUserActions = () => {
   const fetchPost = useFetchPost()
   return {
     validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
-    dataUser: (id) => fetchPost(apiHost + `users/${id}`),
+    dataUser: (id, body) => fetchPost(apiHost + `users/${id}`, body, "PUT"),
     register: (body) => fetchPost(apiHost + 'users', body),
     login: (body) => fetchPost(apiHost + 'users/login', body),
     createEntry: (title, place, description) => fetchPost(apiHost + '/entries', { title, place, description }),
@@ -43,7 +43,7 @@ export const useUserActions = () => {
     newDemand: (fd) => fetchPost(apiHost + 'demands', fd),
     newProposal: (id, fd) => fetchPost(apiHost + `proposals/${id}`, fd),
     resetPassword: (email) => fetchPost(apiHost + `users/recover`, email),
-    newPassword: (body, recoveryCode)=> fetchPost(apiHost + `users/SetPassByrecover/${recoveryCode}`, body, "PUT")
+    newPassword: (body, recoveryCode) => fetchPost(apiHost + `users/SetPassByrecover/${recoveryCode}`, body, "PUT")
   }
 }
 //---------------------------------------------------votes-------------------------------------
