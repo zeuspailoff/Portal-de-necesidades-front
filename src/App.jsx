@@ -21,6 +21,8 @@ import Copyright from './pages/Copyright/Copyright.jsx'
 import Privacy from './pages/Privacy/Privacy.jsx'
 import Terms from './pages/Terms/Terms.jsx'
 import Categories from './pages/Categories/Categories.jsx'
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
+import NewPassword from './pages/NewPassword/NewPassword.jsx'
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/users/validate/:registrationcode' element={<UserValidate />} />
+            <Route path='/users/newPassword/:recoveryCode' element={<NewPassword />} />
+            <Route path='/reset-password' element={<ResetPassword />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/about' element={<About />} />
             <Route path='/copyright' element={<Copyright />} />
