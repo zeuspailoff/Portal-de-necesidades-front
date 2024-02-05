@@ -18,26 +18,26 @@ const DemandList = () => {
 
   // Utilizar currentsDemands directamente como estado
   const filteredDemands = () => {
-    
+
     let result = currentsDemands;
-    
-    if(filter){
+
+    if (filter) {
       result = result.filter((demand) => demand.title.toLowerCase().includes(filter.toLowerCase()) || demand.description.toLowerCase().includes(filter.toLowerCase()) || demand.id == filter)
     }
 
-    if(state){
-      result = result.filter((demand) =>demand.is_closed == state)
-      console.log("stateeee",result, state);
+    if (state) {
+      result = result.filter((demand) => demand.is_closed == state)
+      console.log("stateeee", result, state);
     }
-    if(category){
-      result = result.filter((demand) =>demand.category == category)
-      console.log("category",result, category);
+    if (category) {
+      result = result.filter((demand) => demand.category == category)
+      console.log("category", result, category);
     }
 
-  if (result.length == 0){ return null }
+    if (result.length == 0) { return null }
 
-  return result;
-}
+    return result;
+  }
   const [demands, setDemands] = useState(filteredDemands());
 
   useEffect(() => {
@@ -55,10 +55,10 @@ const DemandList = () => {
     setDemands(newCurrentsDemands);
   };
 
- 
+
 
   const handleSearch = (e) => {
-   setFilter(e.target.value);
+    setFilter(e.target.value);
   };
 
   const handleState = (e) => {
@@ -67,53 +67,52 @@ const DemandList = () => {
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
-  
 
 
 
   const renderIcon = (category) => {
     return (
       category === 'Web Design' ? '🎨' :
-      category === 'Translations' ? '🗨' :
-      category === 'MovieMakers' ? '🎥' :
-      category === 'Digital Marketing' ? '🌐' :
-      category === 'Developing' ? '💻' : '❓'
+        category === 'Translations' ? '🗨' :
+          category === 'MovieMakers' ? '🎥' :
+            category === 'Digital Marketing' ? '🌐' :
+              category === 'Developing' ? '💻' : '❓'
     );
   }
 
   return (
-      <>
-    <SearchBar handleState={handleState} handleSearch={handleSearch} handleCategory={handleCategory}/>
-    <div className="fetched_demands_container">
-      {demands && demands.map((d) => (
-        <div key={d.id} className="demand">
-          <div className="demand_upper_row">
-            <h2>#{d.id}</h2><Link to={`/demands/${d.id}`}>{d.title}</Link>
-            <span className="category">{renderIcon(d.category)}</span>
+    <>
+      <SearchBar handleState={handleState} handleSearch={handleSearch} handleCategory={handleCategory} />
+      <div className="fetched_demands_container">
+        {demands && demands.map((d) => (
+          <div key={d.id} className="demand">
+            <div className="demand_upper_row">
+              <h2>#{d.id}</h2><Link to={`/demands/${d.id}`}>{d.title}</Link>
+              <span className="category">{renderIcon(d.category)}</span>
+            </div>
+            <p>{d.description}</p>
+            <h3 className="is_closed">{d.is_closed === 1 ? 'Marked as closed 👌' : null}</h3>
+            <h3>{d.files}</h3>
           </div>
-          <p>{d.description}</p>
-          <h3 className="is_closed">{d.is_closed === 1 ? 'Marked as closed 👌' : null}</h3>
-          <h3>{d.files}</h3>
+        ))}
+        <div className="buttons_container">
+          <button
+            className="button"
+            onClick={() => handlePageChange(-1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <button
+            className="button"
+            onClick={() => handlePageChange(1)}
+            disabled={indexOfLastDemand >= (demandsList.data?.length ?? 0)}
+          >
+            Next
+          </button>
         </div>
-      ))}
-      <div className="buttons_container">
-        <button
-          className="button"
-          onClick={() => handlePageChange(-1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <button
-          className="button"
-          onClick={() => handlePageChange(1)}
-          disabled={indexOfLastDemand >= (demandsList.data?.length ?? 0)}
-        >
-          Next
-        </button>
       </div>
-    </div>
-      </>
+    </>
   );
 };
 
