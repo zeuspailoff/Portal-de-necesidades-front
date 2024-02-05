@@ -6,9 +6,10 @@
 
 .loading:before {
   content: '';
-  width: 48px;
-  height: 48px;
-  border: 5px solid #bcbdbe;
+  width: 700px;
+  height: 100vb;
+  border: 10px solid var(--color-dark_grey);
+  background-color: var(--color-dirty_whitesmoke);
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -18,9 +19,9 @@
 
 @keyframes rotation {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(0.1);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(0.1);
   }
 }

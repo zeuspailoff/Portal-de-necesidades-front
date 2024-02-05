@@ -19,8 +19,8 @@ const Faqs = () => {
                     <p className="faq_answer">From <a href="/profile">here</a> you can edit your username, description, profile picture, etc.</p>
                 </details>
                 <details className="faq_details">
-                    <summary className="faq_question">I forgot my password </summary>
-                    <p className="faq_answer"><a href="">Click here</a> to reset your password.</p>
+                    <summary className="faq_question">Can I contact you? </summary>
+                    <p className="faq_answer"><a href="/contact">Click here</a> to send us an email.</p>
                 </details>
                 <details className="faq_details">
                     <summary className="faq_question">How to post a demand </summary>
@@ -39,7 +39,7 @@ const Faqs = () => {
                 </details>
                 <details className="faq_details">
                     <summary className="faq_question">Profile changes</summary>
-                    <p className="faq_answer">From <a href="">here</a> you can edit your username, description, profile picture, etc.</p>
+                    <p className="faq_answer">From <a href="/profile">here</a> you can edit your username, description, profile picture, etc.</p>
                 </details>
                 <details className="faq_details">
                     <summary className="faq_question">Can anyone vote for my works?</summary>

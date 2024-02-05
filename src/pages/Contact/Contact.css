@@ -58,7 +58,7 @@ input, textarea, .contact-button {
   }
   
   .introducing{
-    color: black;
+    color:var(--color-dark_grey);
     font-size: 1.2em;
     width: 30%;
     margin-left: 35%;
