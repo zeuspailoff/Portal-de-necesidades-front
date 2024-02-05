@@ -8,7 +8,6 @@ const NewProposal = () => {
   const [description, setDescription] = useState('')
   const [error, setError] = useState('')
   const { id } = useParams()
-  //const idnt = parseInt(id, 10)
 
   const [files, setFiles] = useState('')
   const { newProposal } = useUserActions();

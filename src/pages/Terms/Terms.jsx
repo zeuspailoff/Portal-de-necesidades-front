@@ -1,14 +1,12 @@
 import './Terms.css'
-import Header from "../../components/Header/Header.jsx"
 
 const Terms = () => {
-    return(
+    return (
         <div className='terms'>
-            <Header />
             <h1 className='terms-title'>Terms and Conditions of "I Need Up"</h1>
             <h3> Last updated: January 2024</h3>
             <p>
-              Welcome to "I Need Up". The following Terms and Conditions govern your access to and use of our online services, including our website and mobile applications (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms and Conditions.
+                Welcome to "I Need Up". The following Terms and Conditions govern your access to and use of our online services, including our website and mobile applications (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms and Conditions.
             </p>
             <p>
                 1. Use of the Services
@@ -20,14 +18,14 @@ const Terms = () => {
                 Comply with all applicable laws and regulations.
             </p>
             <p>
-            2. Intellectual Property
+                2. Intellectual Property
 
-            The Services and all of their content, features and functionality are owned by "I Need Up" and are protected by intellectual property laws. You may not reproduce, distribute, modify, create derivative works from or use our content without our consent.
+                The Services and all of their content, features and functionality are owned by "I Need Up" and are protected by intellectual property laws. You may not reproduce, distribute, modify, create derivative works from or use our content without our consent.
             </p>
             <p>
-            3. Privacy
+                3. Privacy
 
-            Use of our Services is subject to our Privacy Policy. By using our Services, you agree to our information collection and use practices, as described in that Policy.
+                Use of our Services is subject to our Privacy Policy. By using our Services, you agree to our information collection and use practices, as described in that Policy.
             </p>
             <p>
                 4. Limitations of Liability

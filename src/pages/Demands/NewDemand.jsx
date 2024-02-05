@@ -1,7 +1,6 @@
 import './NewDemand.css';
 import { useState } from 'react';
 import { useUser } from '../../UserContext';
-import Header from '../../components/Header/Header';
 import { useUserActions } from '../../hooks/api';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,7 +45,6 @@ const NewDemand = () => {
 
   return (
     <div>
-      <Header />
 
       <h3 className='submit_title'>Submit a new demand</h3>
       <div className='submit_demand_container'>
