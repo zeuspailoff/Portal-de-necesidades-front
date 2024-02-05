@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { useUserActions } from "../../hooks/api"
-
+import './NewPassword.css'
 
 
 const NewPassword = () => {
