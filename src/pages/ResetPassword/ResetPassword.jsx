@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from '../../components/Header/Header'
 import {useUserActions} from "../../hooks/api"
+import './ResetPassword.css'
 
 const ResetPassword = () => {
   const [url] = useState(window.location.origin)
@@ -32,12 +33,12 @@ const ResetPassword = () => {
             <Header />
 
           {success && <p className="success_message">Check your email to reset your password</p>}
-          <form onSubmit={handleEmail}>
+          <form onSubmit={handleEmail} className="resetpass_container">
                 
             <label htmlFor="email">Email</label> 
             <input type="email" id="email" name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
 
-            <button type="submit">Reset Password</button>
+            <button type="submit"  className="reset_pass">Reset Password</button>
                           
           </form>
 

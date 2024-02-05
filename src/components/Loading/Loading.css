@@ -6,7 +6,7 @@
 
 .loading:before {
   content: '';
-  width: 700px;
+  min-width: 700px;
   height: 100vb;
   border: 10px solid var(--color-dark_grey);
   background-color: var(--color-dirty_whitesmoke);
