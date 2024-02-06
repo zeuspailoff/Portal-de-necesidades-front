@@ -1,15 +1,16 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
-import { useDemandsByUserId } from '../../hooks/api';
+import { useUserActions } from '../../hooks/api';
 import './Profile.css';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
-    const [user, setUser] = useUser();
-    const userData = { ...user.data.data.user };
-    const userId = userData.id;
-    const userDemands = useDemandsByUserId(userId);
+    const [user] = useUser();
+    const userData = user.data.data.user;
+    const id = userData.id;
+    const { userProfile } = useUserActions()
+    userProfile(id)
 
     return (
         <div>

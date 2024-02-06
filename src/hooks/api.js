@@ -34,6 +34,7 @@ export const useUserActions = () => {
   return {
     validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
     dataUser: (id, body) => fetchPost(apiHost + `users/${id}`, body, "PUT"),
+    userProfile: (id) => useFetch(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
     login: (body) => fetchPost(apiHost + 'users/login', body),
     createEntry: (title, place, description) => fetchPost(apiHost + '/entries', { title, place, description }),

@@ -1,20 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { useUser } from "../../UserContext";
 import { useUserActions } from "../../hooks/api";
 import { useNavigate } from "react-router-dom";
 
 const EditUser = () => {
-    const [user] = useUser();
-    const [userName, setUsername] = useState();
-    const [lastname, setLastname] = useState();
-    const [name, setName] = useState();
-    const [phone, setPhone] = useState();
-    const [password, setPassword] = useState();
-    const [password_repeat, setPasswordRepeat] = useState();
-    const [biography, setBiography] = useState();
-    const [file, setFile] = useState();
-    const [error, setError] = useState();
-    const navigate = useNavigate();
+    const [user] = useUser('');
+    const [userName, setUsername] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [password_repeat, setPasswordRepeat] = useState('');
+    const [biography, setBiography] = useState('');
+    const [file, setFile] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate('');
 
     const id = user.data.data.user.id;
     const { dataUser } = useUserActions()
@@ -36,7 +37,8 @@ const EditUser = () => {
             setError(true)
         }
 
-        if (editedUser.data.status == 200) {
+        if (editedUser.status == 200) {
+            window.location.reload();
             setPhone('')
             setFile('')
             setBiography('')
@@ -50,6 +52,7 @@ const EditUser = () => {
     }
     return (
         <>
+
             {error && <p>Your passwords doesn't match</p>}
             <form onSubmit={handleEdit}>
                 <label htmlFor="username">Username</label>
@@ -77,7 +80,7 @@ const EditUser = () => {
                     name="biography"
                     placeholder="Biography"
                     type="text"
-                    value={biography} onChange={e => setName(e.target.value)}
+                    value={biography} onChange={e => setBiography(e.target.value)}
 
                 />
 

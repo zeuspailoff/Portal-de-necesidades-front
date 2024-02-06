@@ -4,7 +4,7 @@ import { useUser } from "../UserContext"
 export const useFetch = (url) => { //localhost:8080/demands
     const [user] = useUser()
     const headers = {}
-    if (user?.token) headers.auth_token = user.token
+    if (user?.data?.data?.user?.token) headers.auth_token = user.data.data.user.token
     return useFetchSuspense(url, { headers })
 }
 
