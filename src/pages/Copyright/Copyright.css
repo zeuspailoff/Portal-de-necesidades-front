@@ -5,6 +5,7 @@ div.copyright{
   margin-bottom: 15px;
   border-radius: 10px;
   margin-top: 50px;
+  box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 p, h3 {
     margin: 5px;

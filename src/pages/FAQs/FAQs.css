@@ -6,7 +6,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     font-size: 2rem;
-
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,11 +46,15 @@
 }
 
 .clients {
-    border: 5px solid var(--color-login_green); 
+    border: 5px solid var(--color-login_green);
+    box-shadow: 5px 4px 15px var(--color-login_green);
+    margin-left: 10%; 
 }
 
 .freelancers {
     border: 5px solid var(--color-register_orange); 
+    box-shadow: 5px 4px 15px var(--color-register_orange);
+    margin-right: 10%;
 }
 
 .clients h3, .freelancers h3 {

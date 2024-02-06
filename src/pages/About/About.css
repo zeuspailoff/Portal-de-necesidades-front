@@ -1,6 +1,7 @@
 .contact-pic{
     width: 45%;
     margin-left: 10%;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .contact-container {
@@ -12,7 +13,9 @@
     margin-bottom: 15px;
     margin-left: 50px;
     margin-right: 50px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
+
 
 .contact-name {
     grid-column: span 2; 
@@ -28,10 +31,12 @@
     margin-right: 25%;
     color: black;
     margin-top: 5%;
+    box-shadow: 1px 1px 5px var(--color-dark_grey);
+    border-radius: 10px;
 }
 
 .contact-link{
-    border: 1px solid var(--color-darker_dirty_whitesmoke);
+    border: 1px solid #646cff;
     background-color: #646cff;
     color: var(--color-dark_grey);
     font-size: 18px;
@@ -41,6 +46,7 @@
     border-radius: 10px;
     width: 45%;
     margin-top: -35px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .contact-link:hover{
@@ -64,6 +70,7 @@ p.contact-intro{
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 @keyframes titleMovement {

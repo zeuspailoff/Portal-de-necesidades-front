@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useUser } from "../../UserContext";
 import { useUserActions } from "../../hooks/api";
 import { useNavigate } from "react-router-dom";
+import './EditUser.css'
 
 const EditUser = () => {
     const [user] = useUser('');
@@ -54,7 +55,7 @@ const EditUser = () => {
         <>
 
             {error && <p>Your passwords doesn't match</p>}
-            <form onSubmit={handleEdit}>
+            <form onSubmit={handleEdit} className="editUser_container">
                 <label htmlFor="username">Username</label>
                 <input type="text" name="username" placeholder="Username" value={userName}
                     onChange={e => setUsername(e.target.value)} />
@@ -87,7 +88,7 @@ const EditUser = () => {
                 <label htmlFor="photo">Photo</label>
                 <input type="file" name="photo" placeholder="photo" value={file} onChange={e => setFile(e.target.value)} />
 
-                <button type="submit">Send Change</button>
+                <button type="submit" className="editUser_button">Send Change</button>
 
 
             </form>

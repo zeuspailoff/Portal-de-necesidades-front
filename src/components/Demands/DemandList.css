@@ -15,9 +15,9 @@
     border-radius: 10px;
     background-color: var(--color-darker_dirty_whitesmoke);
     border: 1px solid var(--color-dark_grey);
-
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .demand_upper_row {
@@ -29,6 +29,7 @@
     background-color: var(--color-dirty_whitesmoke);
     padding: 0 10px;
     margin: 15px 10px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .demand a {
@@ -50,6 +51,7 @@
     border-radius: 5px;
     padding: 0 10px;
     margin: 15px 10px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 .category{
     font-size: 2rem;
