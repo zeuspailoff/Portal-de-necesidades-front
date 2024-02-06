@@ -33,13 +33,13 @@ const NewPassword = () => {
     return (
         <>
             <div>
-                {error && <p>Your passwords doesn't match</p>}
-                <form onSubmit={handlePassword}>
+                {error && <p className="error_password">Your passwords doesn't match</p>}
+                <form onSubmit={handlePassword} className="newpass_container">
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
                     <label htmlFor="password_repeat">Repeat Password</label>
                     <input type="password" name="password_repeat" onChange={(e) => setPasswordRepeat(e.target.value)} />
-                    <button type="submit">Update Password</button>
+                    <button type="submit" className="update_pass">Update Password</button>
                 </form>
             </div>
         </>
