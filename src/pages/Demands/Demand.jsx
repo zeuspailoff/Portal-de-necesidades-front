@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDemand, useDeleteDemands } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedDate } from "react-intl";
@@ -47,9 +47,9 @@ const Demand = () => {
         <div className="upper_container">
           <div className="h2_h4_container">
             <h2>#{id} {demandData.demandTitle}</h2>
-            <h4>Created at: <FormattedDate value={demandData.demandCreatedAt} day="2-digit" month="long" /></h4>
+            <h4>Created: <FormattedDate value={demandData.demandCreatedAt} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {userId == demandData.userId ? <button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> : null}
+              {userId == demandData.userId ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
               {userId == demandData.userId ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
             </div>
           </div>

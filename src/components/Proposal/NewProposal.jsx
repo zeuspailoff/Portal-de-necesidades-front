@@ -22,13 +22,14 @@ const NewProposal = () => {
       });
     }
     const response = await newProposal(id, fd)
+    window.location.reload();
 
-    if (response.status == 200) {
+    if (response.status === 200) {
       setDescription('')
       setFiles('')
-      window.location.reload();
+      console.log('hola');
     } else {
-      setError(error)
+      setError(response.error)
     }
 
   }
