@@ -4,12 +4,14 @@
     margin: 40px 20px;
     color: black;
     background-color: var(--color-dirty_whitesmoke);
-    border: 3px solid var(--color-login_green);
-
+    border: 3px solid var(--color-dark_grey);
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 70%;
+    margin-left: 15%;
 }
 
 .new_proposal_wrapper h3 {
@@ -22,6 +24,8 @@
     flex-direction: column;
     align-items: center;
     margin: 0;
+    width: 100%;
+    margin-bottom: 5%;
 }
 
 .submit_new_proposal_form textarea {
@@ -46,4 +50,10 @@
     border-radius: 5px;
     padding: 5px;
     margin: 0 0 5px;
+}
+
+.send_button, .hide_button, .show_button{
+    background-color: #646cff;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
+    margin-top: 10px;
 }

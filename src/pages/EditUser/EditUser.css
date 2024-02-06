@@ -1,15 +1,11 @@
-.newpass_container{
+.editUser_container{
     margin-top: 10%;
     box-shadow: 5px 4px 10px #646cff;
     font-family: 'Poppins', sans-serif;
 }
 
-p.error_password{
-    color: var(--color-dark_grey);
-}
-
-.update_pass{
+.editUser_button{
     background-color: #646cff;
-    margin-top: 20px;
+    border: 1px solid #646cff;
     box-shadow: 5px 4px 10px var(--color-dark_grey);
 }

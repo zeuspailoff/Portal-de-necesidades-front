@@ -9,9 +9,10 @@
 
 .login_fields_container {
     background-color: var(--color-dirty_whitesmoke);
-    border: 3px solid var(--color-login_green);
+    border: 3px solid var(--color-dark_grey);
     border-radius: 15px;
-    color: black;
+    color: var(--color-dark_grey);
+    box-shadow: 3px 3px 10px var(--color-dark_grey);
 }
 
 .fields_container h3 {
@@ -41,4 +42,13 @@
     border-radius: 50px;
     width: 100px;
     margin-top: 20px;
+}
+
+.login_form{
+    box-shadow: 5px 4px 10px #646cff;
+}
+
+.button{
+    border: 1px solid #646cff;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }

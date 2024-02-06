@@ -7,7 +7,7 @@
     color: var(--color-dark_grey);
     width: 33%;
     height: fit-content;
-
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -44,7 +44,7 @@
     margin: 20px 2px 10px;
     border-radius: 50px;
     width: 100%;
-
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;
     align-items: center;
     justify-content: space-between;

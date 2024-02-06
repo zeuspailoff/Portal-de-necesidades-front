@@ -58,7 +58,7 @@ const SignUp = () => {
     <div className="fields_container signup_fields_container">
       {success && <div className="succes"> Revisa tu correo para activar tu usuario </div>}
       <h3>Register:</h3>
-      <form onSubmit={handleForm}>
+      <form onSubmit={handleForm} className='register_form'>
         <input
           className="input_field"
           name="username"
