@@ -1,3 +1,4 @@
 .demands {
     display: flex;
+    background-color: var(--color-dirty_whitesmoke);
 }

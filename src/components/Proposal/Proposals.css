@@ -27,11 +27,15 @@
     align-self: flex-end;
 
     position: relative;
-    top: -25px;
+    top: -45px;
 }
 
 .proposal_card ul {
     list-style-type: none;
+}
+
+.proposal_user_avatar{
+    margin-right: 90%;
 }
 
 .demand_proposals_container {
@@ -66,3 +70,18 @@
     text-align: left;
     padding: 20px 10px 5px 10px;
 }
+
+.rating:hover {
+    font-size: 24px;
+    color: yellow; 
+}
+  
+.active {
+    color: yellow;
+}
+  
+ 
+.voted .active {
+    cursor: default; 
+}
+  

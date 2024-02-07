@@ -32,7 +32,7 @@ const Proposals = () => {
       {proposalsData
         ? proposalsData.data.proposals.map((p) => (
           <div className='proposal_card' key={p.id}>
-            <div className='proposal_card_user_info'>
+            <div className='proposal_card_user_info'> 
               <div className="img_h4_container">
                 <img className='proposal_user_avatar' src={p.userAvatar} alt={p.username + '_avatar'} />
                 <h4>{p.username}</h4>

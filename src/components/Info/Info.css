@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;   
+    width: 100%;
+   
 }
 
 .flex_container_child {
@@ -14,6 +15,7 @@
     background-color: var(--color-dirty_whitesmoke);
     border: 1px solid black;
     color: var(--color-dark_grey);
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .aside_users h3, .flex_container_child h3 {
@@ -27,6 +29,7 @@
     justify-content: center;
 
     margin-bottom: 30px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .featured_users_list {

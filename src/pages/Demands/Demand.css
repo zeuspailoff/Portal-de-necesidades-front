@@ -7,6 +7,7 @@
     box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;
     flex-direction: column;
+    
 }
 
 .demand_container h2, .proposals_wrapper h2 {
