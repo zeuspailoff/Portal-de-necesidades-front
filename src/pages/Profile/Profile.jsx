@@ -10,7 +10,8 @@ const Profile = () => {
     const userData = user.data.data.user;
     const id = userData.id;
     const { userProfile } = useUserActions()
-    userProfile(id)
+    const profileUser = userProfile(id)
+    console.log(profileUser.data[0]);
 
     return (
         <div>
