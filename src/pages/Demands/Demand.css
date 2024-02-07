@@ -72,6 +72,7 @@
 
 .proposals_wrapper h2 {
     margin-bottom: 20px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .proposals h3 {

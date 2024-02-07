@@ -2,6 +2,7 @@
     border: 1px solid black;
     padding: 40px 20px;
     margin: 20px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .proposal_card_user_info {
@@ -71,17 +72,21 @@
     padding: 20px 10px 5px 10px;
 }
 
-.rating:hover {
-    font-size: 24px;
-    color: yellow; 
-}
+.rating span {
+    color: #979797;
+  }
   
-.active {
-    color: yellow;
-}
+  .rating .active {
+    color: #ffe928;
+  }
   
- 
-.voted .active {
-    cursor: default; 
-}
+  .rating:hover span {
+    color: #6161ff;
+    cursor: pointer;
+  }
+  
+  .rating span:hover + span { color: #979797; }
+  .rating span:hover + span + span { color: #979797; }
+  .rating span:hover + span + span + span { color: #979797; }
+  .rating span:hover + span + span + span + span { color: #979797; }
   

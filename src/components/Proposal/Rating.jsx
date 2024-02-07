@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserActions } from "../../hooks/api";
 
 const Rating = ({ id, value }) => {
   const [newValue, setNewValue] = useState();
   const userActions = useUserActions();
 
+  useEffect(() => {
+    setNewValue(value);
+  }, [value]);
+
   const handleVote = (value) => () => {
     userActions
       .vote(id, value)
       .then((res) => {
         setNewValue(res.data.votesAvg);
+      })
+      .catch((error) => {
+        console.error("Error al votar:", error);
+        // Si hay un error al votar, podrías manejarlo aquí según tus necesidades
       });
   };
 
