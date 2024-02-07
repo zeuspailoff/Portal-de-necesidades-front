@@ -31,6 +31,7 @@ export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `proposals
 
 export const useUserActions = () => {
   const fetchPost = useFetchPost()
+  const fetchDelete = useFetchDelete()
   return {
     validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
     dataUser: (id, body) => fetchPost(apiHost + `users/${id}`, body, "PUT"),
@@ -42,7 +43,9 @@ export const useUserActions = () => {
     addPhoto: (id, fd) => fetchPost(apiHost + 'entries/' + id + '/photos', fd),
     vote: (id, value) => fetchPost(apiHost + 'proposals/' + id + '/votes', { value }),
     newDemand: (fd) => fetchPost(apiHost + 'demands', fd),
+    editDemand: (id, fd) => fetchPost(apiHost + `demands/${id}`, fd, 'PUT'),
     newProposal: (id, fd) => fetchPost(apiHost + `proposals/${id}`, fd),
+    deleteProposal: (id) => fetchDelete(apiHost + `proposals/${id}`),
     resetPassword: (email) => fetchPost(apiHost + `users/recover`, email),
     newPassword: (body, recoveryCode) => fetchPost(apiHost + `users/SetPassByrecover/${recoveryCode}`, body, "PUT")
   }

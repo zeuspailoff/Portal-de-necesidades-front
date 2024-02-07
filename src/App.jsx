@@ -25,6 +25,7 @@ import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
 import NewPassword from './pages/NewPassword/NewPassword.jsx'
 import EditUser from './pages/EditUser/EditUser.jsx'
 import Header from './components/Header/Header.jsx'
+import EditDemand from './pages/Demands/EditDemand.jsx'
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/demands/new' element={<NewDemand />} />
             <Route path='/demands' element={<Demands />} />
+            <Route path='/demands/edit/:id' element={<EditDemand />} />
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/faqs' element={<Faqs />} />
             <Route path='/profile' element={<Profile />} />

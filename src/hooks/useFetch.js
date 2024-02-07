@@ -36,7 +36,7 @@ export const useFetchDelete = () => {
 
     return async (url) => {
         const headers = {};
-        if (user?.data?.data?.token) headers.auth_token = user.data.data.token;
+        if (user?.data?.data?.user.token) headers.auth_token = user.data.data.user.token;
 
         const res = await fetch(url, {
             method: 'DELETE',
