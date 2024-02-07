@@ -29,6 +29,9 @@ export const useDeleteProposals = (id) => {
 export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `proposals/${id}` + '/updateStatus')
 
 //---------------------------------------------------user-------------------------------------
+export const useUserList = () => useFetch(apiHost + 'users')
+
+
 
 export const useUserActions = () => {
   const fetchPost = useFetchPost()
