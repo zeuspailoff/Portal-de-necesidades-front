@@ -3,7 +3,7 @@ import { useUserList } from "../../hooks/api";
 
 const UserList = () => {
   const usersData = useUserList()
-  const [users] = useState(usersData.data.users)
+  const [users] = useState(usersData.data.users.slice(0, 10))
   console.log(users);
 
     return (
