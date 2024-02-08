@@ -6,11 +6,11 @@ const ProfilePreviewCard = () => {
   const [user, setUser] = useUser();
   const userData = user || {};
   const navigate = useNavigate();
+  console.log(userData);
 
   const logout = () => {
     setUser();
     navigate('/');
-    window.location.reload();
   }
 
   return (
@@ -18,8 +18,8 @@ const ProfilePreviewCard = () => {
       <div
         className='round_picture_preview'
         style={{
-          backgroundImage: userData.avatar ? `url(${userData.avatar})` : 'none',
-          backgroundColor: userData.avatar ? 'transparent' : 'grey'
+          backgroundImage: userData.profile_picture ? `http://localhost:8080/${user.profile_picture})` : 'none',
+          backgroundColor: userData.profile_picture ? 'transparent' : 'grey'
         }}
       ></div>
       {!user && <Link className='profile_link' to="/login">Login/Signup</Link>}
