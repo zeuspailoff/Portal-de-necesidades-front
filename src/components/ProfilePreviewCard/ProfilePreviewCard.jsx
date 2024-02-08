@@ -4,7 +4,7 @@ import { useUser } from '../../UserContext';
 
 const ProfilePreviewCard = () => {
   const [user, setUser] = useUser();
-  const userData = user?.data.data.user || {};
+  const userData = user || {};
   const navigate = useNavigate();
 
   const logout = () => {
