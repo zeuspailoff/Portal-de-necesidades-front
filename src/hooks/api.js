@@ -9,6 +9,7 @@ export const useDemands = (query) => useFetch('demands?' + new URLSearchParams(q
 export const useDemand = (id) => useFetch(apiHost + `demands/${id}`)
 export const useProposalByDemands = (id) => useFetch(apiHost + `demands/${id}/proposals`)
 export const useDemandsByUserId = (id) => useFetch(apiHost + `users/${id}/demands`)
+export const useAllCategories = () => useFetch(apiHost + 'categories')
 
 export const useDeleteDemands = (id) => {
   const deleteUrl = apiHost + `demands/${id}`;
@@ -28,13 +29,16 @@ export const useDeleteProposals = (id) => {
 export const useUpdateStatusProposal = (id) => useFetchPost(apiHost + `proposals/${id}` + '/updateStatus')
 
 //---------------------------------------------------user-------------------------------------
+export const useUserList = () => useFetch(apiHost + 'users')
+
+
 
 export const useUserActions = () => {
   const fetchPost = useFetchPost()
   const fetchDelete = useFetchDelete()
   return {
     validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
-    dataUser: (id, body) => fetchPost(apiHost + `users/${id}`, body, "PUT"),
+    dataUser: (id, fd) => fetchPost(apiHost + `users/${id}`, fd, "PUT"),
     userProfile: (id) => useFetch(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
     login: (body) => fetchPost(apiHost + 'users/login', body),

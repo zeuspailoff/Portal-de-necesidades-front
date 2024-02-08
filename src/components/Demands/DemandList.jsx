@@ -27,11 +27,9 @@ const DemandList = () => {
 
     if (state) {
       result = result.filter((demand) => demand.is_closed == state)
-      console.log("stateeee", result, state);
     }
     if (category) {
       result = result.filter((demand) => demand.category == category)
-      console.log("category", result, category);
     }
 
     if (result.length == 0) { return null }

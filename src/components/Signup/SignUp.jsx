@@ -34,7 +34,6 @@ const SignUp = () => {
     }
     const { data } = await register(body)
     if (data.status === 200) {
-      console.log("asdasd");
       setSuccess(true)
       setName('')
       setLastName('')

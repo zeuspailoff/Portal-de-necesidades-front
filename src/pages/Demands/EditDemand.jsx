@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useUserActions } from "../../hooks/api";
+import { useUserActions,useDemand,useAllCategories } from "../../hooks/api";
+
+
 
 
 const EditDemand = () => {
-
-    const [title, setTitle] = useState()
-    const [description, setDescription] = useState()
-    const [category, setCategory] = useState()
+    const { id } = useParams()
+    const demandData = useDemand(id);
+    const demand = demandData.data;
+    const categoriesResponse = useAllCategories();
+    
+    const [categories] = useState(categoriesResponse.data);
+    const [title, setTitle] = useState(demand.title)
+    const [description, setDescription] = useState(demand.description)
+    const [category, setCategory] = useState(demand.category_id)
     const [files, setFiles] = useState()
     const [error, setError] = useState()
-    const { id } = useParams()
     const { editDemand } = useUserActions()
     const navigate = useNavigate()
 
@@ -21,9 +27,11 @@ const EditDemand = () => {
         fd.append('title', title)
         fd.append('description', description)
         fd.append('category_id', category)
-        files.forEach(f => {
-            fd.append('files', f)
-        })
+        if (files) {
+            files.forEach(f => {
+                fd.append('files', f)
+            })
+        }
 
         const response = await editDemand(id, fd);
         try {
@@ -73,12 +81,10 @@ const EditDemand = () => {
                     />
 
                     <h2 className='label_select'>Category:</h2>
-                    <select className='category_select' onChange={(e) => setCategory(e.target.value)}>
-                        <option value="1">Web Design</option>
-                        <option value="2">Translations</option>
-                        <option value="3">Developing</option>
-                        <option value="4">MovieMakers</option>
-                        <option value="5">Digital Marketing</option>
+                    <select className='category_select' value={category} onChange={(e) => setCategory(e.target.value)}>
+                    {categories.map(c => ( 
+                        <option key={c.id} value={c.id}>{c.value}</option>
+                    ))}
                     </select>
 
                     <input

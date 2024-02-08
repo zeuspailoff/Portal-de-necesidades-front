@@ -15,14 +15,11 @@ const Login = () => {
   const handleForm = async (e) => {
     e.preventDefault();
     const body = { email, password };
-
     try {
       const loggedUser = await login(body);
 
-      // console.log(loggedUser.data);
-
       if (loggedUser.data.status === "OK") {
-        setUser(loggedUser.data);
+        setUser(loggedUser.data.data.data.user);
       } else {
         setError(loggedUser);
       }

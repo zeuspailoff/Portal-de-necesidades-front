@@ -1,3 +1,4 @@
+import UsersList from '../UsersList/UsersList'
 import './Info.css'
 const Info = () =>{
 
@@ -9,11 +10,7 @@ const Info = () =>{
             <div className='flex_container_child'>
                 <aside className='aside_users'>
                     <h3>Featured users of the week:</h3>
-                    <ul className='featured_users_list'>
-                        <li>User 1</li>
-                        <li>User 2</li>
-                        <li>User 3</li>
-                    </ul>
+                    <UsersList/>
                 </aside>
             </div>
         </div>

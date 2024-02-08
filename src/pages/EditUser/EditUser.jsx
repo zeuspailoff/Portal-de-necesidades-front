@@ -6,74 +6,59 @@ import { useNavigate } from "react-router-dom";
 import './EditUser.css'
 
 const EditUser = () => {
-    const [user] = useUser('');
-    const [userName, setUsername] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState('');
-    const [password_repeat, setPasswordRepeat] = useState('');
-    const [biography, setBiography] = useState('');
-    const [file, setFile] = useState('');
-    const [error, setError] = useState('');
+    const [user,setUser] = useUser('');
+    const [userName, setUsername] = useState(user.username);
+    const [lastname, setLastname] = useState(user.lastname);
+    const [name, setName] = useState(user.name);
+    const [biography, setBiography] = useState(user.biography);
+    const [files, setFiles] = useState([]);
     const navigate = useNavigate('');
 
-    const id = user.data.data.user.id;
+    const id = user.id;
     const { dataUser } = useUserActions()
 
-    const handleEdit = (e) => {
+    const handleEdit = async (e) => {
         e.preventDefault();
-        const body = {
-            username: userName,
-            lastname: lastname,
-            name: name,
-            phone: phone,
-            password: password,
-            biography: biography,
-            files: file
-        }
-        const editedUser = dataUser(id, body)
 
-        if (password !== password_repeat) {
-            setError(true)
+        const fd = new FormData()
+
+        fd.append('username', userName)
+        fd.append('lastname', lastname)
+        fd.append('name', name)
+        fd.append('biography', biography)
+        if (files.length > 0) {
+            files.forEach(f => {
+                fd.append('files', f)
+            })
         }
 
-        if (editedUser.status == 200) {
-            window.location.reload();
-            setPhone('')
-            setFile('')
-            setBiography('')
-            setLastname('')
-            setName('')
-            setPassword('')
-            setPasswordRepeat('')
-            setUsername('')
+        const response = await dataUser(id, fd)
+        const editedUser = {...response.data};
+
+        if (editedUser.status === 200) {
+            const newUser = { ...user }
+            newUser.username = editedUser.data.username;
+            newUser.lastname = editedUser.data.lastname;
+            newUser.name = editedUser.data.name;
+            newUser.biography = editedUser.data.biography;
+            newUser.profile_picture = editedUser.data.profile_picture;
+            setUser(newUser);
             navigate('/profile')
         }
     }
     return (
         <>
-
-            {error && <p>Your passwords doesn't match</p>}
             <form onSubmit={handleEdit} className="editUser_container">
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" placeholder="Username" value={userName}
+                <input type="text" name="username" placeholder="Username" value={userName || " "}
                     onChange={e => setUsername(e.target.value)} />
 
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
+                <input type="text" name="name" placeholder="Name" value={name || " "} onChange={e => setName(e.target.value)} />
 
                 <label htmlFor="lastname">Lastname</label>
-                <input type="text" name="lastname" placeholder="Lastname" value={lastname} onChange={e => setLastname(e.target.value)} />
+                <input type="text" name="lastname" placeholder="Lastname" value={lastname || " "} onChange={e => setLastname(e.target.value)} />
 
-                <label htmlFor="phone">Phone</label>
-                <input type="phone" name="phone" placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} />
-
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-
-                <label htmlFor="password_repeat">Password repeat</label>
-                <input type="password" name="password_repeat" placeholder="Repite tu contraseña " value={password_repeat} onChange={e => setPasswordRepeat(e.target.value)} />
 
                 <label htmlFor="biography">Biography</label>
                 <textarea
@@ -81,12 +66,12 @@ const EditUser = () => {
                     name="biography"
                     placeholder="Biography"
                     type="text"
-                    value={biography} onChange={e => setBiography(e.target.value)}
+                    value={biography || " "} onChange={e => setBiography(e.target.value)}
 
                 />
 
                 <label htmlFor="photo">Photo</label>
-                <input type="file" name="photo" placeholder="photo" value={file} onChange={e => setFile(e.target.value)} />
+                <input className="input_files" type="file" name="files[]" placeholder="files" onChange={e => setFiles(Array.from(e.target.files))} multiple={true} />
 
                 <button type="submit" className="editUser_button">Send Change</button>
 

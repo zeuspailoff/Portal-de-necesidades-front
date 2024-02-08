@@ -1,5 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useDemand, useDeleteDemands } from "../../hooks/api";
+import { useState } from "react";
+import { useDemand, useDeleteDemands,useProposalByDemands } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedDate } from "react-intl";
 import NewProposal from "../../components/Proposal/NewProposal";
@@ -10,12 +11,16 @@ import './Demand.css';
 const Demand = () => {
 
   const [user] = useUser();
-  const userId = user?.data.data.user.id;
+  const userId = user?.id;
   const { id } = useParams();
-  const demand = useDemand(id);
+  const demandData = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
-  const demandData = demand.data;
+  const demand = demandData.data;
+  const proposalsData = useProposalByDemands(id);
+
+  const [proposals, setProposals] = useState(proposalsData.data.proposals);
+  
 
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
@@ -31,7 +36,7 @@ const Demand = () => {
   };
   const deleteDemand = () => {
 
-    if (userId == demandData.userId) {
+    if (userId == demand.userId) {
       deleteDemandById(id);
       navigate('/demands');
       window.location.reload();
@@ -46,11 +51,11 @@ const Demand = () => {
 
         <div className="upper_container">
           <div className="h2_h4_container">
-            <h2>#{id} {demandData.demandTitle}</h2>
-            <h4>Created: <FormattedDate value={demandData.demandCreatedAt} day="2-digit" month="long" /></h4>
+            <h2>#{id} {demand.title}</h2>
+            <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {userId == demandData.userId ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
-              {userId == demandData.userId ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
+              {userId == demand.userId ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
+              {userId == demand.userId ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
             </div>
           </div>
         </div>
@@ -58,12 +63,12 @@ const Demand = () => {
           <div>
             <div className='description_wrapper'>
               <h3>Description:</h3>
-              <p>{demandData.demandDescription}</p>
+              <p>{demand.description}</p>
             </div>
             <div className='files_wrapper'>
               <h3>Files:</h3>
               <div className='demand_files'>
-                {demandData.demandFiles ? Object.values(demandData.demandFiles).map((file, key) => (
+                {demand.files ? Object.values(demand.files).map((file, key) => (
                   <div key={key} className="fileIcon" >
                     <a
                       href={"http://localhost:8080/" + file.fileSrc}
@@ -90,12 +95,12 @@ const Demand = () => {
           <div>
             <section className='proposals_wrapper'>
               <h2>Proposals for this demand:</h2>
-              <Proposals />
+              <Proposals proposals={proposals} setProposals={setProposals}/>
             </section>
           </div>
 
           <div className='new_proposal_container'>
-            <NewProposal />
+            <NewProposal proposals={proposals} setProposals={setProposals}/>
           </div>
         </div>
 
