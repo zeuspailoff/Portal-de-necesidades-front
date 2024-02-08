@@ -27,7 +27,6 @@ const EditUser = () => {
         fd.append('name', name)
         fd.append('biography', biography)
         if (files.length > 0) {
-            console.log("ASA", files);
             files.forEach(f => {
                 fd.append('files', f)
             })
@@ -37,7 +36,6 @@ const EditUser = () => {
         const editedUser = {...response.data};
 
         if (editedUser.status === 200) {
-            console.log("edited user", editedUser.data);
             const newUser = { ...user }
             newUser.username = editedUser.data.username;
             newUser.lastname = editedUser.data.lastname;

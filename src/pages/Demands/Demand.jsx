@@ -1,5 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useDemand, useDeleteDemands } from "../../hooks/api";
+import { useState } from "react";
+import { useDemand, useDeleteDemands,useProposalByDemands } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedDate } from "react-intl";
 import NewProposal from "../../components/Proposal/NewProposal";
@@ -10,12 +11,16 @@ import './Demand.css';
 const Demand = () => {
 
   const [user] = useUser();
-  const userId = user?.data.data.user.id;
+  const userId = user?.id;
   const { id } = useParams();
   const demandData = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
   const demand = demandData.data;
+  const proposalsData = useProposalByDemands(id);
+
+  const [proposals, setProposals] = useState(proposalsData.data.proposals);
+  
 
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
@@ -90,12 +95,12 @@ const Demand = () => {
           <div>
             <section className='proposals_wrapper'>
               <h2>Proposals for this demand:</h2>
-              <Proposals />
+              <Proposals proposals={proposals} setProposals={setProposals}/>
             </section>
           </div>
 
           <div className='new_proposal_container'>
-            <NewProposal />
+            <NewProposal proposals={proposals} setProposals={setProposals}/>
           </div>
         </div>
 

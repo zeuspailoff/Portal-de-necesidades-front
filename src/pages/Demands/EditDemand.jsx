@@ -12,7 +12,6 @@ const EditDemand = () => {
     const categoriesResponse = useAllCategories();
     
     const [categories] = useState(categoriesResponse.data);
-    console.log(categories);
     const [title, setTitle] = useState(demand.title)
     const [description, setDescription] = useState(demand.description)
     const [category, setCategory] = useState(demand.category_id)

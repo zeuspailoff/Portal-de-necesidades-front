@@ -1,16 +1,12 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
-import { useUserActions } from '../../hooks/api';
 import './Profile.css';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
     const [user] = useUser();
-    console.log(user);
     const id = user.id;
-    const { userProfile } = useUserActions()
-    const profileUser = userProfile(id)
 
     return (
         <div>
@@ -24,7 +20,7 @@ const Profile = () => {
                 </div>
                 <div className='user_data_row'>
                     <div className='user_data'>
-                        <img src={'http://localhost:8080/'+user.profile_picture ?? null} alt={`User ${user.username} profile mosaic`} />
+                        <img src={user.profile_picture ? 'http://localhost:8080/'+user.profile_picture : null} alt={`User ${user.username} profile mosaic`} />
                         <ul>
                             <li className='bold'>Username:</li>
                             <li className='separate'>{user.username}</li>

@@ -18,8 +18,6 @@ const Login = () => {
     try {
       const loggedUser = await login(body);
 
-      console.log(loggedUser);
-
       if (loggedUser.data.status === "OK") {
         setUser(loggedUser.data.data.data.user);
       } else {

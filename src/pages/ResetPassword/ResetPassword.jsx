@@ -13,9 +13,7 @@ const ResetPassword = () => {
       email: email,
       url: url
     }
-    console.log(body);
     const response = await resetPassword(body);
-    console.log(response);
     if (response.data.status == "OK") {
       setEmail("");
       setSuccess(true);

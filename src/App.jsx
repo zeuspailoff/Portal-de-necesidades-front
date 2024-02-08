@@ -60,6 +60,7 @@ function App() {
           <FloatingButton />
           <Footer />
         </Suspense>
+          <div id="modal-root"></div>
       </ErrorBoundary>
     </>
   )

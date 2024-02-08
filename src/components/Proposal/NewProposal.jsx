@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "./NewProposal.css";
 import { useUserActions } from "../../hooks/api";
 import { useParams } from "react-router";
+import ConfirmModal from "./ConfirmModal";
 
-const NewProposal = () => {
+const NewProposal = ({proposals, setProposals}) => {
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
   const { id } = useParams();
-  const [files, setFiles] = useState("");
+  const [files, setFiles] = useState([]);
   const { newProposal } = useUserActions();
   const [visibleForm, setVisibleForm] = useState(false); // Estado para controlar la visibilidad del formulario
+  const [showModal, setShowModal] = useState("none");
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -21,11 +23,14 @@ const NewProposal = () => {
       });
     }
     const response = await newProposal(id, fd);
-
-    if (response.status === 200) {
+    if (response.data.status == 200) {
+      console.log(response.data);
       setDescription("");
-      setFiles("");
-      window.location.reload();
+      setFiles([]);
+      const newProposals = [...proposals, {id: response.data.id, description: response.data.description, files : response.data.files}];
+      console.log(">>>>>>>>>>>", newProposals);
+      setProposals(newProposals)
+      
     } else {
       setError(error);
     }
@@ -39,15 +44,30 @@ const NewProposal = () => {
     setVisibleForm(false);
   };
 
+  const handleShowModal = (e) => {
+    e.preventDefault();
+    setShowModal("flex");
+  };
+
+  const handleCloseModal = () => {
+    setShowModal("none");
+  };
+
+  const handleConfirm = (e) => {
+    handleForm(e)
+    setShowModal(false);
+  };
+
   return (
     <div className="new_proposal_wrapper">
+        <ConfirmModal  showModal={showModal} onClose={handleCloseModal} onConfirm={handleConfirm}/>
       <h3>Submit a new proposal:</h3>
       {!visibleForm && ( 
         <button className="show_button" onClick={showForm}>Show Form</button>
       )}
       {visibleForm && (
         <div>
-          <form className="submit_new_proposal_form" onSubmit={handleForm}>
+          <form className="submit_new_proposal_form" onSubmit={handleShowModal}>
             <textarea
               className="new_proposal_description"
               name="description"
@@ -65,7 +85,7 @@ const NewProposal = () => {
               }}
               multiple={true}
             />
-            <button className="send_button" type="submit">
+            <button className="send_button" onClick={handleShowModal}>
               Send
             </button>
             {error?.error && (
