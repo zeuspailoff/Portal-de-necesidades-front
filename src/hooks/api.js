@@ -38,7 +38,7 @@ export const useUserActions = () => {
   const fetchDelete = useFetchDelete()
   return {
     validate: (registrationcode) => useFetch(apiHost + `users/validate/${registrationcode}`),
-    dataUser: (id, body) => fetchPost(apiHost + `users/${id}`, body, "PUT"),
+    dataUser: (id, fd) => fetchPost(apiHost + `users/${id}`, fd, "PUT"),
     userProfile: (id) => useFetch(apiHost + `users/${id}`),
     register: (body) => fetchPost(apiHost + 'users', body),
     login: (body) => fetchPost(apiHost + 'users/login', body),

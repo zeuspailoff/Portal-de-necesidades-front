@@ -7,12 +7,12 @@ import './EditUser.css'
 
 const EditUser = () => {
     const [user] = useUser('');
-    const [loggedUser, setLoggedUser] = useState(user.data.data.user);
+    const [loggedUser] = useState(user.data.data.user);
     const [userName, setUsername] = useState(loggedUser.username);
     const [lastname, setLastname] = useState(loggedUser.lastname);
     const [name, setName] = useState(loggedUser.name);
     const [biography, setBiography] = useState(loggedUser.biography);
-    const [file, setFile] = useState('');
+    const [files, setFile] = useState('');
     const navigate = useNavigate('');
 
     const id = user.data.data.user.id;
@@ -20,14 +20,20 @@ const EditUser = () => {
 
     const handleEdit = (e) => {
         e.preventDefault();
-        const body = {
-            username: userName,
-            lastname: lastname,
-            name: name,
-            biography: biography,
-            files: file
+
+        const fd = new FormData()
+
+        fd.append('userName', userName)
+        fd.append('lastName', lastname)
+        fd.append('name', name)
+        fd.append('biography', biography)
+        if (files) {
+            files.forEach(f => {
+                fd.append('files', f)
+            })
         }
-        const editedUser = dataUser(id, body)
+
+        const editedUser = dataUser(id, fd)
 
         if (editedUser.status == 200) {
             window.location.reload();
@@ -64,7 +70,7 @@ const EditUser = () => {
                 />
 
                 <label htmlFor="photo">Photo</label>
-                <input type="file" name="files" placeholder="files" value={file} onChange={e => setFile(e.target.value)} />
+                <input type="file" name="files" placeholder="files" value={files} onChange={e => setFile(e.target.value)} />
 
                 <button type="submit" className="editUser_button">Send Change</button>
 
