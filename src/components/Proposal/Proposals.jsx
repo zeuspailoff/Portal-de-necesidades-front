@@ -12,7 +12,7 @@ const Proposals = ({proposals}) => {
   
 
 
-  if (proposals.length == 0) {
+  if (proposals?.length == 0) {
     return (
       <div>
         <p>This demand has no proposals.</p>
@@ -69,7 +69,7 @@ const Proposals = ({proposals}) => {
                 <li>Votes: {p.voteCounts}</li>
                 <li>Average score: {p.votesAvg}</li>
               </ul>
-              <Rating />
+              <Rating proposal_id={p.id} currentValue={p.votesAvg} />
             </div>
           </div>
         ))

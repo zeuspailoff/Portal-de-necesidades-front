@@ -19,7 +19,7 @@ const Demand = () => {
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
 
-  const [proposals, setProposals] = useState(proposalsData.data.proposals);
+  const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
   
 
   const getFileExtension = (filename) => {

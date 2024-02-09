@@ -21,7 +21,7 @@ const ProfilePreviewCard = () => {
           backgroundImage: backgroundImageUrl,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundColor: user.profile_picture ? 'transparent' : 'grey'
+          backgroundColor: user?.profile_picture ? 'transparent' : 'grey'
         }}
       ></div>
       {!user && <Link className='profile_link' to="/login">Login/Signup</Link>}

@@ -66,3 +66,21 @@
     text-align: left;
     padding: 20px 10px 5px 10px;
 }
+
+.rating span {
+    color: #979797;
+  }
+  
+  .rating .active {
+    color: #ffe928;
+  }
+  
+  .rating:hover span {
+    color: #6161ff;
+    cursor: pointer;
+  }
+  
+  .rating span:hover + span { color: #979797; }
+  .rating span:hover + span + span { color: #979797; }
+  .rating span:hover + span + span + span { color: #979797; }
+  .rating span:hover + span + span + span + span { color: #979797; }
