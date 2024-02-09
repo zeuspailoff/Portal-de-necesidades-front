@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { useDemand, useDeleteDemands,useProposalByDemands } from "../../hooks/api";
+import { useDemand, useDeleteDemands, useProposalByDemands } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedDate } from "react-intl";
 import NewProposal from "../../components/Proposal/NewProposal";
@@ -20,7 +20,7 @@ const Demand = () => {
   const proposalsData = useProposalByDemands(id);
 
   const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
-  
+
 
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
@@ -95,12 +95,13 @@ const Demand = () => {
           <div>
             <section className='proposals_wrapper'>
               <h2>Proposals for this demand:</h2>
-              <Proposals proposals={proposals} setProposals={setProposals}/>
+              {proposals && proposals.length > 0 ? <Proposals proposals={proposals} setProposals={setProposals} /> : <p>This demand does not contain proposals</p>}
+
             </section>
           </div>
 
           <div className='new_proposal_container'>
-            <NewProposal proposals={proposals} setProposals={setProposals}/>
+            <NewProposal proposals={proposals} setProposals={setProposals} />
           </div>
         </div>
 

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./NewProposal.css";
 import { useUserActions } from "../../hooks/api";
 import { useParams } from "react-router";
 import ConfirmModal from "./ConfirmModal";
 
-const NewProposal = ({proposals, setProposals}) => {
+const NewProposal = ({ proposals, setProposals }) => {
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
   const { id } = useParams();
@@ -27,10 +27,10 @@ const NewProposal = ({proposals, setProposals}) => {
       console.log(response.data);
       setDescription("");
       setFiles([]);
-      const newProposals = [...proposals, {id: response.data.id, description: response.data.description, files : response.data.files}];
+      const newProposals = [...proposals, { id: response.data.id, description: response.data.description, files: response.data.files }];
       console.log(">>>>>>>>>>>", newProposals);
       setProposals(newProposals)
-      
+
     } else {
       setError(error);
     }
@@ -60,9 +60,9 @@ const NewProposal = ({proposals, setProposals}) => {
 
   return (
     <div className="new_proposal_wrapper">
-        <ConfirmModal  showModal={showModal} onClose={handleCloseModal} onConfirm={handleConfirm}/>
+      <ConfirmModal showModal={showModal} onClose={handleCloseModal} onConfirm={handleConfirm} />
       <h3>Submit a new proposal:</h3>
-      {!visibleForm && ( 
+      {!visibleForm && (
         <button className="show_button" onClick={showForm}>Show Form</button>
       )}
       {visibleForm && (

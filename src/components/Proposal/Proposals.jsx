@@ -5,15 +5,15 @@ import { useUserActions } from "../../hooks/api";
 import Rating from "./Rating";
 import './Proposals.css';
 
-const Proposals = ({proposals}) => {
+const Proposals = ({ proposals }) => {
   const { id } = useParams();
   const [user] = useUser();
   const userId = user.id;
   const { deleteProposal } = useUserActions();
-  const [error , setError] = useState(null)
-  
-  
-  if(proposals.error) {
+  const [error, setError] = useState(null)
+
+
+  if (proposals.error) {
     setError(proposals.error.toString());
     console.log(error);
   }
@@ -28,6 +28,8 @@ const Proposals = ({proposals}) => {
 
   const testEditButton = () => console.log('Edit proposal');
 
+  console.log('este es el usuario ', user);
+  console.log('esta es la proposal', proposals);
   const handleDelete = (id) => {
     deleteProposal(id);
     window.location.reload();
@@ -75,9 +77,9 @@ const Proposals = ({proposals}) => {
               <ul>
                 <li>Votes: {p.voteCount}</li>
                 <li>Average score: {p.votesAvg}</li>
-                {error && error?.error &&  (
-                <p >{error.error.message}</p>
-              )}
+                {error && error?.error && (
+                  <p >{error.error.message}</p>
+                )}
               </ul>
               <Rating proposal_id={p.id} currentValue={p.voteAvg} />
             </div>

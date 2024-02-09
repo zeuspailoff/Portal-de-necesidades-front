@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useUserActions } from "../../hooks/api";
 
 const Rating = ({ proposal_id, currentValue }) => {
-  console.log(currentValue);
   const [newValue, setNewValue] = useState(currentValue);
-  const {vote} = useUserActions()
+  const { vote } = useUserActions()
 
 
   const handleVote = async (e) => {
@@ -14,9 +13,8 @@ const Rating = ({ proposal_id, currentValue }) => {
     }
     const response = await vote(proposal_id, body)
     if (response.data.status == 200) {
-        setNewValue(response.data.data.votes);
-        console.log("dentro del if ");
-      };
+      setNewValue(response.data.data.votes);
+    }
   };
 
   const v = newValue || currentValue;
