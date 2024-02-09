@@ -1,6 +1,5 @@
 
 const UserDemands = ({demands}) => {
-  console.log(demands);
     return (
       <div>
          { demands && demands?.map((d) => (

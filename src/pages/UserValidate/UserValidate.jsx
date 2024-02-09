@@ -28,9 +28,9 @@ const UserValidate = () => {
 
   return (
     <div>
-      {success && <p>
+      {success && <h2 style={{color:"blue", fontSize:"2em"}}>
         Te has registrado en Ineedup, ¿por que no haces to primera demanda para celebrarlo?
-      </p>
+      </h2>
       }
 
       {error && <p>
