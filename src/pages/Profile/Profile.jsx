@@ -8,15 +8,17 @@ import { useUserActions } from "../../hooks/api";
 
 
 const Profile = () => {
-    const {userProfile} = useUserActions();
-    const {userDemands} = useUserActions();
+    const { userProfile } = useUserActions();
+    const { userDemands } = useUserActions();
     const { id } = useParams();
-    
+
     const requestUser = userProfile(id)
-    const [is_owner] = useState(requestUser.data.is_owner);
-    
+    const [is_owner] = useState(requestUser?.data.is_owner);
+
+
     const usersDemands = userDemands(id)
-    const [demands] = useState(usersDemands.data.slice(0,5));
+    const [demands] = useState(usersDemands?.data.slice(0, 5));
+
 
     return (
         <div>
@@ -30,7 +32,7 @@ const Profile = () => {
                 </div>}
                 <div className='user_data_row'>
                     <div className='user_data'>
-                        <img src={requestUser.data.profile_picture ? 'http://localhost:8080/'+requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
+                        <img src={requestUser.data.profile_picture ? 'http://localhost:8080/' + requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
                         <ul>
                             <li className='bold'>Username:</li>
                             <li className='separate'>{requestUser.data.username}</li>

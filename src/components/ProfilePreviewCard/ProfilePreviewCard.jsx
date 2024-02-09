@@ -27,7 +27,7 @@ const ProfilePreviewCard = () => {
       {!user && <Link className='profile_link' to="/login">Login/Signup</Link>}
       {user && (
         <span>
-          <Link className='profile_link' to='/profile'>{`Hi, ${user.username}`}</Link>
+          <Link className='profile_link' to={`/profile/${user.id}`} >{`Hi, ${user.username}`}</Link>
           <span onClick={logout}>🚫</span>
         </span>
       )}
