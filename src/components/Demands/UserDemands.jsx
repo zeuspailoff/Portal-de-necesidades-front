@@ -1,13 +1,6 @@
-import { useState } from "react";
-import { useUserActions } from "../../hooks/api";import { useParams } from "react-router-dom";
 
-
-
-const UserDemands = () => {
-    const id = useParams()
-    const {userDemands} = useUserActions();
-   const demands = userDemands(id)
-
+const UserDemands = ({demands}) => {
+  console.log(demands);
     return (
       <div>
          { demands && demands?.map((d) => (

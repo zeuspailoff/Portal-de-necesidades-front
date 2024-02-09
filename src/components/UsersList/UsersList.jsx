@@ -12,8 +12,8 @@ const UserList = () => {
       <ul className="userList">
         {users.map(u => (
           <li key={u.id}>
-          {u && u.avatarSrc ? ( 
-            <img className="avatarHome" src={`http://localhost:8080/${u.avatarSrc.replace(/\\/g, '/')}`} alt={u.username} />
+          {u && u.profile_picture ? ( 
+            <img className="avatarHome" src={`http://localhost:8080/${u.profile_picture.replace(/\\/g, '/')}`} alt={u.username} />
           ) : <img className="avatarHome" src={'https://w7.pngwing.com/pngs/77/140/png-transparent-training-needs-analysis-needs-assessment-needs-analysis-orange-logo-need.png'} alt={u.username}/>}
           {u && u.username}
         </li>
