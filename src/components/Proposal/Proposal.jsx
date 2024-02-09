@@ -2,6 +2,7 @@ import Rating from './Rating';
 import './Proposal.css';
 
 const Proposal = ({proposal}) => {
+    console.log(proposal);
     return (
         <div className='proposal_card'>
             <div className='proposal_card_user_info'>
@@ -23,7 +24,7 @@ const Proposal = ({proposal}) => {
                 <li>Votes: {proposal.voteCounts}</li>
                 <li>Average score: {proposal.votesAvg}</li>
             </ul>
-            <Rating />
+            <Rating proposal_id={p.id} currentValue={p.votesAvg} />
         </div>    
         </div>
     );

@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useUserActions } from "../../hooks/api";
 
 const Rating = ({ proposal_id, currentValue }) => {
-  const [newValue, setNewValue] = useState();
+  console.log(currentValue);
+  const [newValue, setNewValue] = useState(currentValue);
   const {vote} = useUserActions()
 
 
