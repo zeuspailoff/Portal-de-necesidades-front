@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { useUser } from "../../UserContext";
 import { useUserActions } from "../../hooks/api";
 import Rating from "./Rating";
@@ -9,8 +10,13 @@ const Proposals = ({proposals}) => {
   const [user] = useUser();
   const userId = user.id;
   const { deleteProposal } = useUserActions();
+  const [error , setError] = useState(null)
   
-
+  
+  if(proposals.error) {
+    setError(proposals.error.toString());
+    console.log(error);
+  }
 
   if (proposals?.length == 0) {
     return (
@@ -26,6 +32,7 @@ const Proposals = ({proposals}) => {
     deleteProposal(id);
     window.location.reload();
   };
+
 
   return (
     <div className="preview_proposal_cards">
@@ -66,10 +73,13 @@ const Proposals = ({proposals}) => {
             </div>
             <div className='proposal_card_votes_info'>
               <ul>
-                <li>Votes: {p.voteCounts}</li>
+                <li>Votes: {p.voteCount}</li>
                 <li>Average score: {p.votesAvg}</li>
+                {error && error?.error &&  (
+                <p >{error.error.message}</p>
+              )}
               </ul>
-              <Rating proposal_id={p.id} currentValue={p.votesAvg} />
+              <Rating proposal_id={p.id} currentValue={p.voteAvg} />
             </div>
           </div>
         ))

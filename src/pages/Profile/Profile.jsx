@@ -2,6 +2,7 @@ import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
 import './Profile.css';
 import { Link } from 'react-router-dom';
+import UserDemands from '../../components/Demands/UserDemands';
 
 const Profile = () => {
 
@@ -51,14 +52,7 @@ const Profile = () => {
                     </div>
                     <div className='right_column'>
                         <h3>Demands posted by user:</h3>
-                        {user.userDemands?.map(demand => (
-                            <div className='demand_container' key={demand.id}>
-                                <h3>{demand.title}</h3>
-                                <p>{demand.description}</p>
-                                <br />
-                                <p>Active: {demand.is_active}</p>
-                            </div>
-                        ))}
+                                <UserDemands/>
                         {!user.userDemands && <p>No demands were posted yet!</p>}
                     </div>
                 </div>
