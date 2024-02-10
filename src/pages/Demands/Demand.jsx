@@ -16,12 +16,13 @@ const Demand = () => {
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
   const { closeDemands } = useUserActions();
+  const { deleteFile } = useUserActions()
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
   const [error, setError] = useState(proposalsData)
 
-  const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
 
+  const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
     const type = parts[parts.length - 1];
@@ -29,9 +30,7 @@ const Demand = () => {
     return type;
   }
 
-  console.log(user.id);
-  console.log(demand
-  );
+
   //////// EDIT AND DELETE BUTTONS ////////
 
   const deleteDemand = () => {
@@ -46,6 +45,21 @@ const Demand = () => {
   const closeDemand = () => {
     closeDemands(demand.id)
   }
+  const deleteFiles = async (id) => {
+    const deletedFile = await deleteFile(id)
+    return deletedFile;
+
+  }
+
+  const handleDeleteFile = async (e) => {
+    const id = e.target.id;
+    const response = await deleteFiles(id)
+    console.log(response);
+    if (response.data.status == 200) {
+      e.target.parentNode.remove();
+    }
+  }
+
   //////// EDIT AND DELETE and close BUTTONS ////////
 
   return (
@@ -75,8 +89,9 @@ const Demand = () => {
             <div className='files_wrapper'>
               <h3>Files:</h3>
               <div className='demand_files'>
-                {demand.files ? Object.values(demand.files).map((file, key) => (
-                  <div key={key} className="fileIcon" >
+                {demand.demandFiles ? Object.values(demand.demandFiles).map((file) => (
+                  <div key={file.fileId} className="fileIcon" >
+                    {user.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
                     <a
                       href={"http://localhost:8080/" + file.fileSrc}
                       download

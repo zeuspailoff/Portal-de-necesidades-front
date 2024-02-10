@@ -54,6 +54,7 @@ export const useUserActions = () => {
     userDemands: (id) => useFetch(apiHost + `users/${id}/demands`),
     newPassword: (body, recoveryCode) => fetchPost(apiHost + `users/SetPassByrecover/${recoveryCode}`, body, "PUT"),
     popularProposalsByUserId: (id) => useFetch(apiHost + `proposals/user/${id}`),
+    deleteFile: (id) => fetchDelete(apiHost + `files/${id}/delete`),
     closeDemands: (id) => fetchPut(apiHost + `demands/${id}/close`)
   }
 }
