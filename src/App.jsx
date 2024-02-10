@@ -43,7 +43,7 @@ function App() {
             <Route path='/demands/edit/:id' element={<EditDemand />} />
             <Route path='/demands/:id' element={<Demand />} />
             <Route path='/faqs' element={<Faqs />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile/:id' element={<Profile />} />
             <Route path='/users/validate/:registrationcode' element={<UserValidate />} />
             <Route path='/users/newPassword/:recoveryCode' element={<NewPassword />} />
             <Route path='/users/edit/profile' element={<EditUser />} />
