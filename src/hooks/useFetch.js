@@ -49,5 +49,24 @@ export const useFetchDelete = () => {
         };
     };
 };
+export const useFetchPut = () => {
+    const [user] = useUser();
+
+    return async (url) => {
+        const headers = {};
+        if (user?.token) headers.auth_token = user.token;
+
+        const res = await fetch(url, {
+            method: 'PUT',
+            headers,
+        });
+
+        return {
+            data: await res.json(),
+            error: res.ok ? null : 'Hubo un error en la solicitud de eliminación.',
+        };
+    };
+};
+
 
 export default useFetch;

@@ -28,8 +28,6 @@ const Proposals = ({ proposals }) => {
 
   const testEditButton = () => console.log('Edit proposal');
 
-  console.log('este es el usuario ', user);
-  console.log('esta es la proposal', proposals);
   const handleDelete = (id) => {
     deleteProposal(id);
     window.location.reload();
@@ -65,12 +63,12 @@ const Proposals = ({ proposals }) => {
               <h4>Proposal #{p.id}</h4>
               <p>{p.description}</p>
               <div className='proposal_card_files'>
-                {p?.files &&
+                {p?.files ?
                   p.files.map((file, key) => (
                     <a key={key} href={file} download>
                       {`Download file #${key + 1} `}
                     </a>
-                  ))}
+                  )) : null}
               </div>
             </div>
             <div className='proposal_card_votes_info'>
@@ -78,7 +76,7 @@ const Proposals = ({ proposals }) => {
                 <li>Votes: {p.voteCount}</li>
                 <li>Average score: {p.votesAvg}</li>
                 {error && error?.error && (
-                  <p >{error.error.message}</p>
+                  <p >{error.data.message}</p>
                 )}
               </ul>
               <Rating proposal_id={p.id} currentValue={p.voteAvg} />

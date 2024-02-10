@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { useDemand, useDeleteDemands, useProposalByDemands } from "../../hooks/api";
+import { useDemand, useDeleteDemands, useProposalByDemands, useUserActions } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedDate } from "react-intl";
 import NewProposal from "../../components/Proposal/NewProposal";
@@ -15,12 +15,12 @@ const Demand = () => {
   const demandData = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
+  const { closeDemands } = useUserActions();
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
   const [error, setError] = useState(proposalsData)
 
   const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
-
 
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
@@ -29,11 +29,11 @@ const Demand = () => {
     return type;
   }
 
-
+  console.log(user.id);
+  console.log(demand
+  );
   //////// EDIT AND DELETE BUTTONS ////////
-  const testEditButton = () => {
-    console.log('Edit demand');
-  };
+
   const deleteDemand = () => {
 
     if (user.Id == demand.user_Id) {
@@ -42,7 +42,11 @@ const Demand = () => {
       window.location.reload();
     }
   };
-  //////// EDIT AND DELETE BUTTONS ////////
+
+  const closeDemand = () => {
+    closeDemands(demand.id)
+  }
+  //////// EDIT AND DELETE and close BUTTONS ////////
 
   return (
     <div>
@@ -54,8 +58,9 @@ const Demand = () => {
             <h2>#{id} {demand.title}</h2>
             <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {user.Id == demand.user_Id ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
-              {user.Id == demand.user_Id ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
+              {user.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
+              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
+              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Close Demand" onClick={closeDemand}>✅</button> : null}
             </div>
           </div>
         </div>
