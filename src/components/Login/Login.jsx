@@ -22,9 +22,9 @@ const Login = () => {
         setUser(loggedUser.data.data.data.user);
       } else {
         setError(loggedUser);
+        console.error('Error during login:', loggedUser.data.error.message);
       }
     } catch (error) {
-      console.error('Error during login:', error);
       setError({ error: { message: 'An error occurred during login.' } });
     }
   };
@@ -53,7 +53,7 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}
         />
         <button className="login_register_button button">Login</button>
-        {error?.error ? <p className="error">Se ha producido un error: {error.error.message}</p> : null}
+        {error?.error ? <p className="error">Se ha producido un error: {error.data.error.message}</p> : null}
       </form>
       <h3>You don't have an account yet? <Link to='/register'>Register now</Link></h3>
       <h3>Do you forget your password? <Link to='/reset-password'>Reset password</Link></h3>

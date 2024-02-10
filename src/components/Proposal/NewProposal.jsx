@@ -6,12 +6,12 @@ import ConfirmModal from "./ConfirmModal";
 
 const NewProposal = ({ proposals, setProposals }) => {
   const [description, setDescription] = useState("");
-  const [error, setError] = useState("");
   const { id } = useParams();
   const [files, setFiles] = useState([]);
   const { newProposal } = useUserActions();
   const [visibleForm, setVisibleForm] = useState(false); // Estado para controlar la visibilidad del formulario
   const [showModal, setShowModal] = useState("none");
+  const [error, setError] = useState('')
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -32,7 +32,9 @@ const NewProposal = ({ proposals, setProposals }) => {
       setProposals(newProposals)
 
     } else {
-      setError(error);
+      setError(response.data.error);
+      console.log(response.data.error);
+
     }
   };
 
@@ -88,8 +90,8 @@ const NewProposal = ({ proposals, setProposals }) => {
             <button className="send_button" onClick={handleShowModal}>
               Send
             </button>
-            {error?.error && (
-              <p className="error">An error has occurred: {error.error}</p>
+            {error && (
+              <p className="error">An error has occurred: {error.message}</p>
             )}
           </form>
           <button className="hide_button" onClick={hideForm}>Hide Form</button>

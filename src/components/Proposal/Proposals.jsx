@@ -64,14 +64,14 @@ const Proposals = ({ proposals }) => {
             <div className='proposal_card_proposal_info'>
               <h4>Proposal #{p.id}</h4>
               <p>{p.description}</p>
-              {/* <div className='proposal_card_files'>
+              <div className='proposal_card_files'>
                 {p?.files &&
                   p.files.map((file, key) => (
                     <a key={key} href={file} download>
                       {`Download file #${key + 1} `}
                     </a>
                   ))}
-              </div> */}
+              </div>
             </div>
             <div className='proposal_card_votes_info'>
               <ul>

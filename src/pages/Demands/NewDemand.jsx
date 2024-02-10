@@ -35,7 +35,7 @@ const NewDemand = () => {
         navigate('/demands')
         window.location.reload();
       } else {
-        setError(response.error || 'Hubo un error en la solicitud.');
+        setError(response.data.error || 'Hubo un error en la solicitud.');
       }
     } catch (error) {
       console.error('Error en handleForm:', error);
@@ -92,8 +92,8 @@ const NewDemand = () => {
           />
 
           <button className='button'>Send</button>
-          {error?.error && (
-            <p className="error">Se ha producido un error: {error.error}</p>
+          {error && (
+            <p className="error">An error has occurred: {error.message}</p>
 
           )}
         </form>

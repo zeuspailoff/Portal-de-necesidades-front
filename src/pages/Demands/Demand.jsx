@@ -11,13 +11,13 @@ import './Demand.css';
 const Demand = () => {
 
   const [user] = useUser();
-  const userId = user?.id;
   const { id } = useParams();
   const demandData = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
+  const [error, setError] = useState(proposalsData)
 
   const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
 
@@ -36,7 +36,7 @@ const Demand = () => {
   };
   const deleteDemand = () => {
 
-    if (userId == demand.userId) {
+    if (user.Id == demand.user_Id) {
       deleteDemandById(id);
       navigate('/demands');
       window.location.reload();
@@ -54,8 +54,8 @@ const Demand = () => {
             <h2>#{id} {demand.title}</h2>
             <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {userId == demand.userId ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
-              {userId == demand.userId ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
+              {user.Id == demand.user_Id ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
+              {user.Id == demand.user_Id ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ const Demand = () => {
           </div>
 
           <div className='new_proposal_container'>
-            <NewProposal proposals={proposals} setProposals={setProposals} />
+            <NewProposal proposals={proposals} setProposals={setProposals} error={error} setError={setError} />
           </div>
         </div>
 
