@@ -59,3 +59,48 @@ h1.categories-title{
     animation: titleMovement 3s ease forwards;
   }
   
+  
+  @media screen and (min-width: 576px){
+    h1.titleMovement{
+      font-size: 3em;
+    }
+    .categories-intro{
+      font-size: 1em;
+      height: 50px;
+    }
+    .category-description{
+      font-size: 0.7em;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .category-description{
+      font-size: 0.8em;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    h1.titleMovement{
+      font-size: 3.5em;
+    }
+    .categories-intro{
+      font-size: 1.5em;
+      height: 60px;
+    }
+    .category-description{
+      font-size: 0.9em;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    h1.titleMovement{
+      font-size: 4em;
+    }
+    .categories-intro{
+      font-size: 2em;
+      height: 70px;
+    }
+    .category-description{
+      font-size: 1em
+    }
+  }

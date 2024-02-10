@@ -78,3 +78,93 @@
     text-wrap: wrap;
     max-width: 300px;
 }
+
+@media screen and (min-width: 576px) {
+    .clients, .freelancers{
+        width: 250px;
+        height: 550px;
+    }
+    .clients h3, .freelancers h3{
+        font-size: 1.2rem;
+    }
+    .faq_question{
+        font-size: 1rem;
+    }
+    .faq_answer{
+        font-size: 0.7rem;
+    }
+
+    .help_please{
+        height: 40px;
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+    .clients h3, .freelancers h3{
+        font-size: 1.3rem;
+    }
+    .clients h3 {
+        letter-spacing: 5px;
+        margin-bottom: 25px;
+        margin-top: -25px;
+    }
+    .freelancers h3{
+        letter-spacing: 4px;
+    }
+    .faq_question{
+        font-size: 1.1rem;
+    }
+    .faq_answer{
+        font-size: 0.8rem;
+    }
+    .help_please{
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    
+    .clients h3, .freelancers h3{
+        font-size: 1.4rem;
+    }
+    
+   .freelancers h3{
+    margin-top: -30px;
+   }
+
+    .faq_question{
+        font-size: 1.2rem;
+    }
+
+    .faq_answer{
+        font-size: 0.9rem;
+    }
+
+    .help_please{
+        height: 60px;
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    
+    .clients h3, .freelancers h3{
+        font-size: 2rem;
+    }
+
+    .faq_question{
+        font-size: 1.5rem;
+    }
+    
+    .faq_answer{
+        font-size: 1rem;
+    }
+
+    .help_please{
+        height: 70px;
+        font-size: 2rem;
+    }
+}

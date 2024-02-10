@@ -48,3 +48,27 @@ h3 {
     font-weight: 200;
     font-size: 1.5rem;
 }
+
+@media screen and (min-width: 576px){
+    .flex_container_child h3{
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .flex_container_child h3{
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .flex_container_child h3{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .flex_container_child h3{
+        font-size: 1.2rem;
+    }
+}
