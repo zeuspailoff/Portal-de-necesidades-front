@@ -53,11 +53,23 @@ h3 {
     .flex_container_child h3{
         font-size: 0.7rem;
     }
+    img.avatarHome{
+        width: 40px;
+        height: 25px;
+    }
+    .userList li{
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
 }
 
 @media screen and (min-width: 768px){
     .flex_container_child h3{
         font-size: 0.9rem;
+    }
+    img.avatarHome{
+        width: 50px;
+        height: 30px;
     }
 }
 
@@ -65,10 +77,21 @@ h3 {
     .flex_container_child h3{
         font-size: 1rem;
     }
+    img.avatarHome{
+        width: 70px;
+        height: 40px;
+    }
 }
 
 @media screen and (min-width: 1200px){
     .flex_container_child h3{
         font-size: 1.2rem;
+    }
+    .userList li{
+        font-size: 1rem;
+    }
+    img.avatarHome{
+        width: 80px;
+        height: 50px;
     }
 }

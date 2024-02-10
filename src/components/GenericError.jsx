@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './Error.css'
+
 const GenericError = () => {
   const navigate = useNavigate()
   const reload = () => {
@@ -13,7 +14,7 @@ const GenericError = () => {
         <h1 className='error_title'>Something's gone wrong!</h1>
         <p>Oops, this is embarrassing. The page has failed.</p>
         <p>Why don't you try <a className='reload' onClick={reload}>reload</a>?</p>
-        <img src='src\assets\images\error_animation.gif' />
+        <img src='../../src/assets/images/error_animation.gif'/>
       </div>
     </div>
   )
