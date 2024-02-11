@@ -1,0 +1,4 @@
+p.register_confirmation{
+    color: var(--color-dark_grey);
+    background-color: var(--color-darker_dirty_whitesmoke);
+}

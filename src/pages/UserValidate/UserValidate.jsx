@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
-
+import './UserValidate.css'
 
 
 const UserValidate = () => {
@@ -28,7 +28,7 @@ const UserValidate = () => {
 
   return (
     <div>
-      {success && <p>
+      {success && <p className="register_confirmation">
         Te has registrado en Ineedup, ¿por que no haces to primera demanda para celebrarlo?
       </p>
       }
