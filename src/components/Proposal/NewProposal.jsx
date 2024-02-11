@@ -24,11 +24,11 @@ const NewProposal = ({ proposals, setProposals }) => {
     }
     const response = await newProposal(id, fd);
     if (response.data.status == 200) {
-      console.log(response.data);
+      const arrayFiles = Object.values(response.data.files).map(value => ({ ...value }));
       setDescription("");
       setFiles([]);
-      const newProposals = [...proposals, { id: response.data.id, description: response.data.description, files: response.data.files }];
-      console.log(">>>>>>>>>>>", newProposals);
+      const newProposals = [...proposals, { id: response.data.id, description: response.data.description, proposalFiles
+        : arrayFiles }];
       setProposals(newProposals)
 
     } else {

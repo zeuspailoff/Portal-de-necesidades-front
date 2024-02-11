@@ -34,7 +34,6 @@ const Proposals = ({ proposals }) => {
     );
   }
 
-  const testEditButton = () => console.log('Edit proposal');
 
   const handleDelete = (id) => {
     deleteProposal(id);
@@ -51,27 +50,15 @@ const Proposals = ({ proposals }) => {
               <div className="img_h4_container">
                 <img className='proposal_user_avatar' src={"http://localhost:8080/" + p.profile_picture} alt={p.creator_username + '_avatar'} />
                 <h4>{p.creator_username}</h4>
-                <div className="edit_buttons_container_proposal">
-                  {userId == p.user_id ? (
-                    <button className="edit_button edit_delete_btn" onClick={testEditButton}>
-                      ✏️
-                    </button>
-                  ) : null}
-                  {userId == p.user_id ? (
-                    <button className="delete_button edit_delete_btn" onClick={() => handleDelete(p.id)}>
-                      🗑️
-                    </button>
-                  ) : null}
-                </div>
               </div>
-
             </div>
 
             <div className='proposal_card_proposal_info'>
               <h4>Proposal #{p.id}</h4>
               <p>{p.description}</p>
               <div className='proposal_card_files'>
-                {p?.proposalFiles ?
+              {/* {console.log(p.proposalFiles[0])} */}
+                {p?.proposalFiles && p?.proposalFiles[0]?.id ?
                   p.proposalFiles.map((file) => (
                     <div key={file.id} className="demand_files">
                       <div className="file_icon">

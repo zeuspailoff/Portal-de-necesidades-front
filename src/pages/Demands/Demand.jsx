@@ -54,7 +54,6 @@ const Demand = () => {
   const handleDeleteFile = async (e) => {
     const id = e.target.id;
     const response = await deleteFiles(id)
-    console.log(response);
     if (response.data.status == 200) {
       e.target.parentNode.remove();
     }
