@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
 import './ProfilePreviewCard.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from '../../UserContext';
 
 const ProfilePreviewCard = () => {
-    const [isLogged, setIsLogged] = useState(true);
+  const [user, setUser] = useUser();
+  const navigate = useNavigate();
 
-    /* /////////////////////////////////////////////// */
-    /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
+  const logout = () => {
+    setUser();
+    navigate('/');
+  }
 
-    const { username, userProfileImg } = {
-        username: 'Pablo',
-        userBirthdate: '12/05/1995',
-        userRegisteredAt: '01/01/2000',
-        userProfileImg: '/shrek_whet.JPG',
-        userDescription: 'I am a very good user whom likes gitiñoore'
-    };
+  const backgroundImageUrl = user && user.profile_picture ? `url("http://localhost:8080/${user.profile_picture.replace(/\\/g, '/')}")` : 'none'
 
-    /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
-    /* /////////////////////////////////////////////// */
-
-    const toggleLogin = () => {
-        setIsLogged(!isLogged);
-    };
-
-    return (
-        <div className={`profile_preview_card ${isLogged ? 'logged-in' : 'not-logged-in'}`}>
-            <div className='round_picture_preview' style={isLogged ? {backgroundImage: `url(${userProfileImg})`} : null}></div>
-            <h3>{isLogged ? <Link to='/profile'>{`Hi, ${username}`}</Link> : 'Login / Sign Up'}</h3>
-            {isLogged && <button onClick={toggleLogin}>
-                Logout
-            </button>}
-        </div>
-    );
+  return (
+    <div className='profile_preview_card'>
+      <div
+        className='round_picture_preview'
+        style={{
+          backgroundImage: backgroundImageUrl,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundColor: user?.profile_picture ? 'transparent' : 'grey'
+        }}
+      ></div>
+      {!user && <Link className='profile_link' to="/login">Login/Signup</Link>}
+      {user && (
+        <span>
+          <Link className='profile_link' to={`/profile/${user.id}`} >{`Hi, ${user.username}`}</Link>
+          <span onClick={logout}>🚫</span>
+        </span>
+      )}
+    </div>
+  );
 }
 
 export default ProfilePreviewCard;

@@ -1,17 +1,16 @@
 .profile_preview_card {
-    border: 1px solid whitesmoke;
+    border-radius: 100px;
     width: 250px;
     height: 70px;
+    background-color: var(--color-dirty_whitesmoke);
+    color: grey;
 
     display: flex;
     align-items: center;
 }
 
-.profile_preview_card button, .profile_preview_card Link {
-    margin: 5px;
-    padding: 3px;
-
-    display: inline-block;
+.profile_link, .profile_link:hover{
+    color: var(--color-dark_grey);
 }
 
 .round_picture_preview {

@@ -1,0 +1,27 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading:before {
+  content: '';
+  min-width: 700px;
+  height: 100vb;
+  border: 10px solid var(--color-dark_grey);
+  background-color: var(--color-dirty_whitesmoke);
+  border-bottom-color: transparent;
+  border-radius: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite, fadein 0.3s linear 0.3s both;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg) scale(0.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.1);
+  }
+}

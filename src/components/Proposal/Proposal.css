@@ -1,0 +1,57 @@
+.proposal_card {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    height: fit-content;
+    min-height: 120px;
+    align-items: center;
+    justify-content: center;
+}
+
+.proposal_card_user_info {
+    border-radius: 50px;
+    background-color: red;
+    width: 200px;
+    height: fit-content;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 2;
+}
+
+.proposal_user_avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.proposal_card_proposal_info {
+    border-radius: 5px;
+    background-color: var(--color-dirty_whitesmoke);
+    width: auto;
+    flex-grow: 7;
+    margin: 0 10px;
+}
+
+.proposal_card_files {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.proposal_card_votes_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}

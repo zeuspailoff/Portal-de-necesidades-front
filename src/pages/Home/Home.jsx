@@ -1,16 +1,10 @@
-import Browser from "../../components/Browser/Browser";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import Info from "../../components/Info/info";
 
-const Home = () =>{
+const Home = () => {
 
-    return(
+    return (
         <div>
-            <Header/>
-            <Browser/>
-            <Info/>
-            <Footer/>
+            <Info />
         </div>
     )
 }

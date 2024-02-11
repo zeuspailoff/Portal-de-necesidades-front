@@ -1,0 +1,11 @@
+.editUser_container{
+    margin-top: 10%;
+    box-shadow: 5px 4px 10px #646cff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.editUser_button{
+    background-color: #646cff;
+    border: 1px solid #646cff;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
+}

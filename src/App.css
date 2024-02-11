@@ -1,8 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+:root {
+  --color-dark_purple: #0c0032;
+  --color-dark_blue: #190061;
+  --color-dark_violet: #240090;
+  --color-electric_violet: #3500d3;
+  --color-blue_button: #007bff;
+  --color-neon_fuchsia: #ff007f;
+  --color-neon_orange: #ff8c00;
+  --color-industrial_yellow: #ffd700;
+
+  --color-dark_grey: #282828;
+  --color-halfdark_grey: #424242;
+  --color-darker_dirty_whitesmoke: #cccccc;
+  --color-dirty_whitesmoke: #eaeaea;
+
+  --color-register_orange: #ff652f;
+  --color-login_green: #14a76c;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0 ;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
+  background-color: whitesmoke;
 }
 
 .logo {

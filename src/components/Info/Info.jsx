@@ -1,17 +1,25 @@
+import UsersList from '../UsersList/UsersList'
 import './Info.css'
-const Info = () =>{
+const Info = () => {
 
-    return(
-        <div>
-            <aside>Platform information and updates</aside>
-            <aside className='asideUsers'>
-                <p>Featured users of the week:</p>
+    return (
+        <div className='flex_container'>
+            <div className='flex_container_child'>
+                <h3>Website Features</h3>
                 <ul>
-                    <li>User 1</li>
-                    <li>User 2</li>
-                    <li>User 3</li>
+                    <li>Add User Search by Name</li>
+                    <li>Add Messaging Chat</li>
+                    <li>Add Contact Requests</li>
+                    <li>Add Color Customization</li>
+                    <li>Add Different Languages</li>
                 </ul>
-            </aside>
+            </div>
+            <div className='flex_container_child'>
+                <aside className='aside_users'>
+                    <h3>Featured users of the week:</h3>
+                    <UsersList />
+                </aside>
+            </div>
         </div>
     )
 }

@@ -1,104 +1,72 @@
-import Header from '../../components/Header/Header';
+import { FormattedDate } from 'react-intl';
+import { useUser } from '../../UserContext';
 import './Profile.css';
+import { Link, useParams } from 'react-router-dom';
+import UserDemands from '../../components/Demands/UserDemands';
+import { useState } from 'react';
+import { useUserActions } from "../../hooks/api";
+
 
 const Profile = () => {
-    /* const [userInfo] = fetch(); // Query to fetch USER INFO here */
-    
-    /* /////////////////////////////////////////////// */
-    /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
-    const userInfo = {
-        username: 'Pablo',
-        userBirthdate: '12/05/1995',
-        userRegisteredAt: '01/01/2000',
-        userProfileImg: '/shrek_whet.JPG',
-        userDescription: 'I am a very good user whom likes gitiñoore'
-    };
-    /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
-    /* /////////////////////////////////////////////// */
+    const { userProfile } = useUserActions();
+    const { userDemands } = useUserActions();
+    const  { popularProposalsByUserId } = useUserActions();
+    const { id } = useParams();
 
+    const requestUser = userProfile(id)
+    const [is_owner] = useState(requestUser?.data.is_owner);
     
-    const { username, userBirthdate, userRegisteredAt, userProfileImg, userDescription } = userInfo;
-
-    /* const [userDemands] = fetch(); // Query to fetch USER DEMANDS here */
-    /* const [userProposals] = fetch(); // Query to fetch USER PROPOSALS here */
-
-    /* /////////////////////////////////////////////// */
-    /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
-    const userProposals = [
-        {
-            id: 1,
-            title: 'Proposal 1',
-            votes: '5',
-            avgVotes: '3.5'
-        },
-        {
-            id: 2,
-            title: 'Proposal 2',
-            votes: '10',
-            avgVotes: '7.66'
-        }
-    ];
     
-    const userDemands = [
-        {
-            id: 1,
-            title: 'Demand 1',
-            description: 'This is my very very good demand #1',
-            is_active: 'True'
-        },
-        {
-            id: 2,
-            title: 'Demand 2',
-            description: 'Now, this is a demand but not as good as the last one',
-            is_active: 'False'
-        }
-    ];
-    /* TEST DATA, PLEASE MAKE SURE TO DELETE AFTER USE */
-    /* /////////////////////////////////////////////// */
+    const usersDemands = userDemands(id)
+    const [demands] = useState(usersDemands?.data.slice(0, 5));
+    
+    const popularProposals = popularProposalsByUserId(id)
+    const [popular_proposals] = useState(popularProposals?.data?.proposals);
+
 
     return (
         <div>
-            <Header />
             <div className='profile_page'>
-
+                <h2 className='profile_title'>User Profile:</h2>
+                {is_owner && <div className="edit_buttons_container_profile">
+                    <button className="edit_button edit_delete_btn edit_button_profile">
+                        <Link to={"/users/edit/profile"}> ✏️ Edit profile</Link>
+                    </button>
+                </div>}
                 <div className='user_data_row'>
                     <div className='user_data'>
-                        <img src={userProfileImg} alt={`User ${username} profile mosaic`} />
+                        <img src={requestUser.data.profile_picture ? 'http://localhost:8080/' + requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
                         <ul>
-                            <li>{username}</li>
-                            <li>{userBirthdate}</li>
-                            <li>{userRegisteredAt}</li>
+                            <li className='bold'>Username:</li>
+                            <li className='separate'>{requestUser.data.username}</li>
+                            <li className='bold'>Created at:</li>
+                            <li><FormattedDate value={requestUser.data.created_at} day="2-digit" month="long" /></li>
                         </ul>
                     </div>
 
                     <div className='user_description'>
-                        <p>{userDescription}</p>
+                        <h3>User bio:</h3>
+                        <p>{requestUser.data.biography}</p>
                     </div>
                 </div>
-                
+
                 <div className='proposals_demands_row'>
                     <div className='left_column'>
                         <div>
                             <h3>Most voted proposals</h3>
-                            {userProposals.map(proposal => (
+                            {popular_proposals?.map(proposal => (
                                 <div className='proposal_container' key={proposal.id}>
-                                    <h3>{proposal.title}</h3>
-                                    <p>Votes: {proposal.votes}</p>
-                                    <p>Overall score: {proposal.avgVotes}</p>
+                                    <h3>{proposal.description}</h3>
+                                    <p>Overall score: {proposal.average_votes}</p>
                                 </div>
                             ))}
+                            {!popular_proposals && <p>No proposals were posted yet!</p>}
                         </div>
                     </div>
-                    <div className='right_column'>
-                        {userDemands.map(demand => (
-                            <div className='demand_container' key={demand.id}>
-                                <h3>{demand.title}</h3>
-                                <p>{demand.description}</p>
-                                <br />
-                                <p>{demand.is_active}</p>
-                            </div>
-                        ))}
-                    </div>
+                    {demands ? <div className='right_column'>
+                        <h3>Demands posted by user:</h3>
+                        <UserDemands demands={demands} />
+                    </div> : <p>No demands were posted yet!</p>}
                 </div>
             </div>
         </div>

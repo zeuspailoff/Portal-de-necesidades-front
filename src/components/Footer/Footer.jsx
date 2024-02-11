@@ -1,28 +1,30 @@
-import './Footer.css'
-const Footer = () =>{
+import { Link } from 'react-router-dom';
+import './Footer.css';
 
-    return(
-        <div className="footer">
+const Footer = () => {
+    return (
+      <footer>
+        <div className="footer_container">
+          <div className="footer_logo">
+            <h4>iNeed<span>Up</span></h4>
+            <h5>Needs and solutions connected</h5>
+            <div className="footer_links">
             <div>
-                <h3>About</h3>
-                <ul>
-                    <li><a href="">About us</a></li>
-                    <li><a href="/">Categories</a></li> {/* Si se hace una página para categorias */}
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Starting guide</a></li>
-                    <li><a href="">Where all started</a></li>
-                </ul>
+              <Link to="/contact">Contact</Link>
+              <Link to="/about">About</Link>
+              <Link to="/copyright">Copyright</Link>
             </div>
             <div>
-                <h3>Terms</h3>
-                <ul>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms and Conditions</a></li>
-                    <li><a href="">Copyright Policy</a></li>
-                </ul>
+              <Link to="/privacy" className='footer-link'>Privacy Politic</Link>
+              <Link to="/terms" className='footer-link'>Terms and Conditions</Link>
+              <Link to="/categories" className='footer-link'>Categories</Link>
             </div>
-            <p>Copyright © 2024 I need up. All rights reserved.</p>
+          </div>
+            <h6>Copyright 2024, HAB-JSB28RT Team[whatever], no rights reserved at all.</h6>
+          </div>
         </div>
+      </footer>
     )
 }
-export default Footer
+
+export default Footer;

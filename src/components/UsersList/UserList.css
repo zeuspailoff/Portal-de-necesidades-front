@@ -1,0 +1,17 @@
+.avatarHome{
+    width: 40px;
+    height: 35px;
+    align-items: flex-start;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin: 5px 10px;
+}
+.userList{
+    list-style-type: none; 
+    padding: 0;
+}
+
+.userList li {
+    text-align: left; 
+  }

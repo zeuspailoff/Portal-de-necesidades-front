@@ -1,0 +1,48 @@
+--------------------------------------------------------opcionales---------------------------
+- hacer la pagina de registro y login como en figma 
+
+-programar idiomas 
+
+
+---------------------------------------------------------- front ---------------------
+
+- ------------------------------------------HECHO POR ABRAHAM Y MARTIN A FALTA DE CSS //terminar fech de newProposal en demand.jsx
+
+- terminar votos de las proposal (NECESITAMOS ARREGLAR EL BACK PRIMERO) 
+
+- hacer la fech de user para mostrar toda la data en el profile
+
+- añadir todos los buttons de editar(demanda, proposal, profile)
+
+- añadir recuperar contraseña 
+
+- terminar preview de pdf, img... etc en componente FilePreview de demandas 
+
+- acabar css
+
+-terminar footer sin lorem ipsums y fotos de sreck 
+
+
+Andrea -> implementar sendMail para el contacto o cambiar el sistema y solo mostrar los correos de cada uno 
+---------------------------------------------------------------back----------------------
+- cuando haces una proposal no se guarda el id de la demanda arreglar
+
+- cuando pides las proposals por demand id devuelve la demanda arreglar 
+
+-añadir al back error usuario ya existe en el registro
+
+-añadir solo envio del registration code al registrar back 
+
+- especificar error de usuario registrado username ya en uso 
+
+-cambiar el objeto que devuelve login para que no devuelva data dentro de data 
+
+- en la respuesta del login meter el token dentro del usuario
+
+- si el user esta activado develver error correspondiente en validate
+
+- sacar el type del archivo para las previw
+----------------------------------------------------------------------------------------
+- poner los colores y efectos 
+
+
