@@ -27,8 +27,7 @@ const UserValidate = () => {
   handleValidation()
 
   return (
-    
-      {success && <p className="register_confirmation">
+    <div>
       {success && <h2 style={{color:"blue", fontSize:"2em"}}>
 
         Te has registrado en Ineedup, ¿por que no haces to primera demanda para celebrarlo?

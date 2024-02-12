@@ -4,8 +4,9 @@
     top: 0;
     left: 0;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
     height: 100%;
-    background-image: linear-gradient(to bottom right, #646cff, #ff652f);
+    background-image: linear-gradient(to bottom right, #f1c58c, #2e2525);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,10 +14,12 @@
   
 .error_content{
     margin-top: 10%;
+
 }
 
 .error_title{
     color: var(--color-dark_grey);
+
 }
 
 .reload{

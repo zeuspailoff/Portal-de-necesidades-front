@@ -81,6 +81,59 @@
     align-items: center;
     justify-content: center;
 }
+.links_wrapper {
+  display: none;
+}
+
+.links_wrapper.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .links_wrapper {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    background-color: #333;
+    width: 100%;
+    transition: left 0.5s ease;
+  }
+
+  .links_wrapper.active {
+    left: 0;
+  }
+
+  .links_container {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .links_container li {
+    margin-bottom: 10px;
+  }
+
+  .links_container li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .menu_button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+  }
+
+  .menu_button.active {
+    color: #333; /* Cambia el color del botón cuando se muestra el menú */
+  }
+}
+
 
 /* querys */
 
