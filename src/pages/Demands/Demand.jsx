@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { useDemand, useDeleteDemands,useProposalByDemands } from "../../hooks/api";
+import { useDemand, useDeleteDemands, useProposalByDemands, useUserActions } from "../../hooks/api";
 import { useUser } from "../../UserContext";
 import { FormattedDate } from "react-intl";
 import NewProposal from "../../components/Proposal/NewProposal";
@@ -11,17 +11,18 @@ import './Demand.css';
 const Demand = () => {
 
   const [user] = useUser();
-  const userId = user?.id;
   const { id } = useParams();
   const demandData = useDemand(id);
   const deleteDemandById = useDeleteDemands(id);
   const navigate = useNavigate();
+  const { closeDemands } = useUserActions();
+  const { deleteFile } = useUserActions()
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
+  const [error, setError] = useState(proposalsData)
+
 
   const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
-  
-
   const getFileExtension = (filename) => {
     const parts = filename.split('.');
     const type = parts[parts.length - 1];
@@ -31,18 +32,34 @@ const Demand = () => {
 
 
   //////// EDIT AND DELETE BUTTONS ////////
-  const testEditButton = () => {
-    console.log('Edit demand');
-  };
+
   const deleteDemand = () => {
 
-    if (userId == demand.userId) {
+    if (user.Id == demand.user_Id) {
       deleteDemandById(id);
       navigate('/demands');
       window.location.reload();
     }
   };
-  //////// EDIT AND DELETE BUTTONS ////////
+
+  const closeDemand = () => {
+    closeDemands(demand.id)
+  }
+  const deleteFiles = async (id) => {
+    const deletedFile = await deleteFile(id)
+    return deletedFile;
+
+  }
+
+  const handleDeleteFile = async (e) => {
+    const id = e.target.id;
+    const response = await deleteFiles(id)
+    if (response.data.status == 200) {
+      e.target.parentNode.remove();
+    }
+  }
+
+  //////// EDIT AND DELETE and close BUTTONS ////////
 
   return (
     <div>
@@ -51,11 +68,14 @@ const Demand = () => {
 
         <div className="upper_container">
           <div className="h2_h4_container">
+
             <h2>#{id} {demand.title}</h2>
+            {demand.status == 1 ? <h3>Closed</h3> : null}
             <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {userId == demand.userId ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" onClick={testEditButton}>✏️</button> </Link> : null}
-              {userId == demand.userId ? <button className="delete_button edit_delete_btn" onClick={deleteDemand}>🗑️</button> : null}
+              {user.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
+              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
+              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Close Demand" onClick={closeDemand}>✅</button> : null}
             </div>
           </div>
         </div>
@@ -68,8 +88,9 @@ const Demand = () => {
             <div className='files_wrapper'>
               <h3>Files:</h3>
               <div className='demand_files'>
-                {demand.files ? Object.values(demand.files).map((file, key) => (
-                  <div key={key} className="fileIcon" >
+                {demand.demandFiles ? Object.values(demand.demandFiles).map((file) => (
+                  <div key={file.fileId} className="fileIcon" >
+                    {user.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
                     <a
                       href={"http://localhost:8080/" + file.fileSrc}
                       download
@@ -95,12 +116,13 @@ const Demand = () => {
           <div>
             <section className='proposals_wrapper'>
               <h2>Proposals for this demand:</h2>
-              <Proposals proposals={proposals} setProposals={setProposals}/>
+              {proposals && proposals.length > 0 ? <Proposals proposals={proposals} setProposals={setProposals} /> : <p>This demand does not contain proposals</p>}
+
             </section>
           </div>
 
           <div className='new_proposal_container'>
-            <NewProposal proposals={proposals} setProposals={setProposals}/>
+            <NewProposal proposals={proposals} setProposals={setProposals} error={error} setError={setError} />
           </div>
         </div>
 

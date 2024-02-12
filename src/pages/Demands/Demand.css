@@ -90,6 +90,10 @@ h2, h3, h4, p, a{
 
     margin: 20px 10px 10px;
 }
+.deleteFile{
+    
+    border-radius: 50%;
+}
 
 .demand_files {
     display: flex;

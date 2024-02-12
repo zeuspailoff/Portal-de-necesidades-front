@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./NewProposal.css";
 import { useUserActions } from "../../hooks/api";
 import { useParams } from "react-router";
 import ConfirmModal from "./ConfirmModal";
 
-const NewProposal = ({proposals, setProposals}) => {
+const NewProposal = ({ proposals, setProposals }) => {
   const [description, setDescription] = useState("");
-  const [error, setError] = useState("");
   const { id } = useParams();
   const [files, setFiles] = useState([]);
   const { newProposal } = useUserActions();
   const [visibleForm, setVisibleForm] = useState(false); // Estado para controlar la visibilidad del formulario
   const [showModal, setShowModal] = useState("none");
+  const [error, setError] = useState('')
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -24,15 +24,17 @@ const NewProposal = ({proposals, setProposals}) => {
     }
     const response = await newProposal(id, fd);
     if (response.data.status == 200) {
-      console.log(response.data);
+      const arrayFiles = Object.values(response.data.files).map(value => ({ ...value }));
       setDescription("");
       setFiles([]);
-      const newProposals = [...proposals, {id: response.data.id, description: response.data.description, files : response.data.files}];
-      console.log(">>>>>>>>>>>", newProposals);
+      const newProposals = [...proposals, { id: response.data.id, description: response.data.description, proposalFiles
+        : arrayFiles }];
       setProposals(newProposals)
-      
+
     } else {
-      setError(error);
+      setError(response.data.error);
+      console.log(response.data.error);
+
     }
   };
 
@@ -60,9 +62,9 @@ const NewProposal = ({proposals, setProposals}) => {
 
   return (
     <div className="new_proposal_wrapper">
-        <ConfirmModal  showModal={showModal} onClose={handleCloseModal} onConfirm={handleConfirm}/>
+      <ConfirmModal showModal={showModal} onClose={handleCloseModal} onConfirm={handleConfirm} />
       <h3>Submit a new proposal:</h3>
-      {!visibleForm && ( 
+      {!visibleForm && (
         <button className="show_button" onClick={showForm}>Show Form</button>
       )}
       {visibleForm && (
@@ -88,8 +90,8 @@ const NewProposal = ({proposals, setProposals}) => {
             <button className="send_button" onClick={handleShowModal}>
               Send
             </button>
-            {error?.error && (
-              <p className="error">An error has occurred: {error.error}</p>
+            {error && (
+              <p className="error">An error has occurred: {error.message}</p>
             )}
           </form>
           <button className="hide_button" onClick={hideForm}>Hide Form</button>
