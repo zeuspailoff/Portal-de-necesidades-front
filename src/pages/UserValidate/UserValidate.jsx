@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import './UserValidate.css'
 
 
@@ -27,18 +28,16 @@ const UserValidate = () => {
   handleValidation()
 
   return (
-    <div>
-      {success && <h2 style={{color:"blue", fontSize:"2em"}}>
-
-        Te has registrado en Ineedup, ¿por que no haces to primera demanda para celebrarlo?
+    <div className="output_body">
+      <div className="output">
+      {success && <h2 className="success">
+        You have successfully registered to iNeedUp, why not creating your <Link to="/demands">first demand</Link> to celebrate it?
       </h2>
       }
-
-      {error && <p>
-        Codigo de registracion no valido
-      </p>}
-
-
+      {error && <h2 className="failure">
+        Invalid registration code!
+      </h2>}
+      </div>
     </div>
   )
 }

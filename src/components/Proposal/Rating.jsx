@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useUserActions } from "../../hooks/api";
+import './Rating.css';
 
 const Rating = ({ proposal_id, currentValue }) => {
   const [newValue, setNewValue] = useState(currentValue);
@@ -24,7 +25,8 @@ const Rating = ({ proposal_id, currentValue }) => {
   const v = newValue || currentValue;
 
   return (
-    <div>
+    <div className="ratings_wrapper">
+      <div>
       <span className={"rating " + (newValue ? 'voted' : '')}>
         <span onClick={handleVote} id="1" className={v >= 1 ? 'active' : ''}>★</span>
         <span onClick={handleVote} id="2" className={v >= 2 ? 'active' : ''}>★</span>
@@ -32,7 +34,8 @@ const Rating = ({ proposal_id, currentValue }) => {
         <span onClick={handleVote} id="4" className={v >= 4 ? 'active' : ''}>★</span>
         <span onClick={handleVote} id="5" className={v >= 5 ? 'active' : ''}>★</span>
       </span>
-      {error ? <p>{error.message}</p> : null}
+      </div>
+      {error ? <h6 className="error_h6">{error.message}</h6> : null}
     </div>
   );
 };

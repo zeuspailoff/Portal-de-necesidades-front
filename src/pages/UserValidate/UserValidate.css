@@ -1,4 +1,26 @@
-p.register_confirmation{
-    color: var(--color-dark_grey);
-    background-color: var(--color-darker_dirty_whitesmoke);
+.output_body {
+    padding: 300px 30px;
+    background-color: var(--color-dirty_whitesmoke);
+}
+
+.output {
+    background-color: whitesmoke;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+.output h2 {
+    font-weight: normal;
+}
+
+.output a {
+    text-decoration: underline;
+}
+
+.success {
+    color: blue;
+}
+
+.failure {
+    color: red;
 }

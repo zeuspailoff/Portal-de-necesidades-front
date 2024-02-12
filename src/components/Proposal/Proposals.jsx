@@ -57,15 +57,15 @@ const Proposals = ({ proposals }) => {
               <h4>Proposal #{p.id}</h4>
               <p>{p.description}</p>
               <div className='proposal_card_files'>
-              {/* {console.log(p.proposalFiles[0])} */}
                 {p?.proposalFiles && p?.proposalFiles[0]?.id ?
                   p.proposalFiles.map((file) => (
                     <div key={file.id} className="demand_files">
-                      <div className="file_icon">
-                        <a key={file.id} href={"http://localhost:8080/" + file.src} download>
+                      <a key={file.id} href={"http://localhost:8080/" + file.src} download>
                           {`Download file #${file.id} `}
                         </a>
+                      <div className="file_icon">
                         <FileIcon
+                        className="fileIcon"
                           extension={getFileExtension(file.src)}
                           style={{ width: '20px', height: '20px' }}
                           {...defaultStyles[getFileExtension(file.src)]}
@@ -77,14 +77,15 @@ const Proposals = ({ proposals }) => {
               </div >
             </div>
             <div className='proposal_card_votes_info'>
-              <ul>
-                <li>Votes: {p.voteCount}</li>
-                <li>Average score: {p.votesAvg}</li>
+                <p>Votes: {p.voteCount}</p>
+                <div className="average_score">
+                <p>Average score: {p.votesAvg}</p>
                 {error && error?.error && (
-                  <p >{error.data.message}</p>
+                  <h4>{error.data.message}</h4>
                 )}
-              </ul>
+                
               <Rating proposal_id={p.id} currentValue={p.voteAvg} />
+              </div>
             </div>
           </div>
         ))

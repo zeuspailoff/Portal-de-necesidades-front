@@ -46,6 +46,10 @@ p.home_description a:hover::after{
     background-color: #646cff;
 }
 
+.flex_container ul {
+    list-style-type: none;
+}
+
 @media screen and (min-width: 576px) {
     .home_description_container{
         height: 60px;
