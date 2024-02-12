@@ -1,7 +1,7 @@
 .filters_container {
     border: 1px solid black;
     border-radius: 10px;
-    margin: 50px 20px 30px;
+    margin: 5px 20px 30px;
     padding: 40px 20px;
     background-color: var(--color-darker_dirty_whitesmoke);
     color: var(--color-dark_grey);
