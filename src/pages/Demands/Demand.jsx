@@ -73,9 +73,9 @@ const Demand = () => {
             {demand.status == 1 ? <h3>Closed</h3> : null}
             <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {user.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
-              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
-              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Close Demand" onClick={closeDemand}>✅</button> : null}
+              {user?.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
+              {user?.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
+              {user?.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Close Demand" onClick={closeDemand}>✅</button> : null}
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Demand = () => {
               <div className='demand_files'>
                 {demand.demandFiles ? Object.values(demand.demandFiles).map((file) => (
                   <div key={file.fileId} className="fileIcon" >
-                    {user.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
+                    {user?.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
                     <a
                       href={"http://localhost:8080/" + file.fileSrc}
                       download
