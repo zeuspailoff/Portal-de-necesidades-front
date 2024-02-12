@@ -56,6 +56,15 @@ h2, h3, h4, p, a{
     align-items: center;
     justify-content: center;
 }
+.description_wrapper h3{
+    background-color: var(--color-darker_dirty_whitesmoke);
+    width: 100%;
+    
+}
+.files_wrapper h3{
+    background-color: var(--color-darker_dirty_whitesmoke);
+    width: 100%;
+}
 
 .description {
     font-size: 1.2rem;
@@ -67,6 +76,9 @@ h2, h3, h4, p, a{
 
 .description h3, .files h3 {
     margin: 10px 0 20px;
+    font-size: 1rem;
+
+
 }
 
 .proposals_wrapper {
