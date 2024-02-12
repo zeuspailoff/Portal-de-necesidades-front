@@ -1,4 +1,13 @@
 .demands {
     display: flex;
     background-color: var(--color-dirty_whitesmoke);
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .demands {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }

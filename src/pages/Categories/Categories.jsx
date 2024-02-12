@@ -24,7 +24,7 @@ const Categories = () => {
                     <p className='category-description'>Digital marketing involves the strategic use of online platforms and tools to promote products or services. This includes activities such as social media advertising, content marketing, SEO and email marketing, with the aim of reaching and captivating the target audience, generating leads and increasing the online visibility and engagement of a brand or business.</p>
                 </div>
                 <div className="category-container">
-                    <h3 className="category-name">Developing 💻</h3>
+                    <h3 className="category-name">Development 💻</h3>
                     <p className='category-description'>Development involves the process of creating and improving software, applications or computer systems. This involves planning, designing, coding, testing and maintaining software in order to meet the specific needs of the user or the business. Developers use a variety of programming languages and tools to build efficient and functional technology solutions.</p>
                 </div>
             </div>

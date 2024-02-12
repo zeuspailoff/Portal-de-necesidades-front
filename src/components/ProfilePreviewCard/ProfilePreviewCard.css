@@ -13,6 +13,10 @@
     color: var(--color-dark_grey);
 }
 
+.profile_link_occult {
+    display: none;
+}
+
 .round_picture_preview {
     width: 60px;
     height: 60px;
@@ -22,55 +26,20 @@
     margin: 5px 10px;
 }
 
-/* PARA QUERY 576PX HEIGTH Y WIDTH 40PX EN ROUND_PICTURE_PREVIEW .profile_link*/
-
-@media screen and (min-width: 576px) {
-    div.profile_preview_card{
-        width: 200px;
-        height: 50px;
-        margin-right: 10px;
-    }
-    .round_picture_preview{
-        width: 35px;
-        height: 35px;
-    }
-    .profile_link{
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (min-width: 768px){
-    div.profile_preview_card{
-        width: 250px;
-        height: 60px;
+@media screen and (max-width: 768px) {
+    .profile_preview_card {
+        width: fit-content;
     }
 
-    .round_picture_preview{
-        width: 40px;
-        height: 40px;
+    .profile_link {
+        display: none;
     }
-    .profile_link{
-        font-size: 1rem;
-        
-    }
-}
 
-@media screen and (min-width: 992px){
-    div.profile_preview_card{
-        width: 250px;
-        height: 70px;
+    .profile_link_occult {
+        display: inline-block;
     }
-   
-    .profile_link{
-        font-size: 0.9rem;
-    }
-}
 
-@media screen and (min-width: 1200px){
-    div.profile_preview_card{
-        width: 250px;
+    .logout_button {
+        margin-right: 5px;
     }
-  .profile_link{
-    font-size: 1rem;
-  }
 }

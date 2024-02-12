@@ -50,39 +50,8 @@ p.home_description a:hover::after{
     list-style-type: none;
 }
 
-@media screen and (min-width: 576px) {
-    .home_description_container{
-        height: 60px;
-    }
-    .home_description{
-        font-size: 0.6rem;
-        padding: 0;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .home_description{
-        font-size: 0.7rem;
-        padding: 0;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .home_description_container{
-        height: 70px;
-    }
-    .home_description{
-        font-size: 0.8rem;
-        padding: 0;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .home_description_container{
-        height: 70px;
-    }
-    .home_description{
-        font-size: 0.9rem;
-        padding: 10px;
+@media screen and (max-width: 768px) {
+    .home_description_container {
+        display: none;
     }
 }
