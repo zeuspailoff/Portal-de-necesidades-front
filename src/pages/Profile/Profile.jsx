@@ -18,7 +18,8 @@ const Profile = () => {
     
     
     const usersDemands = userDemands(id)
-    const [demands] = useState(usersDemands?.data.slice(0, 5));
+    const [demands] = useState(usersDemands?.data?.length > 0 ? usersDemands.data.slice(0, 5) : []);
+
     
     const popularProposals = popularProposalsByUserId(id)
     const [popular_proposals] = useState(popularProposals?.data?.proposals);
