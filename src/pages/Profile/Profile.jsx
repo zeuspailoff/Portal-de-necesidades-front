@@ -16,11 +16,9 @@ const Profile = () => {
     const requestUser = userProfile(id)
     const [is_owner] = useState(requestUser?.data.is_owner);
     
-    
     const usersDemands = userDemands(id)
     const [demands] = useState(usersDemands?.data?.length > 0 ? usersDemands.data.slice(0, 5) : []);
 
-    
     const popularProposals = popularProposalsByUserId(id)
     const [popular_proposals] = useState(popularProposals?.data?.proposals);
 
