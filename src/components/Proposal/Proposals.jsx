@@ -46,7 +46,7 @@ const Proposals = ({ proposals }) => {
       {proposals
         ? proposals.map((p) => (
           <div className='proposal_card' key={p.id}>
-            <div className='proposal_card_user_info'>
+            <div className='proposal_card_user_info'> 
               <div className="img_h4_container">
                 <img className='proposal_user_avatar' src={"http://localhost:8080/" + p.profile_picture} alt={p.creator_username + '_avatar'} />
                 <h4>{p.creator_username}</h4>

@@ -51,3 +51,96 @@
 .register_form{
     box-shadow: 5px 4px 10px #646cff;
 }
+
+
+@media screen and (min-width: 576px){
+    .signup_fields_container{
+        width: 400px;
+    }
+    .signup_fields_container form{
+        width: 250px;
+        height: 600px;
+        margin-bottom: 50px;
+    }
+
+    input.input_field{
+        width: 200px;
+        font-size: 0.8rem;
+    }
+
+    textarea.input_field{
+        width: 200px;
+        font-size: 0.8rem;
+    }
+
+    .signup_fields_container h3{
+        font-size: 1.3rem;
+        margin-left: 10px;
+    }
+    .link-p{
+        font-size: 0.8rem;
+    }
+
+}
+
+@media screen and (min-width: 768px){
+    .signup_fields_container form{
+        width: 250px;
+       
+    }  
+
+    button.button{
+        margin-top: 20%;
+    }
+    
+}
+
+@media screen and (min-width: 992px){
+    button.button{
+        margin-top: 20%;
+    }
+    
+    .signup_fields_container {
+        width: 600px;
+    }  
+
+    .signup_fields_container form{
+        width: 300px;
+        margin-left: 25%;
+    }
+
+    input.input_field{
+        width: 250px;
+        font-size: 1rem;
+    }
+
+    textarea.input_field{
+        width: 250px;
+        font-size: 1rem;
+    }
+    button.button{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+
+    .signup_fields_container form{
+        width: 400px;
+        margin-left: 16%;
+    }
+
+    button.button{
+        margin-top: 10%;
+    }
+
+    input.input_field{
+        width: 300px;
+        font-size: 1rem;
+    }
+
+    textarea.input_field{
+        width: 300px;
+        font-size: 1rem;
+    }
+}

@@ -25,4 +25,32 @@
     width: 50%;
     margin-left: 30%;
 }
-  
+
+@media screen and (min-width:576px) {
+  .footer_links a{
+    font-size: 0.8rem;
+    width: 60%;
+  }
+  .copy-text{
+    margin-top: 15px;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .footer_links a{
+    font-size: 1rem;
+    width: 60%;
+  }
+  .copy-text{
+    margin-top: 15px;
+    margin-left: 50px;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .copy-text{
+    margin-top: 15px;
+    margin-left: 50px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,3 +1,7 @@
+h2, h3, h4, p, a{
+    font-family: 'Poppins', sans-serif;
+}
+
 .demand_container, .proposals_wrapper {
     border: 1px solid black;
     background-color: var(--color-dirty_whitesmoke);
@@ -7,6 +11,7 @@
     box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;
     flex-direction: column;
+    
 }
 
 .demand_container h2, .proposals_wrapper h2 {
@@ -71,6 +76,7 @@
 
 .proposals_wrapper h2 {
     margin-bottom: 20px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .proposals h3 {

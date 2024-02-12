@@ -2,6 +2,7 @@
     border: 1px solid black;
     padding: 40px 20px;
     margin: 20px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .proposal_card_user_info {
@@ -27,11 +28,15 @@
     align-self: flex-end;
 
     position: relative;
-    top: -25px;
+    top: -45px;
 }
 
 .proposal_card ul {
     list-style-type: none;
+}
+
+.proposal_user_avatar{
+    margin-right: 90%;
 }
 
 .demand_proposals_container {

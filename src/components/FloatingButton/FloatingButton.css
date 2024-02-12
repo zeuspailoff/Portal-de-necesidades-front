@@ -1,8 +1,14 @@
 .floating-button {
-    background-color: var(--color-dirty_whitesmoke);
+    background-color: var(--color-blue_button);
     padding: 25px;
     height: fit-content;
     border: 3px solid var(--color-blue_button);
     border-radius: 50px;
     margin-top: 10px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
+}
+
+.floating-button:hover{
+    background-color: var(--color-login_green);
+    border: 3px solid var(--color-login_green);
 }

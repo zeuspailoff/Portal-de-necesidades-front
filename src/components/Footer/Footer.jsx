@@ -20,7 +20,7 @@ const Footer = () => {
               <Link to="/categories" className='footer-link'>Categories</Link>
             </div>
           </div>
-            <h6>Copyright 2024, HAB-JSB28RT Team[whatever], no rights reserved at all.</h6>
+            <h6 className='copy-text'>Copyright 2024, HAB-JSB28RT Team[whatever], no rights reserved at all.</h6>
           </div>
         </div>
       </footer>

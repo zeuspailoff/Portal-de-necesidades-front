@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserActions } from "../../hooks/api";
 
 const Rating = ({ proposal_id, currentValue }) => {

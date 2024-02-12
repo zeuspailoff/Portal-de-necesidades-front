@@ -55,8 +55,8 @@ const Login = () => {
         <button className="login_register_button button">Login</button>
         {error?.error ? <p className="error">Se ha producido un error: {error.data.error.message}</p> : null}
       </form>
-      <h3>You don't have an account yet? <Link to='/register'>Register now</Link></h3>
-      <h3>Do you forget your password? <Link to='/reset-password'>Reset password</Link></h3>
+      <p className="link-p">You don't have an account yet? <Link to='/register'>Register now</Link></p>
+      <p className="link-p">Do you forget your password? <Link to='/reset-password'>Reset password</Link></p>
 
     </div>
   )

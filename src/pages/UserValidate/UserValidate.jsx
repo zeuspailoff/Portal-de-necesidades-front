@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useUserActions } from "../../hooks/api"
 import { useState } from "react"
-
+import './UserValidate.css'
 
 
 const UserValidate = () => {
@@ -27,8 +27,10 @@ const UserValidate = () => {
   handleValidation()
 
   return (
-    <div>
+    
+      {success && <p className="register_confirmation">
       {success && <h2 style={{color:"blue", fontSize:"2em"}}>
+
         Te has registrado en Ineedup, ¿por que no haces to primera demanda para celebrarlo?
       </h2>
       }
