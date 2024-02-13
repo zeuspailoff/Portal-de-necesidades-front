@@ -89,7 +89,7 @@ const DemandList = () => {
               <span className="category">{renderIcon(d.category)}</span>
             </div>
             <p>{d.description}</p>
-            <h3 className="is_closed">{d.is_closed === 1 ? 'Marked as closed 👌' : null}</h3>
+            <h3 className="is_closed">{d.is_closed === 1 ? 'Closed ⛔​​​' : null}</h3>
             <h3>{d.files}</h3>
           </div>
         ))}

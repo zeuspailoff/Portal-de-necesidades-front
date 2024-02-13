@@ -107,6 +107,7 @@ h2, h3, h4, p, a{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
 }
 
 .deleteFile{

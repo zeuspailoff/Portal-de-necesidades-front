@@ -1,6 +1,6 @@
 import { useFetch, useFetchPost, useFetchDelete, useFetchPut } from "./useFetch";
 
-const apiHost = 'http://localhost:8080/';
+const apiHost = import.meta.env.VITE_BACKEND_URL;
 
 
 //------------------------------------------------demands -----------------------

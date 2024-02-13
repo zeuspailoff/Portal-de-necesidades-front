@@ -12,6 +12,7 @@ const Proposals = ({ proposals }) => {
   const [user] = useUser();
   const userId = user.id;
   const { deleteProposal } = useUserActions();
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
   const [error, setError] = useState(null)
 
   const getFileExtension = (filename) => {
@@ -46,9 +47,9 @@ const Proposals = ({ proposals }) => {
       {proposals
         ? proposals.map((p) => (
           <div className='proposal_card' key={p.id}>
-            <div className='proposal_card_user_info'> 
+            <div className='proposal_card_user_info'>
               <div className="img_h4_container">
-                <img className='proposal_user_avatar' src={"http://localhost:8080/" + p.profile_picture} alt={p.creator_username + '_avatar'} />
+                <img className='proposal_user_avatar' src={apiUrl + p.profile_picture} alt={p.creator_username + '_avatar'} />
                 <h4>{p.creator_username}</h4>
               </div>
             </div>
@@ -60,12 +61,12 @@ const Proposals = ({ proposals }) => {
                 {p?.proposalFiles && p?.proposalFiles[0]?.id ?
                   p.proposalFiles.map((file) => (
                     <div key={file.id} className="demand_files">
-                      <a key={file.id} href={"http://localhost:8080/" + file.src} download>
-                          {`Download file #${file.id} `}
-                        </a>
+                      <a key={file.id} href={apiUrl + file.src} download>
+                        {`Display File`}
+                      </a>
                       <div className="file_icon">
                         <FileIcon
-                        className="fileIcon"
+                          className="fileIcon"
                           extension={getFileExtension(file.src)}
                           style={{ width: '20px', height: '20px' }}
                           {...defaultStyles[getFileExtension(file.src)]}
@@ -77,14 +78,14 @@ const Proposals = ({ proposals }) => {
               </div >
             </div>
             <div className='proposal_card_votes_info'>
-                <p>Votes: {p.voteCount}</p>
-                <div className="average_score">
+              <p>Votes: {p.voteCount}</p>
+              <div className="average_score">
                 <p>Average score: {p.votesAvg}</p>
                 {error && error?.error && (
                   <h4>{error.data.message}</h4>
                 )}
-                
-              <Rating proposal_id={p.id} currentValue={p.voteAvg} />
+
+                <Rating proposal_id={p.id} currentValue={p.voteAvg} />
               </div>
             </div>
           </div>

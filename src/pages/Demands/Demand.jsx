@@ -20,6 +20,7 @@ const Demand = () => {
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
   const [error, setError] = useState(proposalsData)
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 
   const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
@@ -92,7 +93,7 @@ const Demand = () => {
                   <div key={file.fileId} className="fileIcon" >
                     {user?.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
                     <a
-                      href={"http://localhost:8080/" + file.fileSrc}
+                      href={apiUrl + file.fileSrc}
                       download
                       target="_blank" rel="noreferrer"
                     >

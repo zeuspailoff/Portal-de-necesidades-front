@@ -10,12 +10,14 @@ import { useUserActions } from "../../hooks/api";
 const Profile = () => {
     const { userProfile } = useUserActions();
     const { userDemands } = useUserActions();
-    const  { popularProposalsByUserId } = useUserActions();
+    const { popularProposalsByUserId } = useUserActions();
     const { id } = useParams();
+    const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
 
     const requestUser = userProfile(id)
     const [is_owner] = useState(requestUser?.data.is_owner);
-    
+
     const usersDemands = userDemands(id)
     const [demands] = useState(usersDemands?.data?.length > 0 ? usersDemands.data.slice(0, 5) : []);
 
@@ -34,7 +36,7 @@ const Profile = () => {
                 </div>}
                 <div className='user_data_row'>
                     <div className='user_data'>
-                        <img src={requestUser.data.profile_picture ? 'http://localhost:8080/' + requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
+                        <img src={requestUser.data.profile_picture ? apiUrl + requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
                         <ul>
                             <li className='bold'>Username:</li>
                             <li className='separate'>{requestUser.data.username}</li>
