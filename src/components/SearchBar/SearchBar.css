@@ -5,7 +5,7 @@
     padding: 40px 20px;
     background-color: var(--color-darker_dirty_whitesmoke);
     color: var(--color-dark_grey);
-    width: 33%;
+    width: 25%;
     height: fit-content;
     box-shadow: 5px 4px 10px var(--color-dark_grey);
     display: flex;

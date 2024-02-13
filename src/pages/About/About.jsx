@@ -2,7 +2,7 @@
 import "./About.css"
 const About = () => {
     return (
-        <div>
+        <div className="general-container">
 
             <h1 className="contact-intro titleMovement" >About us</h1>
             <p className="contact-intro">We are a group of development students who have decided to pool their knowledge and skills to implement a website where professionals can help others. Do you want to know more about us? Keep reading!</p>

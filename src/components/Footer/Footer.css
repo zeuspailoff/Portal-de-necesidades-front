@@ -1,5 +1,5 @@
 .footer_container {
-    background-color: var(--color-dark_grey);
+    background-color: #2828281f;
     color: var(--color-dirty_whitesmoke);
     border: 1px solid var(--color-darker_dirty_whitesmoke);
     padding: 20px;
@@ -24,6 +24,10 @@
     margin-bottom: 5px;
     width: 50%;
     margin-left: 30%;
+}
+
+.footer_logo h5, .footer_logo h6 {
+  color: #282828cf;
 }
 
 @media screen and (max-width: 768px) {

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const UserList = () => {
   const usersData = useUserList()
-  const [users] = useState(usersData.data.users.slice(0, 10))
+  console.log(usersData);
+  const [users] = useState(usersData?.data?.users?.slice(0, 10))
   const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
   return (

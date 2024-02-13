@@ -2,7 +2,7 @@ import './Terms.css'
 
 const Terms = () => {
     return (
-        <div className='terms'>
+        <div className='terms general-container'>
             <h1 className='terms-title'>Terms and Conditions of "I Need Up"</h1>
             <h3> Last updated: January 2024</h3>
             <p>

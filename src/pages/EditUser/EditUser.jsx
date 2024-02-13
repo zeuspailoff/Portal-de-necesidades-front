@@ -47,7 +47,7 @@ const EditUser = () => {
         }
     }
     return (
-        <>
+        <div className="general-container">
             <form onSubmit={handleEdit} className="editUser_container">
                 <label htmlFor="username">Username</label>
                 <input type="text" name="username" placeholder="Username" value={userName || " "}
@@ -77,7 +77,7 @@ const EditUser = () => {
 
 
             </form>
-        </>
+        </div>
     )
 }
 export default EditUser;

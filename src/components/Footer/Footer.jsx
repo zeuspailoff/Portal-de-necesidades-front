@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import Logo from '../Logo/logo.png';
+
 
 const Footer = () => {
     return (
       <footer>
         <div className="footer_container">
           <div className="footer_logo">
-            <h4>iNeed<span>Up</span></h4>
+          <Link to="/"><img alt='Logo I Need Up' src={Logo} style={{width:"190px"}} /></Link>
             <h5>Needs and solutions connected</h5>
             <div className="footer_links">
             <div>

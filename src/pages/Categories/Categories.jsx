@@ -2,7 +2,7 @@ import './Categories.css'
 const Categories = () => {
 
     return (
-        <div>
+        <div className="general-container">
 
             <div className="categories-container">
                 <h1 className="categories-title titleMovement">Categories</h1>

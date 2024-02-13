@@ -32,7 +32,7 @@ const Profile = () => {
     }
 
     return (
-        <div>
+        <div className='general-container'>
             <div className='profile_page'>
                 <h2 className='profile_title'>User Profile:</h2>
                 {is_owner && <div className="edit_buttons_container_profile">

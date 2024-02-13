@@ -50,6 +50,10 @@ p.home_description a:hover::after{
     list-style-type: none;
 }
 
+.general-container{
+    margin: 0.3% 0.9%;
+}
+
 @media screen and (max-width: 768px) {
     .home_description_container {
         display: flex;

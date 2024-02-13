@@ -28,7 +28,7 @@ const UserValidate = () => {
   handleValidation()
 
   return (
-    <div className="output_body">
+    <div className="output_body general-container">
       <div className="output">
       {success && <h2 className="success">
         You have successfully registered to iNeedUp, why not creating your <Link to="/demands">first demand</Link> to celebrate it?

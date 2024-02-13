@@ -25,7 +25,7 @@ const ResetPassword = () => {
 
   return (
 
-    <>
+    <div className="general-container">
 
       {success && <p className="success_message">Check your email to reset your password</p>}
       <form onSubmit={handleEmail} className="resetpass_container">
@@ -37,7 +37,7 @@ const ResetPassword = () => {
 
       </form>
 
-    </>
+    </div>
 
   )
 }

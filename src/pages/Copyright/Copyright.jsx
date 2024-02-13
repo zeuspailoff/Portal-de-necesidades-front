@@ -2,7 +2,7 @@ import './Copyright.css'
 
 const Copyright = () => {
     return (
-        <div className='copyright'>
+        <div className='copyright general-container'>
             <h1 className='copy-title'>Copyright Policy of "I Need Up"</h1>
             <h3>Last updated: January 2024</h3>
             <p>

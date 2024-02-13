@@ -2,7 +2,7 @@ import './Privacy.css'
 
 const Privacy = () => {
     return (
-        <div className="privacy">
+        <div className="privacy general-container">
             <h1 className="privacy-title">Privacy Policy of "I Need Up"</h1>
             <h3>Last updated: January 2024</h3>
             <p>

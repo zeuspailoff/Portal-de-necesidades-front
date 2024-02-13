@@ -8,7 +8,7 @@ const FloatingButton = () => {
   return (
     <div className="floating_button_container">
       <Link to="/demands/new">
-        {user ? <button className="floating-button">Create demand!</button> : null}
+        {user ? <button className="floating-button">Demand</button> : null}
 
       </Link>
     </div>

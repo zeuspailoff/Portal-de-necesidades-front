@@ -63,7 +63,7 @@ const Demand = () => {
   //////// EDIT AND DELETE and close BUTTONS ////////
 
   return (
-    <div>
+    <div className="general-container">
 
       <div className='demand_container'>
 
