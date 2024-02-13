@@ -1,7 +1,7 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
 import './Profile.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import UserDemands from '../../components/Demands/UserDemands';
 import { useState } from 'react';
 import { useUserActions } from "../../hooks/api";
@@ -11,8 +11,10 @@ const Profile = () => {
     const { userProfile } = useUserActions();
     const { userDemands } = useUserActions();
     const { popularProposalsByUserId } = useUserActions();
+    const [user, setUser] = useUser();
     const { id } = useParams();
     const apiUrl = import.meta.env.VITE_BACKEND_URL;
+    const navigate = useNavigate()
 
 
     const requestUser = userProfile(id)
@@ -24,6 +26,10 @@ const Profile = () => {
     const popularProposals = popularProposalsByUserId(id)
     const [popular_proposals] = useState(popularProposals?.data?.proposals);
 
+    const logaout = () => {
+        setUser();
+        navigate('/')
+    }
 
     return (
         <div>
@@ -32,6 +38,9 @@ const Profile = () => {
                 {is_owner && <div className="edit_buttons_container_profile">
                     <button className="edit_button edit_delete_btn edit_button_profile">
                         <Link to={"/users/edit/profile"}> ✏️ Edit profile</Link>
+                    </button>
+                    <button className='edit_button edit_delete_btn edit_button_profile' onClick={logaout}>
+                        🚫
                     </button>
                 </div>}
                 <div className='user_data_row'>
