@@ -109,6 +109,14 @@ h2, h3, h4, p, a{
     justify-content: center;
     flex-direction: row;
 }
+.username_demand{
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
 
 .deleteFile{
     position: relative;

@@ -69,10 +69,11 @@ const Demand = () => {
 
         <div className="upper_container">
           <div className="h2_h4_container">
-
+            <div className="img_h4_container">
+              <img className='proposal_user_avatar' src={apiUrl + demand.userAvatarSrc} alt={demand.userName + '_avatar'} />
+              <h4 ><Link to={`/profile/${demand.user_id}`}>{demand.userName}</Link></h4>
+            </div>
             <h2>#{id} {demand.title}</h2>
-            {demand.status == 1 ? <h3>Closed</h3> : null}
-            <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
               {user?.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
               {user?.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
@@ -80,6 +81,8 @@ const Demand = () => {
             </div>
           </div>
         </div>
+        {demand.status == 1 ? <h3>Closed</h3> : null}
+        <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
         <section className='description'>
           <div>
             <div className='description_wrapper'>

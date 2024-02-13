@@ -60,7 +60,7 @@ const Proposals = ({ proposals }) => {
               <div className='proposal_card_files'>
                 {p?.proposalFiles && p?.proposalFiles[0]?.id ?
                   p.proposalFiles.map((file) => (
-                    <div key={file.id} className="demand_files">
+                    <div key={file.id} className="proposal_files">
                       <a key={file.id} href={apiUrl + file.src} download>
                         {`Display File`}
                       </a>

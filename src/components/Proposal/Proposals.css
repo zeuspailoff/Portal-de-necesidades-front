@@ -129,6 +129,17 @@
 
     margin: 20px 0 0 0;
 }
+.proposal_files{
+   
+        position: relative;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+    
+}
 
 .proposal_card_votes_info p {
     padding: 0;
