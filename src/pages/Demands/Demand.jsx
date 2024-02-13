@@ -116,11 +116,11 @@ const Demand = () => {
         </section>
       </div>
       {user &&
-        <div>
+        <div className='proposals_wrapper'>
           <div>
-            <section className='proposals_wrapper'>
+            <section>
               <h2>Proposals for this demand:</h2>
-              {proposals && proposals.length > 0 ? <Proposals proposals={proposals} setProposals={setProposals} /> : <p>This demand does not contain proposals</p>}
+              {proposals && proposals.length > 0 ? <Proposals proposals={proposals} /> : <p>This demand does not contain proposals</p>}
 
             </section>
           </div>

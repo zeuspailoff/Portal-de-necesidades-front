@@ -32,11 +32,11 @@ const DemandList = () => {
       result = result.filter((demand) => demand.category == category)
     }
 
-    if (result.length == 0) { return null }
+    if (result?.length == 0) { return null }
 
     return result;
   }
-  const [demands, setDemands] = useState(filteredDemands());
+  const [demands, setDemands] = useState(filteredDemands() || []);
 
   useEffect(() => {
     setDemands(filteredDemands());
@@ -80,9 +80,9 @@ const DemandList = () => {
 
   return (
     <>
-      <SearchBar handleState={handleState} handleSearch={handleSearch} handleCategory={handleCategory} />
+      {demands && <SearchBar handleState={handleState} handleSearch={handleSearch} handleCategory={handleCategory} />}
       <div className="fetched_demands_container">
-        {demands && demands.map((d) => (
+        {demands ? demands.map((d) => (
           <div key={d.id} className="demand">
             <div className="demand_upper_row">
               <h2>#{d.id}</h2><Link to={`/demands/${d.id}`}>{d.title}</Link>
@@ -91,8 +91,8 @@ const DemandList = () => {
             <p>{d.description}</p>
             <h3 className="is_closed">{d.is_closed === 1 ? 'Closed ⛔​​​' : null}</h3>
             <h3>{d.files}</h3>
-          </div>
-        ))}
+          </div> 
+        )) : <p>'The page has no demands.' </p> }
         <div className="buttons_container">
           <button
             className="button"

@@ -22,7 +22,6 @@ h1.titleMovement{
 }
 
 form {
-  border: 3px solid #646cff;
   border-radius: 10px;
   padding: 40px 20px;
   background-color: var(--color-dirty_whitesmoke);

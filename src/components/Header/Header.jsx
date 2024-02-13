@@ -7,8 +7,12 @@ import Logo from '../Logo/logo.png';
 const Header = () => {
   return (
     <div className='header_wrapper'>
+      <div className='preview_card_container_hidden'>
+        <ProfilePreviewCard />
+      </div>
+
       <div className='logo_container'>
-      <Link to='/' style={{display:'flex'}}><img className='logo' src={Logo} /></Link>
+        <Link to='/' style={{display:'flex'}}><img className='logo' src={Logo} /></Link>
       </div>
 
       <div className='links_wrapper'>

@@ -18,11 +18,11 @@
 }
 
 .proposal_card_proposal_info h4 {
-    background-color: #979797;
+    background-color: #8ecaef;
     margin: 0;
-    padding: 5px;
+    width: 80%;
+    padding: 15px;
     border-radius: 10px;
-    width: fit-content;
     margin-bottom: 15px;
 }
 

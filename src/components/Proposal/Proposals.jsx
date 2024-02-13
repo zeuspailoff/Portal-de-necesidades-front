@@ -36,10 +36,16 @@ const Proposals = ({ proposals }) => {
   }
 
 
-  const handleDelete = (id) => {
-    deleteProposal(id);
-    window.location.reload();
-  };
+  
+ const handleDelete = async (e) => {
+      const id = e.target.id;
+      const demand_id = e.target.getAttribute('data-demand');
+      const response = await deleteProposal(id, demand_id)
+      if (response.data.status == 200) {
+        e.target.parentNode.parentNode.parentNode.remove();
+      }
+    }
+  
 
 
   return (
@@ -49,8 +55,9 @@ const Proposals = ({ proposals }) => {
           <div className='proposal_card' key={p.id}>
             <div className='proposal_card_user_info'>
               <div className="img_h4_container">
-                <img className='proposal_user_avatar' src={apiUrl + p.profile_picture} alt={p.creator_username + '_avatar'} />
+                {p.profile_picture ? <img className='proposal_user_avatar' src={apiUrl + p.profile_picture} alt={p.creator_username + '_avatar'} /> : <img className='proposal_user_avatar' alt="foto de ejemplo user" src={'https://w7.pngwing.com/pngs/77/140/png-transparent-training-needs-analysis-needs-assessment-needs-analysis-orange-logo-need.png'} />}
                 <h4>{p.creator_username}</h4>
+                {userId == p.creator_id ? <button id={p.id} data-demand={p.demand_id} className="delete_button edit_delete_btn" title="Delete" onClick={handleDelete}>🗑️</button> : null}
               </div>
             </div>
 

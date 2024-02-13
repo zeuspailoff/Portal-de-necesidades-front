@@ -18,7 +18,6 @@ const Rating = ({ proposal_id, currentValue }) => {
       setNewValue(response.data.data.votes);
     } else {
       setError(response.data.error)
-      console.log(error.data.error.message);
     }
   };
 

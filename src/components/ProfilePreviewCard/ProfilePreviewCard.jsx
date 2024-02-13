@@ -29,7 +29,7 @@ const ProfilePreviewCard = () => {
       {user && (
         <span>
           <Link className='profile_link' to={`/profile/${user.id}`} >{`Hi, ${user.username}`}</Link>
-          <Link className='profile_link_hidden' to={`/profile/${user.id}`} >Profile</Link>
+          <Link className='profile_link_hidden' to={`/profile/${user.id}`} >{` ${user.username}`}</Link>
           <span onClick={logout}>🚫</span>
         </span>
       )}

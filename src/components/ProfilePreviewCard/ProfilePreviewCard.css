@@ -27,7 +27,10 @@
     margin: 5px 10px;
 }
 
-@media screen and (max-width: 768px) {
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 899px) {
     .profile_preview_card {
         width: fit-content;
     }
@@ -46,9 +49,10 @@
 }
 
 @media screen and (max-width: 480px) {
+
     .profile_preview_card {
         height: 50px;
-        width: 50px;
+        width: 100%;
         border-radius: 50px;
 
         font-size: .8rem;
@@ -61,6 +65,13 @@
     }
 
     .round_picture_preview {
+        display: inline-block;
+    }
+    .profile_link {
         display: none;
     }
-}
+    .profile_link_hidden {
+        display: inline-block;
+    }
+    
+} 

@@ -6,14 +6,14 @@ import './SignUp.css';
 
 const SignUp = () => {
   const [url] = useState(window.location.origin)
-  const [name, setName] = useState('kevin')
-  const [lastname, setLastName] = useState('ghio-traver')
-  const [username, setUsername] = useState('keviinmiichael')
-  const [email, setEmail] = useState('ghiokevin@gmail.com')
-  const [biography, setBiography] = useState('jdsajdasaj ajkls dajkds')
-  const [birthdate, setBirthdate] = useState('1993-01-01')
-  const [password, setPassword] = useState('Asd123,.')
-  const [phone, setPhone] = useState('654789123')
+  const [name, setName] = useState()
+  const [lastname, setLastName] = useState()
+  const [username, setUsername] = useState()
+  const [email, setEmail] = useState()
+  const [biography, setBiography] = useState()
+  const [birthdate, setBirthdate] = useState()
+  const [password, setPassword] = useState()
+  const [phone, setPhone] = useState()
   const { register } = useUserActions();
   const navigate = useNavigate()
   const [user] = useUser()
@@ -92,7 +92,7 @@ const SignUp = () => {
           className="input_field"
           name="password"
           placeholder="Password"
-          type="text"
+          type="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />

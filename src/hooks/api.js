@@ -49,7 +49,7 @@ export const useUserActions = () => {
     newDemand: (fd) => fetchPost(apiHost + 'demands', fd),
     editDemand: (id, fd) => fetchPost(apiHost + `demands/${id}`, fd, 'PUT'),
     newProposal: (id, fd) => fetchPost(apiHost + `proposals/${id}`, fd),
-    deleteProposal: (id) => fetchDelete(apiHost + `proposals/${id}`),
+    deleteProposal: (id, demand_id) => fetchDelete(apiHost + `proposals/${id}/demands/${demand_id}`),
     resetPassword: (email) => fetchPost(apiHost + `users/recover`, email),
     userDemands: (id) => useFetch(apiHost + `users/${id}/demands`),
     newPassword: (body, recoveryCode) => fetchPost(apiHost + `users/SetPassByrecover/${recoveryCode}`, body, "PUT"),
