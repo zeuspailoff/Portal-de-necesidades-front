@@ -1,5 +1,5 @@
 .home_description_container{
-    background-color: rgb(73, 175, 253);
+    background-color: #8ec5efc2;
     color: var(--color-dark_grey);
     height: 70px;
     padding: 10px;
@@ -9,14 +9,17 @@
 
 .home_description{
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: black;
 }
 p.home_description strong{
     font-weight: 500;
     letter-spacing: 3px;
     color: var(--color-dirty_whitesmoke);
 }
-
+.logo-description{
+    height: 1rem;
+}
 p.home_description a{
     color: var(--color-dirty_whitesmoke);
     position: relative;
