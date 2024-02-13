@@ -2,6 +2,7 @@
     border: 1px solid black;
     padding: 40px 20px;
     margin: 20px;
+    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .proposal_card_user_info {
@@ -9,14 +10,65 @@
     flex-direction: column;
 }
 
-.img_h4_container {
+.proposal_card_proposal_info {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    align-self: center;
+}
+
+.proposal_card_proposal_info h4 {
+    background-color: #8ecaef;
+    margin: 0;
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.proposal_card_proposal_info p {
+    background-color: white;
+    width: 80%;
+    min-width: 400px;
+    font-size: .8rem;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.img_h4_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: auto;
     justify-self: center;
-    width: 100%;
+    height: 60px;
+}
+
+.proposal_user_avatar{
+    width: 55px;
+    height: 55px;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.proposal_card_files {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demand_files {
+    min-width: 150px;
+    width: fit-content;
+    font-size: 1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.file_icon {
+    width: 50px;
 }
 
 .edit_buttons_container_proposal {
@@ -27,7 +79,7 @@
     align-self: flex-end;
 
     position: relative;
-    top: -25px;
+    top: -45px;
 }
 
 .proposal_card ul {
@@ -67,6 +119,37 @@
     padding: 20px 10px 5px 10px;
 }
 
+.proposal_card_votes_info {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 20px 0 0 0;
+}
+.proposal_files{
+   
+        position: relative;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+    
+}
+
+.proposal_card_votes_info p {
+    padding: 0;
+    letter-spacing: normal;
+}
+
+.average_score {
+    display: flex;
+    align-items: center;
+}
+
 .rating span {
     color: #979797;
   }
@@ -84,3 +167,15 @@
   .rating span:hover + span + span { color: #979797; }
   .rating span:hover + span + span + span { color: #979797; }
   .rating span:hover + span + span + span + span { color: #979797; }
+
+
+  @media screen and (max-width: 768px) {
+    .proposal_card_proposal_info p {
+        background-color: white;
+        width: 80%;
+        min-width: 300px;
+        font-size: .8rem;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+  }

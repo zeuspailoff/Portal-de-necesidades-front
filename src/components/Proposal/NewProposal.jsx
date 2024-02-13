@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./NewProposal.css";
+import { useUser } from "../../UserContext";
 import { useUserActions } from "../../hooks/api";
 import { useParams } from "react-router";
 import ConfirmModal from "./ConfirmModal";
 
 const NewProposal = ({ proposals, setProposals }) => {
+  const [user] = useUser()
   const [description, setDescription] = useState("");
   const { id } = useParams();
   const [files, setFiles] = useState([]);
@@ -24,16 +26,23 @@ const NewProposal = ({ proposals, setProposals }) => {
     }
     const response = await newProposal(id, fd);
     if (response.data.status == 200) {
-      console.log(response.data);
+      const arrayFiles = response.data.files ? Object.values(response.data.files).map(value => ({ ...value })): [];
       setDescription("");
       setFiles([]);
-      const newProposals = [...proposals, { id: response.data.id, description: response.data.description, files: response.data.files }];
-      console.log(">>>>>>>>>>>", newProposals);
+
+      const newProposals = [...proposals, 
+        { 
+          id: response.data.id, 
+          description: response.data.description, 
+          proposalFiles: arrayFiles,
+          profile_picture: user.profile_picture,
+          creator_username: user.username,
+          demand_id: response.data.demand_id
+        }];
       setProposals(newProposals)
 
     } else {
       setError(response.data.error);
-      console.log(response.data.error);
 
     }
   };

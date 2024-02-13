@@ -1,0 +1,31 @@
+
+.error_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #f1c58c, #2e2525);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.error_content{
+    margin-top: 10%;
+
+}
+
+.error_title{
+    color: var(--color-dark_grey);
+
+}
+
+.reload{
+    color: var(--color-dirty_whitesmoke);
+}
+
+.reload:hover{
+    color: var(--color-dark_grey);
+}

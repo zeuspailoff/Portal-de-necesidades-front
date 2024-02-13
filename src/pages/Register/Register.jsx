@@ -3,7 +3,7 @@ import SignUp from '../../components/Signup/SignUp.jsx';
 
 const Register = () => {
     return (
-        <div>
+        <div className="general-container">
             <SignUp />
 
         </div>

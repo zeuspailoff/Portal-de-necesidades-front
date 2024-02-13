@@ -1,17 +1,39 @@
-.avatarHome{
-    width: 40px;
-    height: 35px;
-    align-items: flex-start;
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
-    margin: 5px 10px;
-}
-.userList{
-    list-style-type: none; 
-    padding: 0;
+.userlist_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.userList li {
-    text-align: left; 
-  }
+.userList {
+    min-width: 300px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.userList a {
+    margin-left: 10px;
+    color: black;
+}
+
+.userList a:hover {
+    color: black;
+}
+
+.avatarHome{
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+.single_user_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}

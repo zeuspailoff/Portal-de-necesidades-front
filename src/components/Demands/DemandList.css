@@ -3,7 +3,7 @@
 }
 
 .demand:first-child {
-    margin-top: 50px;
+    margin-top: 5px;
 }
 
 .demand {
@@ -13,7 +13,7 @@
     height: auto;
     width: 98%;
     border-radius: 10px;
-    background-color: var(--color-darker_dirty_whitesmoke);
+    background-color: #8ecaef40;
     border: 1px solid var(--color-dark_grey);
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: space-between;
     color: var(--color-dark_grey);
-    background-color: var(--color-dirty_whitesmoke);
+    background-color: #ccccccab;
     padding: 0 10px;
     margin: 15px 10px;
     box-shadow: 5px 4px 10px var(--color-dark_grey);
@@ -66,7 +66,7 @@
 
 .is_closed {
     font-size: 1rem;
-    color: white;
+    color: black;
 }
 
 .buttons_container {
@@ -81,8 +81,24 @@
     background-color: var(--color-blue_button);
     border-radius: 50px;
     margin: 5px;
-
+    color: var(--color-dirty_whitesmoke);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .fetched_demands_container {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .demand {
+        margin: 10px 0;
+        padding: 0;
+    }
 }

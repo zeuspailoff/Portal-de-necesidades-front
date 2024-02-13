@@ -22,7 +22,6 @@ h1.titleMovement{
 }
 
 form {
-  border: 3px solid #646cff;
   border-radius: 10px;
   padding: 40px 20px;
   background-color: var(--color-dirty_whitesmoke);
@@ -71,4 +70,34 @@ input, textarea, .contact-button {
     font-size: 1.2em;
     width: 30%;
     margin-left: 35%;
+  }
+
+  @media screen and (min-width: 576px){
+    h1.titleMovement{
+      font-size: 3em;
+    }
+    .contact-help{
+      font-size: 1em;
+      height: 50px;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    h1.titleMovement{
+      font-size: 3.5em;
+    }
+    .contact-help{
+      font-size: 1.5em;
+      height: 60px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    h1.titleMovement{
+      font-size: 4em;
+    }
+    .contact-help{
+      font-size: 2em;
+      height: 70px;
+    }
   }

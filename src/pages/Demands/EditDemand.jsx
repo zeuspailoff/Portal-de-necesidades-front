@@ -54,7 +54,7 @@ const EditDemand = () => {
 
 
     return (
-        <div>
+        <div className="general-container">
 
             <h3 className='submit_title'>Edit your demand</h3>
             <div className='submit_demand_container'>

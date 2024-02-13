@@ -44,13 +44,13 @@ const NewDemand = () => {
   };
 
   return (
-    <div>
+    <div className="general-container">
 
       <h3 className='submit_title'>Submit a new demand</h3>
       <div className='submit_demand_container'>
 
-        <h2 className='label_title'>Title:</h2>
         <form className='new_demand_form' onSubmit={handleForm}>
+        <h2 className='label_title'>Title:</h2>
           <textarea
             className='new_demand_title'
             name="title"
@@ -98,7 +98,7 @@ const NewDemand = () => {
           )}
         </form>
       </div>
-    </div>
+      </div>
   );
 };
 

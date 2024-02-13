@@ -52,3 +52,78 @@
     border: 1px solid #646cff;
     box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
+
+@media screen and (min-width: 576px){
+    .fields_container{
+        width: 400px;
+    }
+    .fields_container form{
+        width: 250px;
+        height: 300px;
+        margin-bottom: 50px;
+    }
+
+    input.input_field{
+        width: 200px;
+        font-size: 0.8rem;
+    }
+
+    .fields_container h3{
+        font-size: 1.3rem;
+        margin-left: 10px;
+    }
+    .link-p{
+        font-size: 0.8rem;
+    }
+
+}
+
+@media screen and (min-width: 768px){
+    .fields_container form{
+        width: 250px;
+        height: 400px;
+    }  
+
+    button.button{
+        margin-top: 20%;
+    }
+    
+}
+
+@media screen and (min-width: 992px){
+    .fields_container {
+        width: 600px;
+    }  
+
+    .fields_container form{
+        width: 300px;
+        margin-left: 25%;
+    }
+
+    input.input_field{
+        width: 250px;
+        font-size: 1rem;
+    }
+
+    button.button{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+
+    .fields_container form{
+        width: 400px;
+        margin-left: 16%;
+    }
+
+    button.button{
+        margin-top: 10%;
+        width: 150px;
+    }
+
+    input.input_field{
+        width: 300px;
+        font-size: 1rem;
+    }
+}

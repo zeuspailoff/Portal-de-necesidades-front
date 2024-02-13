@@ -1,0 +1,9 @@
+.demand_title_in_card {
+    font-size: 1rem;
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

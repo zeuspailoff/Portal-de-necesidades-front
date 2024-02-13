@@ -2,7 +2,7 @@ import './FAQS.css'
 const Faqs = () => {
 
     return (
-        <div>
+        <div className="general-container">
             <h2 className="help_please">Need some help?</h2>
 
             <div className="faqs">

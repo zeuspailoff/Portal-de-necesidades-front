@@ -1,7 +1,7 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
 import './Profile.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import UserDemands from '../../components/Demands/UserDemands';
 import { useState } from 'react';
 import { useUserActions } from "../../hooks/api";
@@ -10,32 +10,42 @@ import { useUserActions } from "../../hooks/api";
 const Profile = () => {
     const { userProfile } = useUserActions();
     const { userDemands } = useUserActions();
-    const  { popularProposalsByUserId } = useUserActions();
+    const { popularProposalsByUserId } = useUserActions();
+    const [user, setUser] = useUser();
     const { id } = useParams();
+    const apiUrl = import.meta.env.VITE_BACKEND_URL;
+    const navigate = useNavigate()
+
 
     const requestUser = userProfile(id)
     const [is_owner] = useState(requestUser?.data.is_owner);
-    
-    
+
     const usersDemands = userDemands(id)
-    const [demands] = useState(usersDemands?.data.slice(0, 5));
-    
+    const [demands] = useState(usersDemands?.data?.length > 0 ? usersDemands.data.slice(0, 5) : []);
+
     const popularProposals = popularProposalsByUserId(id)
     const [popular_proposals] = useState(popularProposals?.data?.proposals);
 
+    const logaout = () => {
+        setUser();
+        navigate('/')
+    }
 
     return (
-        <div>
+        <div className='general-container'>
             <div className='profile_page'>
                 <h2 className='profile_title'>User Profile:</h2>
                 {is_owner && <div className="edit_buttons_container_profile">
                     <button className="edit_button edit_delete_btn edit_button_profile">
                         <Link to={"/users/edit/profile"}> ✏️ Edit profile</Link>
                     </button>
+                    <button className='edit_button edit_delete_btn edit_button_profile' onClick={logaout}>
+                        🚫
+                    </button>
                 </div>}
                 <div className='user_data_row'>
                     <div className='user_data'>
-                        <img src={requestUser.data.profile_picture ? 'http://localhost:8080/' + requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
+                        <img src={requestUser.data.profile_picture ? apiUrl + requestUser.data.profile_picture : null} alt={`User ${requestUser.data.username} profile mosaic`} />
                         <ul>
                             <li className='bold'>Username:</li>
                             <li className='separate'>{requestUser.data.username}</li>

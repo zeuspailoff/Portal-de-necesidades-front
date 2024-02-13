@@ -29,6 +29,9 @@
     margin-right: 10px;
 }
 
+.edit_buttons_container_profile:hover {
+    color: var(--color-dirty_whitesmoke);
+}
 .edit_button_profile {
     width: fit-content;
     border-radius: 50px;
@@ -141,7 +144,7 @@
     padding: 10px;
 }
 
-.demand_container {
+.demand_container_profile {
     background-color: var(--color-darker_dirty_whitesmoke);
     margin: 10px;
     padding: 10px;
@@ -157,4 +160,35 @@
     display: flex;
     flex-direction: column;
     flex-grow: 2;
+}
+
+@media screen and (max-width: 480px) {
+    .profile_page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user_data_row {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user_description, .user_data, .profile_title {
+        width: 95%;
+    }
+
+    .proposals_demands_row {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        align-items: center;
+        justify-content: center;
+    }
 }

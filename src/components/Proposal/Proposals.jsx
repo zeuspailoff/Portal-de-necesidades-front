@@ -12,6 +12,7 @@ const Proposals = ({ proposals }) => {
   const [user] = useUser();
   const userId = user.id;
   const { deleteProposal } = useUserActions();
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
   const [error, setError] = useState(null)
 
   const getFileExtension = (filename) => {
@@ -34,12 +35,17 @@ const Proposals = ({ proposals }) => {
     );
   }
 
-  const testEditButton = () => console.log('Edit proposal');
 
-  const handleDelete = (id) => {
-    deleteProposal(id);
-    window.location.reload();
-  };
+  
+ const handleDelete = async (e) => {
+      const id = e.target.id;
+      const demand_id = e.target.getAttribute('data-demand');
+      const response = await deleteProposal(id, demand_id)
+      if (response.data.status == 200) {
+        e.target.parentNode.parentNode.parentNode.remove();
+      }
+    }
+  
 
 
   return (
@@ -49,36 +55,25 @@ const Proposals = ({ proposals }) => {
           <div className='proposal_card' key={p.id}>
             <div className='proposal_card_user_info'>
               <div className="img_h4_container">
-                <img className='proposal_user_avatar' src={"http://localhost:8080/" + p.profile_picture} alt={p.creator_username + '_avatar'} />
+                {p.profile_picture ? <img className='proposal_user_avatar' src={apiUrl + p.profile_picture} alt={p.creator_username + '_avatar'} /> : <img className='proposal_user_avatar' alt="foto de ejemplo user" src={'https://w7.pngwing.com/pngs/77/140/png-transparent-training-needs-analysis-needs-assessment-needs-analysis-orange-logo-need.png'} />}
                 <h4>{p.creator_username}</h4>
-                <div className="edit_buttons_container_proposal">
-                  {userId == p.user_id ? (
-                    <button className="edit_button edit_delete_btn" onClick={testEditButton}>
-                      ✏️
-                    </button>
-                  ) : null}
-                  {userId == p.user_id ? (
-                    <button className="delete_button edit_delete_btn" onClick={() => handleDelete(p.id)}>
-                      🗑️
-                    </button>
-                  ) : null}
-                </div>
+                {userId == p.creator_id ? <button id={p.id} data-demand={p.demand_id} className="delete_button edit_delete_btn" title="Delete" onClick={handleDelete}>🗑️</button> : null}
               </div>
-
             </div>
 
             <div className='proposal_card_proposal_info'>
               <h4>Proposal #{p.id}</h4>
               <p>{p.description}</p>
               <div className='proposal_card_files'>
-                {p?.proposalFiles ?
+                {p?.proposalFiles && p?.proposalFiles[0]?.id ?
                   p.proposalFiles.map((file) => (
-                    <div key={file.id} className="demand_files">
+                    <div key={file.id} className="proposal_files">
+                      <a key={file.id} href={apiUrl + file.src} download>
+                        {`Display File`}
+                      </a>
                       <div className="file_icon">
-                        <a key={file.id} href={"http://localhost:8080/" + file.src} download>
-                          {`Download file #${file.id} `}
-                        </a>
                         <FileIcon
+                          className="fileIcon"
                           extension={getFileExtension(file.src)}
                           style={{ width: '20px', height: '20px' }}
                           {...defaultStyles[getFileExtension(file.src)]}
@@ -90,14 +85,15 @@ const Proposals = ({ proposals }) => {
               </div >
             </div>
             <div className='proposal_card_votes_info'>
-              <ul>
-                <li>Votes: {p.voteCount}</li>
-                <li>Average score: {p.votesAvg}</li>
+              <p>Votes: {p.voteCount}</p>
+              <div className="average_score">
+                <p>Average score: {p.votesAvg}</p>
                 {error && error?.error && (
-                  <p >{error.data.message}</p>
+                  <h4>{error.data.message}</h4>
                 )}
-              </ul>
-              <Rating proposal_id={p.id} currentValue={p.voteAvg} />
+
+                <Rating proposal_id={p.id} currentValue={p.voteAvg} />
+              </div>
             </div>
           </div>
         ))

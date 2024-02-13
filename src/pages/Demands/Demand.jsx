@@ -20,6 +20,7 @@ const Demand = () => {
   const demand = demandData.data;
   const proposalsData = useProposalByDemands(id);
   const [error, setError] = useState(proposalsData)
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 
   const [proposals, setProposals] = useState(proposalsData?.data?.proposals);
@@ -54,7 +55,6 @@ const Demand = () => {
   const handleDeleteFile = async (e) => {
     const id = e.target.id;
     const response = await deleteFiles(id)
-    console.log(response);
     if (response.data.status == 200) {
       e.target.parentNode.remove();
     }
@@ -63,23 +63,26 @@ const Demand = () => {
   //////// EDIT AND DELETE and close BUTTONS ////////
 
   return (
-    <div>
+    <div className="general-container">
 
       <div className='demand_container'>
 
         <div className="upper_container">
           <div className="h2_h4_container">
-
+            <div className="img_h4_container">
+              <img className='proposal_user_avatar' src={apiUrl + demand.userAvatarSrc} alt={demand.userName + '_avatar'} />
+              <h4 ><Link to={`/profile/${demand.user_id}`}>{demand.userName}</Link></h4>
+            </div>
             <h2>#{id} {demand.title}</h2>
-            {demand.status == 1 ? <h3>Closed</h3> : null}
-            <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
             <div className="edit_buttons_container_demand">
-              {user.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
-              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
-              {user.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Close Demand" onClick={closeDemand}>✅</button> : null}
+              {user?.id == demand.user_id && demand.status == 0 ? <Link to={`/demands/edit/${id}`} ><button className="edit_button edit_delete_btn" title="Edit" >✏️</button> </Link> : null}
+              {user?.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Delete" onClick={deleteDemand}>🗑️</button> : null}
+              {user?.id == demand.user_id ? <button className="delete_button edit_delete_btn" title="Close Demand" onClick={closeDemand}>✅</button> : null}
             </div>
           </div>
         </div>
+        {demand.status == 1 ? <h3>Closed</h3> : null}
+        <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
         <section className='description'>
           <div>
             <div className='description_wrapper'>
@@ -91,9 +94,9 @@ const Demand = () => {
               <div className='demand_files'>
                 {demand.demandFiles ? Object.values(demand.demandFiles).map((file) => (
                   <div key={file.fileId} className="fileIcon" >
-                    {user.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
+                    {user?.id == demand.user_id ? <button id={file.fileId} className="deleteFile" title="Delete File" onClick={handleDeleteFile}>❌</button> : null}
                     <a
-                      href={"http://localhost:8080/" + file.fileSrc}
+                      href={apiUrl + file.fileSrc}
                       download
                       target="_blank" rel="noreferrer"
                     >
@@ -113,11 +116,11 @@ const Demand = () => {
         </section>
       </div>
       {user &&
-        <div>
+        <div className='proposals_wrapper'>
           <div>
-            <section className='proposals_wrapper'>
+            <section>
               <h2>Proposals for this demand:</h2>
-              {proposals && proposals.length > 0 ? <Proposals proposals={proposals} setProposals={setProposals} /> : <p>This demand does not contain proposals</p>}
+              {proposals && proposals.length > 0 ? <Proposals proposals={proposals} /> : <p>This demand does not contain proposals</p>}
 
             </section>
           </div>

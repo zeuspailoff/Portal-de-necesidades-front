@@ -5,13 +5,14 @@ import { useUser } from '../../UserContext';
 const ProfilePreviewCard = () => {
   const [user, setUser] = useUser();
   const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
   const logout = () => {
     setUser();
     navigate('/');
   }
 
-  const backgroundImageUrl = user && user.profile_picture ? `url("http://localhost:8080/${user.profile_picture.replace(/\\/g, '/')}")` : 'none'
+  const backgroundImageUrl = user && user.profile_picture ? `url("${apiUrl}/${user.profile_picture.replace(/\\/g, '/')}")` : 'none'
 
   return (
     <div className='profile_preview_card'>
@@ -28,6 +29,7 @@ const ProfilePreviewCard = () => {
       {user && (
         <span>
           <Link className='profile_link' to={`/profile/${user.id}`} >{`Hi, ${user.username}`}</Link>
+          <Link className='profile_link_hidden' to={`/profile/${user.id}`} >{` ${user.username}`}</Link>
           <span onClick={logout}>🚫</span>
         </span>
       )}

@@ -26,12 +26,12 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
-  background-color: whitesmoke;
+  background-color: var(--color-dirty_whitesmoke);
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  width: 300px;
+  padding: 1.1em;
   will-change: filter;
   transition: filter 300ms;
 }
