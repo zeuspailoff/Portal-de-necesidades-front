@@ -77,8 +77,6 @@ h2, h3, h4, p, a{
 .description h3, .files h3 {
     margin: 10px 0 20px;
     font-size: 1rem;
-
-
 }
 
 .proposals_wrapper {
@@ -171,3 +169,21 @@ h2, h3, h4, p, a{
 .edit_delete_btn:hover {
     background-color: var(--color-blue_button);
 }
+
+@media screen and (max-width: 480px) {
+    .edit_buttons_container_demand {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: flex-start;
+        align-self: flex-start;
+        margin-left: auto;
+    
+        position: relative;
+        top: 10px;
+        right: 45%;
+    }
+}
+

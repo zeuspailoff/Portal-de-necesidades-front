@@ -157,3 +157,15 @@
   .rating span:hover + span + span { color: #979797; }
   .rating span:hover + span + span + span { color: #979797; }
   .rating span:hover + span + span + span + span { color: #979797; }
+
+
+  @media screen and (max-width: 768px) {
+    .proposal_card_proposal_info p {
+        background-color: white;
+        width: 80%;
+        min-width: 300px;
+        font-size: .8rem;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+  }

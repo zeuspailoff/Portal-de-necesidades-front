@@ -8,8 +8,10 @@ const Header = () => {
     <div className='header_wrapper'>
       <div className='logo_container'>
         <h1>iNeed<span>Up</span></h1>
+        <h1 className='hidden'>iN<span>U</span></h1>
         <h3>Needs and solutions connected</h3>
       </div>
+
       <div className='links_wrapper'>
         <ul className='links_container'>
           <li><Link to='/'>HOME</Link></li>

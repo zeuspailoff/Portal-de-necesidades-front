@@ -79,27 +79,6 @@
     max-width: 300px;
 }
 
-@media screen and (min-width: 576px) {
-    .clients, .freelancers{
-        width: 250px;
-        height: 550px;
-    }
-    .clients h3, .freelancers h3{
-        font-size: 1.2rem;
-    }
-    .faq_question{
-        font-size: 1rem;
-    }
-    .faq_answer{
-        font-size: 0.7rem;
-    }
-
-    .help_please{
-        height: 40px;
-        font-size: 1.3rem;
-    }
-}
-
 @media screen and (min-width: 768px) {
     
     .clients h3, .freelancers h3{
@@ -166,5 +145,21 @@
     .help_please{
         height: 70px;
         font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .faqs {
+        display: flex;
+        flex-direction: column;
+    
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .clients, .freelancers {
+        width: 90%;
+        margin: 20px;
+        height: fit-content;
     }
 }

@@ -1,5 +1,5 @@
 .home_description_container{
-    background-color: var(--color-neon_orange);
+    background-color: rgb(73, 175, 253);
     color: var(--color-dark_grey);
     height: 70px;
     padding: 10px;
@@ -52,6 +52,10 @@ p.home_description a:hover::after{
 
 @media screen and (max-width: 768px) {
     .home_description_container {
-        display: none;
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: fit-content;
+   }
 }
