@@ -32,7 +32,7 @@ const NewPassword = () => {
 
     return (
         <div className='general-container'>
-            <div >
+            <div style={{ width: "250px" }}>
                 {error && <p className="error_password">Your passwords doesn't match</p>}
                 <form onSubmit={handlePassword} className="newpass_container">
                     <label htmlFor="password">Password</label>

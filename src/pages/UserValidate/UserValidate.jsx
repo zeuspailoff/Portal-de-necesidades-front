@@ -8,7 +8,7 @@ import './UserValidate.css'
 const UserValidate = () => {
 
   const { registrationcode } = useParams()
-  const [success, setSuccess] = useState();
+  const [, setSuccess] = useState();
   const { validate } = useUserActions(registrationcode);
   const [error, setError] = useState(false);
 
@@ -30,13 +30,13 @@ const UserValidate = () => {
   return (
     <div className="output_body general-container">
       <div className="output">
-      {success && <h2 className="success">
-        You have successfully registered to iNeedUp, why not creating your <Link to="/demands">first demand</Link> to celebrate it?
-      </h2>
-      }
-      {error && <h2 className="failure">
-        Invalid registration code!
-      </h2>}
+        <h2 className="success">
+          You have successfully registered to iNeedUp, why not creating your <Link to="/demands">first demand</Link> to celebrate it?
+        </h2>
+
+        {error && <h2 className="failure">
+          Invalid registration code!
+        </h2>}
       </div>
     </div>
   )
