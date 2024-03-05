@@ -3,6 +3,7 @@
     background-color: var(--color-dirty_whitesmoke);
     width: 100%;
     padding-top: 70px;
+    margin-bottom: 230px;
     
 }
 
@@ -13,5 +14,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 230px;
+
     }
 }
