@@ -1,5 +1,4 @@
 import Info from "../../components/Info/info";
-import './Home.css'
 import Logo from "../../components/Logo/logo.png";
 const Home = () => {
 

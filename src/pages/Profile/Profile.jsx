@@ -1,6 +1,5 @@
 import { FormattedDate } from 'react-intl';
 import { useUser } from '../../UserContext';
-import './Profile.css';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import UserDemands from '../../components/Demands/UserDemands';
 import { useState } from 'react';

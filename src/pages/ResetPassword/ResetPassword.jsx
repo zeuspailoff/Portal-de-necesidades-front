@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useUserActions } from "../../hooks/api"
-import './ResetPassword.css'
 const ResetPassword = () => {
   const [url] = useState(window.location.origin)
   const [email, setEmail] = useState("")

@@ -1,4 +1,3 @@
-import './Register.css';
 import SignUp from '../../components/Signup/SignUp.jsx';
 
 const Register = () => {

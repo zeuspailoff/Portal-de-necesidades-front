@@ -1,4 +1,3 @@
-import './Contact.css'
 import { useState } from 'react';
 
 const Contact = () => {

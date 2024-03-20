@@ -6,7 +6,6 @@ import { FormattedDate } from "react-intl";
 import NewProposal from "../../components/Proposal/NewProposal";
 import Proposals from "../../components/Proposal/Proposals";
 import { FileIcon, defaultStyles } from 'react-file-icon';
-import './Demand.css';
 
 const Demand = () => {
 

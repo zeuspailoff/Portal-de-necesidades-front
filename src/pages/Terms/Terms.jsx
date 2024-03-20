@@ -1,4 +1,3 @@
-import './Terms.css'
 
 const Terms = () => {
     return (

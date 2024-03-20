@@ -3,10 +3,9 @@ import { useState } from "react";
 import { useUser } from "../../UserContext";
 import { useUserActions } from "../../hooks/api";
 import { useNavigate } from "react-router-dom";
-import './EditUser.css'
 
 const EditUser = () => {
-    const [user,setUser] = useUser('');
+    const [user, setUser] = useUser('');
     const [userName, setUsername] = useState(user.username);
     const [lastname, setLastname] = useState(user.lastname);
     const [name, setName] = useState(user.name);
@@ -33,7 +32,7 @@ const EditUser = () => {
         }
 
         const response = await dataUser(id, fd)
-        const editedUser = {...response.data};
+        const editedUser = { ...response.data };
 
         if (editedUser.status === 200) {
             const newUser = { ...user }

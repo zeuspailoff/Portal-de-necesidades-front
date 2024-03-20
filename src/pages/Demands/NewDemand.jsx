@@ -1,4 +1,3 @@
-import './NewDemand.css';
 import { useState } from 'react';
 import { useUser } from '../../UserContext';
 import { useUserActions } from '../../hooks/api';
@@ -50,7 +49,7 @@ const NewDemand = () => {
       <div className='submit_demand_container'>
 
         <form className='new_demand_form' onSubmit={handleForm}>
-        <h2 className='label_title'>Title:</h2>
+          <h2 className='label_title'>Title:</h2>
           <textarea
             className='new_demand_title'
             name="title"
@@ -98,7 +97,7 @@ const NewDemand = () => {
           )}
         </form>
       </div>
-      </div>
+    </div>
   );
 };
 

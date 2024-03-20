@@ -1,4 +1,3 @@
-import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx'
 import Faqs from './pages/FAQs/FAQs.jsx'
@@ -60,7 +59,7 @@ function App() {
           <FloatingButton />
           <Footer />
         </Suspense>
-          <div id="modal-root"></div>
+        <div id="modal-root"></div>
       </ErrorBoundary>
     </>
   )
