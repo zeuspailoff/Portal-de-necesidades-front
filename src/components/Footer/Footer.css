@@ -7,11 +7,12 @@
     margin-bottom: 0;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    position:fixed;
+    /* position:fixed; */
     right: 0;
     left: 0;
     bottom: 0px;
     margin-top: 225px;
+    
     
 }
 
