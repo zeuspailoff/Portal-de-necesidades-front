@@ -2,14 +2,20 @@
 
 
 .footer_container {
-    background-color: #2828281f;
+    background-color: #cccccc;
     color: var(--color-dirty_whitesmoke);
     border: 1px solid var(--color-darker_dirty_whitesmoke);
     padding: 20px;
-    margin: 3% 0 5% 0;
+   
     margin-bottom: 0;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+    position:fixed;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    margin-top: 225px;
+    
 }
 
 .footer_links {
