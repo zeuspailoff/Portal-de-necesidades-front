@@ -11,7 +11,7 @@ p, h3 {
     margin: 5px;
     padding: 10px;
     letter-spacing: 2px;
-    font-size: 14px;
+    font-size:medium;
     font-weight: 300;
     color: var(--color-dark_grey);
     font-family: 'Poppins', sans-serif;

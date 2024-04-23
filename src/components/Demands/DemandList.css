@@ -26,10 +26,9 @@
     align-items: center;
     justify-content: space-between;
     color: var(--color-dark_grey);
-    background-color: #ccccccab;
+    font-weight: 600;
     padding: 0 10px;
     margin: 15px 10px;
-    box-shadow: 5px 4px 10px var(--color-dark_grey);
 }
 
 .demand a {
@@ -51,7 +50,8 @@
     border-radius: 5px;
     padding: 0 10px;
     margin: 15px 10px;
-    box-shadow: 5px 4px 10px var(--color-dark_grey);
+    font-weight: 500;
+    font-size: medium;
 }
 .category{
     font-size: 2rem;

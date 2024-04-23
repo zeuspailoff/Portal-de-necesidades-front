@@ -3,9 +3,8 @@
     padding: 20px;
     margin: 40px 20px;
     color: black;
-    background-color: var(--color-dirty_whitesmoke);
-    border: 3px solid var(--color-dark_grey);
-    box-shadow: 5px 4px 10px var(--color-dark_grey);
+    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +15,7 @@
 
 .new_proposal_wrapper h3 {
     margin: 10px 0 10px;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 .submit_new_proposal_form {

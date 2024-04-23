@@ -81,7 +81,7 @@ const Demand = () => {
             </div>
           </div>
         </div>
-        {demand.status == 1 ? <h3>Closed</h3> : null}
+        {demand.status == 1 ? <h3>Closed⛔</h3> : null}
         <h4>Created: <FormattedDate value={demand.created_at} day="2-digit" month="long" /></h4>
         <section className='description'>
           <div>

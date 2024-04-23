@@ -51,7 +51,7 @@ h2, h3, h4, p, a{
 .description_wrapper, .files_wrapper {
     border: 1px solid black;
     border-radius: 5px;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.63);
     padding: 10px 20px 20px 20px;
     margin: 0 40px 30px 40px;
     box-shadow: 5px 4px 10px var(--color-dark_grey);
@@ -62,12 +62,13 @@ h2, h3, h4, p, a{
 }
 
 .description_wrapper h3{
-    background-color: var(--color-darker_dirty_whitesmoke);
+    font-weight: 600;
+    text-align: left;
     width: 100%;
 }
 
 .files_wrapper h3{
-    background-color: var(--color-darker_dirty_whitesmoke);
+  text-align: left;
     width: 100%;
 }
 
@@ -75,13 +76,13 @@ h2, h3, h4, p, a{
     font-size: 1.2rem;
     padding: 20px;
     margin: 20px 20px 30px 20px;
-    background-color: var(--color-dirty_whitesmoke);
     color: var(--color-dark_grey);
 }
 
 .description h3, .files h3 {
     margin: 10px 0 20px;
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .proposals_wrapper {
