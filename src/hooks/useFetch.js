@@ -4,7 +4,9 @@ import { useUser } from "../UserContext"
 export const useFetch = (url) => {
     const [user] = useUser()
     const headers = {}
+    console.log(user, 'user');
     if (user?.token) headers.auth_token = user.token
+    console.log(headers, 'headers');
     return useFetchSuspense(url, { headers })
 }
 

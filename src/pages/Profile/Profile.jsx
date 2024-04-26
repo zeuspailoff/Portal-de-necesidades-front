@@ -18,7 +18,6 @@ const Profile = () => {
 
 
     const requestUser = userProfile(id)
-    console.log(requestUser);
     const [is_owner] = useState(requestUser?.data.is_owner);
 
     const usersDemands = userDemands(id)
