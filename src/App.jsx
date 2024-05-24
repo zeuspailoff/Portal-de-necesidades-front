@@ -24,7 +24,7 @@ import Categories from './pages/Categories/Categories.jsx'
 import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
 import NewPassword from './pages/NewPassword/NewPassword.jsx'
 import EditUser from './pages/EditUser/EditUser.jsx'
-import Header from './components/Header/header.jsx'
+import Header from './components/Header/Header.jsx'
 import EditDemand from './pages/Demands/EditDemand.jsx'
 
 

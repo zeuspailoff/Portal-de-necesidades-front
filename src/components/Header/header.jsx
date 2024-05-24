@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './Header.css'
+import './Header.css' //css
 import ProfilePreviewCard from '../ProfilePreviewCard/ProfilePreviewCard';
 import Logo from '../Logo/logo.png';
 
