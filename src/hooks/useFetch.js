@@ -4,7 +4,7 @@ import { useUser } from "../UserContext"
 export const useFetch = (url) => {
     const [user] = useUser()
     const headers = {}
-    if (user?.token) headers.auth_token = user.token
+    if (user?.token) headers.authorization = user.token
     return useFetchSuspense(url, { headers })
 }
 
@@ -15,7 +15,7 @@ export const useFetchPost = () => {
         const headers = {}
 
         if (body && !(body instanceof FormData)) headers['Content-Type'] = 'application/json'
-        if (user?.token) headers.auth_token = user.token
+        if (user?.token) headers.authorization = user.token
         const res = await fetch(url, {
             method: method || 'POST',
             headers,
@@ -36,7 +36,7 @@ export const useFetchDelete = () => {
 
     return async (url) => {
         const headers = {};
-        if (user?.token) headers.auth_token = user.token;
+        if (user?.token) headers.authorization = user.token;
 
         const res = await fetch(url, {
             method: 'DELETE',
@@ -54,7 +54,7 @@ export const useFetchPut = () => {
 
     return async (url) => {
         const headers = {};
-        if (user?.token) headers.auth_token = user.token;
+        if (user?.token) headers.authorization = user.token;
 
         const res = await fetch(url, {
             method: 'PUT',

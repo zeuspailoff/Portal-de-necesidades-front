@@ -11,7 +11,7 @@ const Profile = () => {
     const { userProfile } = useUserActions();
     const { userDemands } = useUserActions();
     const { popularProposalsByUserId } = useUserActions();
-    const [user, setUser] = useUser();
+    const [setUser] = useUser();
     const { id } = useParams();
     const apiUrl = import.meta.env.VITE_BACKEND_URL;
     const navigate = useNavigate()
